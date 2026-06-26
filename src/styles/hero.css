@@ -1,0 +1,188 @@
+/* ============================================================
+   HERO — Homepage hero section + Trust bar
+   ============================================================ */
+
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy) 60%, #0d3a6e 100%);
+  color: var(--color-white);
+  padding-top: var(--sp-20);
+  padding-bottom: var(--sp-20);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  gap: var(--sp-12);
+  align-items: center;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-heading);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brown-light);
+  margin-bottom: var(--sp-4);
+}
+
+.hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-brown-light);
+}
+
+.hero__headline {
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-white);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--sp-5);
+}
+
+.hero__headline span {
+  color: var(--color-brown-light);
+}
+
+.hero__subheadline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255,255,255,0.85);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--sp-4);
+  font-style: italic;
+}
+
+.hero__support {
+  font-size: var(--fs-base);
+  color: rgba(255,255,255,0.72);
+  margin-bottom: var(--sp-4);
+  line-height: var(--lh-relaxed);
+}
+
+.hero__services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-8);
+}
+
+.hero__service-tag {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: rgba(255,255,255,0.75);
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+.hero__trust {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,0.65);
+}
+
+.hero__trust-stars {
+  color: #f5c842;
+  margin-right: var(--sp-1);
+  font-size: var(--fs-base);
+}
+
+.hero__image {
+  position: relative;
+}
+
+.hero__image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.hero__image-frame::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: 12px;
+  bottom: 12px;
+  border: 3px solid var(--color-brown);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+}
+
+.hero__image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---- Trust Bar ---- */
+
+.trust-bar {
+  background-color: var(--color-sand-dark);
+  padding-block: var(--sp-8);
+  border-top: 3px solid var(--color-brown);
+}
+
+.trust-bar__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-6);
+  text-align: center;
+}
+
+.trust-bar__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+.trust-bar__number {
+  font-family: var(--font-heading);
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-navy);
+  line-height: 1;
+}
+
+.trust-bar__label {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.trust-bar__divider {
+  display: none;
+  width: 1px;
+  height: 40px;
+  background-color: var(--color-sand-dark);
+  border: none;
+}

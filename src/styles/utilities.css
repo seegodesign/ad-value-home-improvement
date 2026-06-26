@@ -1,0 +1,113 @@
+/* ============================================================
+   UTILITIES — Helper classes + Responsive breakpoints
+   ============================================================ */
+
+/* ---- Helpers ---- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+
+.color-green  { color: var(--color-green); }
+.color-navy   { color: var(--color-navy); }
+.color-brown  { color: var(--color-brown); }
+.color-muted  { color: var(--color-text-muted); }
+.color-white  { color: var(--color-white); }
+
+.accent-bar {
+  display: block;
+  width: 48px;
+  height: 4px;
+  background-color: var(--color-brown);
+  border-radius: 2px;
+  margin-bottom: var(--sp-5);
+}
+
+.accent-bar--green  { background-color: var(--color-green); }
+.accent-bar--center { margin-inline: auto; }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-gray-200);
+  margin-block: var(--sp-8);
+}
+
+/* ---- Responsive Breakpoints ---- */
+
+/* Small (>= 480px) */
+@media (min-width: 480px) {
+  :root { --container-px: 1.5rem; }
+
+  .hero__actions { flex-direction: row; flex-wrap: wrap; }
+  .cta-section__actions { flex-direction: row; justify-content: center; }
+  .trust-bar__inner { flex-direction: row; flex-wrap: wrap; gap: var(--sp-8); }
+  .trust-bar__divider { display: block; }
+  .estimate-form__grid { grid-template-columns: repeat(2, 1fr); }
+  .care-plan__plans { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Medium (>= 768px) */
+@media (min-width: 768px) {
+  :root {
+    --container-px: 2rem;
+    --section-py: 6rem;
+  }
+
+  .header__nav,
+  .header__actions {
+    display: flex;
+  }
+  .header__hamburger { display: none; }
+
+  .hero__inner { grid-template-columns: 2fr 1fr; }
+
+  .about-preview { grid-template-columns: 1fr 1fr; }
+  .about-preview__image { order: -1; }
+
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+
+  .outcomes { grid-template-columns: repeat(2, 1fr); }
+
+  .contact-info { grid-template-columns: 1fr 1fr; }
+
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  .footer__brand { max-width: 100%; }
+
+  .footer__bottom-inner { flex-direction: row; justify-content: space-between; }
+
+  .seo-page__intro { grid-template-columns: 1fr 1fr; }
+
+  .care-plan__includes { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Large (>= 1024px) */
+@media (min-width: 1024px) {
+  :root { --container-px: 2rem; }
+
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+  .trust-bar__inner { flex-wrap: nowrap; justify-content: center; gap: var(--sp-16); }
+  .trust-bar__divider { display: block; }
+
+  .outcomes { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Print */
+@media print {
+  .header, .footer, .mobile-nav { display: none; }
+  body { font-size: 12pt; }
+}

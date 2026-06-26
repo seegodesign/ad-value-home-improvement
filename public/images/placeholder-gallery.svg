@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Gallery photo placeholder">
+  <rect width="400" height="300" fill="#e8e7e4"/>
+  <!-- Mountain/landscape silhouette -->
+  <polygon points="0,220 80,120 160,180 240,80 320,150 400,100 400,300 0,300" fill="#d0ceca"/>
+  <!-- Sun -->
+  <circle cx="330" cy="70" r="35" fill="#B9854D" opacity="0.3"/>
+  <text x="200" y="265" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="600" font-size="13" fill="rgba(11,47,86,0.4)">Gallery Photo</text>
+  <text x="200" y="282" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="rgba(11,47,86,0.25)">400 × 300 — Replace with real image</text>
+</svg>

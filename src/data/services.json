@@ -1,0 +1,66 @@
+[
+  {
+    "id": "decks",
+    "title": "Decks & Railings",
+    "description": "Custom deck design and construction using premium hardwoods and composite materials built for Hawaii's climate.",
+    "icon": "/images/icon-deck.svg",
+    "href": "/deck-builder-kauai",
+    "items": ["Trex Composite Decks", "Ipe Hardwood Decks", "Deck Repairs & Restoration", "Railings & Balusters", "Stairs & Landings", "Custom Designs"]
+  },
+  {
+    "id": "carpentry",
+    "title": "Custom Carpentry",
+    "description": "Skilled finish carpentry and custom built-ins crafted to fit your home perfectly.",
+    "icon": "/images/icon-carpentry.svg",
+    "href": "/custom-carpentry-kauai",
+    "items": ["Finish Carpentry", "Custom Built-ins", "Door Installation", "Window & Slider Installation", "Flooring", "Trim & Siding", "Framing", "Wood Repairs", "Chicken Coops", "Farm Stands", "Horse Mounting Blocks"]
+  },
+  {
+    "id": "kitchens",
+    "title": "Kitchen Remodeling",
+    "description": "Full kitchen renovations from cabinet installation to countertops, backsplashes, and design.",
+    "icon": "/images/icon-kitchen.svg",
+    "href": "/kitchen-remodel-kauai",
+    "items": ["Cabinet Installation", "Countertop Fabrication", "Backsplash Tile", "Flooring", "Design Services"]
+  },
+  {
+    "id": "bathrooms",
+    "title": "Bathroom Remodeling",
+    "description": "Transform your bathroom with expert tile work, vanities, showers, and water damage repair.",
+    "icon": "/images/icon-bathroom.svg",
+    "href": "/bathroom-remodel-kauai",
+    "items": ["Tile Installation", "Vanities", "Showers & Tubs", "Mirrors & Towel Racks", "Water Damage Repair", "Design Services"]
+  },
+  {
+    "id": "drywall",
+    "title": "Drywall & Painting",
+    "description": "Professional drywall repair, texture matching, and interior/exterior painting.",
+    "icon": "/images/icon-drywall.svg",
+    "href": "/drywall-repair-kauai",
+    "items": ["Drywall Repairs", "Texture Matching", "Interior Painting", "Exterior Painting", "Trim Painting", "Deck Staining"]
+  },
+  {
+    "id": "fencing",
+    "title": "Fencing",
+    "description": "Custom fence installation in cedar, ipe, hog wire, bamboo, and chain link for every property style.",
+    "icon": "/images/icon-fencing.svg",
+    "href": "/fence-contractor-kauai",
+    "items": ["Cedar Fencing", "Ipe Hardwood Fencing", "Hog Wire Fencing", "Chain Link", "Bamboo Fencing", "Custom Gates", "Privacy Fencing"]
+  },
+  {
+    "id": "maintenance",
+    "title": "Property Maintenance",
+    "description": "Reliable maintenance services for homeowners and rental properties across Kauai.",
+    "icon": "/images/icon-maintenance.svg",
+    "href": "/property-maintenance-kauai",
+    "items": ["Rental Turnovers", "Pressure Washing", "General Repairs", "Maintenance Packages", "Garage Organization"]
+  },
+  {
+    "id": "outdoor",
+    "title": "Outdoor Living",
+    "description": "Create your perfect outdoor space with pergolas, patios, walkways, and outdoor showers.",
+    "icon": "/images/icon-outdoor.svg",
+    "href": "/services",
+    "items": ["Pergolas", "Covered Patios", "Garden Features", "Walkways & Stairs", "Outdoor Showers", "Facelifts & Upgrades"]
+  }
+]

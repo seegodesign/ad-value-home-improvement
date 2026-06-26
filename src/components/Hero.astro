@@ -1,0 +1,78 @@
+---
+interface Props {
+  headline?: string;
+  subheadline?: string;
+  support?: string;
+  services?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  badgeNumber?: string;
+  badgeLabel?: string;
+}
+
+const {
+  headline = "Kauai's Trusted Home Improvement Partner.",
+  subheadline = "Not the cheapest. Not the biggest. The one homeowners actually trust.",
+  support = "Building excellent projects on Kauai since 2019. Building Better Relationships.",
+  services = "Repairs • Remodels • Decks • Fencing • Custom Carpentry • Property Maintenance",
+  imageSrc = "/images/brand-illustration.webp",
+  imageAlt = "Ad Value Home Improvement project on Kauai",
+  badgeNumber = "5★",
+  badgeLabel = "Kauai's\nTrusted Choice",
+} = Astro.props;
+
+const serviceTags = services.split(" • ").map((s) => s.trim());
+---
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="container hero__inner">
+    <!-- Content -->
+    <div class="hero__content">
+      <p class="hero__eyebrow">Kauai, Hawaii · Est. 2019</p>
+      <h1 id="hero-heading" class="hero__headline">
+        {
+          headline.includes("Kauai's Trusted") ? (
+            <>
+              Kauai's <span>Trusted</span> Home Improvement Partner.
+            </>
+          ) : (
+            headline
+          )
+        }
+      </h1>
+      <p class="hero__subheadline">{subheadline}</p>
+      <p class="hero__support">{support}</p>
+
+      <div class="hero__services">
+        {serviceTags.map((tag) => <span class="hero__service-tag">{tag}</span>)}
+      </div>
+
+      <div class="hero__actions">
+        <a href="/estimate" class="btn btn--primary btn--lg">
+          Request a Free Estimate
+        </a>
+        <a href="/services" class="btn btn--outline-white btn--lg">
+          View Our Services
+        </a>
+      </div>
+
+      <p class="hero__trust">
+        <span class="hero__trust-stars">★★★★★</span>
+        Trusted by homeowners across Kauai.
+      </p>
+    </div>
+
+    <!-- Image -->
+    <div class="hero__image">
+      <div class="hero__image-frame">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          width="600"
+          height="450"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</section>

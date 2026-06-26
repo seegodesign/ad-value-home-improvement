@@ -1,17 +1,288 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import CTASection from '../components/CTASection.astro';
+import services from '../data/services.json';
+import reviews from '../data/reviews.json';
+import gallery from '../data/gallery.json';
 
+const featuredReviews = reviews.slice(0, 3);
+const featuredGallery = gallery.slice(0, 6);
+
+const stats = [
+  { number: '6+',  label: 'Years Serving Kauai' },
+  { number: '250+',label: 'Projects Completed' },
+  { number: '5★',  label: 'Average Rating' },
+  { number: '100%',label: 'Licensed & Insured' },
+];
+
+const outcomes = [
+  {
+    id: 'protect',
+    icon: '🛡️',
+    title: 'Protect',
+    color: 'navy',
+    items: ['Fences & Gates', 'Railings', 'Structural Repairs', 'Rot Repair'],
+  },
+  {
+    id: 'gather',
+    icon: '🌴',
+    title: 'Gather',
+    color: 'green',
+    items: ['Decks & Lanais', 'Outdoor Kitchens', 'Covered Patios', 'Pergolas'],
+  },
+  {
+    id: 'refresh',
+    icon: '✨',
+    title: 'Refresh',
+    color: 'brown',
+    items: ['Kitchens', 'Bathrooms', 'Painting', 'Flooring'],
+  },
+  {
+    id: 'restore',
+    icon: '🔧',
+    title: 'Restore',
+    color: 'sand',
+    items: ['Water Damage', 'Rot Repair', 'Drywall', 'Structural Repairs'],
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Ad Value Home Improvement | Kauai's Trusted Home Improvement Partner"
+  description="Kauai's trusted home improvement contractor since 2019. Decks, remodels, fencing, carpentry, property maintenance. Honest work, local values. Request a free estimate."
+>
+  <!-- Hero -->
+  <Hero />
+
+  <!-- Stats / Trust Bar -->
+  <section class="trust-bar" aria-label="Key stats">
+    <div class="container trust-bar__inner">
+      {stats.map(({ number, label }, i) => (
+        <>
+          <div class="trust-bar__stat">
+            <span class="trust-bar__number">{number}</span>
+            <span class="trust-bar__label">{label}</span>
+          </div>
+          {i < stats.length - 1 && <hr class="trust-bar__divider" aria-hidden="true" />}
+        </>
+      ))}
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__eyebrow">What We Do</span>
+        <h2 id="services-heading" class="section__title">Expert Home Improvement Services</h2>
+        <p class="section__subtitle">
+          From a quick repair to a full remodel, we bring skilled hands and honest work to every project.
+        </p>
+      </div>
+      <div class="grid grid--4">
+        {services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            items={service.items}
+            icon={service.icon}
+            href={service.href}
+          />
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="/services" class="btn btn--outline-navy btn--lg">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="section section--sand" aria-labelledby="about-heading">
+    <div class="container about-preview">
+      <div class="about-preview__content">
+        <span class="section__eyebrow">Meet the Owner</span>
+        <h2 id="about-heading" class="section__title">Built on Aloha &amp; Craftsmanship</h2>
+        <blockquote class="about-preview__quote">
+          "I believe homeowners deserve someone they can trust — someone who shows up,
+          communicates clearly, and takes pride in every project."
+        </blockquote>
+        <p style="color:var(--color-text-muted);line-height:1.75;margin-bottom:1.5rem;">
+          I'm Adam Marchacos, owner of Ad Value Home Improvement. As a husband and father
+          raising our family here on Kauai, I'm proud to serve this community with honesty,
+          craftsmanship, and aloha. Every project, big or small, gets my personal attention.
+        </p>
+        <div class="about-preview__signature">
+          <span class="about-preview__sig-line" aria-hidden="true"></span>
+          <div>
+            <p class="about-preview__sig-name">Adam Marchacos</p>
+            <p class="about-preview__sig-title">Owner, Ad Value Home Improvement</p>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="/about" class="btn btn--secondary">Meet Adam →</a>
+        </div>
+      </div>
+      <div class="about-preview__image">
+        <div class="about-preview__photo-frame">
+          <img
+            src="/images/placeholder-person.svg"
+            alt="Adam Marchacos, owner of Ad Value Home Improvement"
+            width="400"
+            height="533"
+            loading="lazy"
+          />
+        </div>
+        <div class="about-preview__photo-accent" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section" aria-labelledby="outcomes-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__eyebrow">Our Approach</span>
+        <h2 id="outcomes-heading" class="section__title">Every Project Has a Purpose</h2>
+        <p class="section__subtitle">
+          We think in terms of outcomes, not just tasks. What does your home need?
+        </p>
+      </div>
+      <div class="outcomes">
+        {outcomes.map(({ id, icon, title, color, items }) => (
+          <div class={`outcome-card outcome-card--${color}`}>
+            <div class="outcome-card__header">
+              <span class="outcome-card__icon" aria-hidden="true">{icon}</span>
+              <h3 class="outcome-card__title">{title}</h3>
+            </div>
+            <div class="outcome-card__body">
+              <ul class="outcome-card__list" role="list">
+                {items.map((item) => (
+                  <li class="outcome-card__item">{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="section section--off-white" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__eyebrow">Our Work</span>
+        <h2 id="gallery-heading" class="section__title">Recent Projects</h2>
+        <p class="section__subtitle">Real projects on Kauai. Real results.</p>
+      </div>
+      <div class="gallery-grid__items" style="margin-bottom:3rem;">
+        {featuredGallery.map(({ title, category, image, description }) => (
+          <div class="gallery-grid__item">
+            <div class="gallery-grid__image-wrap">
+              <img
+                src={image}
+                alt={description || title}
+                class="gallery-grid__image"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-grid__caption">
+              <span class="gallery-grid__category">{category}</span>
+              <p class="gallery-grid__label">{title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;">
+        <a href="/gallery" class="btn btn--outline-navy btn--lg">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section section--sand" aria-labelledby="reviews-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__eyebrow">What Clients Say</span>
+        <h2 id="reviews-heading" class="section__title">Trusted by Kauai Homeowners</h2>
+        <p class="section__subtitle">
+          Don't take our word for it — here's what our clients across the island have to say.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {featuredReviews.map((review) => (
+          <ReviewCard
+            name={review.name}
+            neighborhood={review.neighborhood}
+            text={review.text}
+            photo={review.photo}
+            stars={review.stars}
+          />
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="/reviews" class="btn btn--outline-navy btn--lg">Read All Reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aloha Home Care Plan -->
+  <section class="section" aria-labelledby="care-plan-heading">
+    <div class="container">
+      <div class="care-plan">
+        <p class="care-plan__eyebrow">New: Recurring Service</p>
+        <h2 id="care-plan-heading" class="care-plan__title">
+          The Aloha Home Care Plan
+        </h2>
+        <p class="care-plan__description">
+          Your home deserves year-round attention. Our membership plan keeps your property
+          in top condition — before small issues become expensive problems.
+        </p>
+        <div class="care-plan__includes">
+          {[
+            'Gutter cleaning & clearing',
+            'Exterior property inspections',
+            'Deck condition inspection',
+            'Fence & gate inspection',
+            'Pressure washing discounts',
+            'Priority scheduling',
+            'Storm damage checkups',
+          ].map((item) => (
+            <div class="care-plan__include-item">{item}</div>
+          ))}
+        </div>
+        <div class="care-plan__plans">
+          {[
+            { name: 'Monthly', label: 'Ongoing peace of mind' },
+            { name: 'Quarterly', label: 'Seasonal check-ins', featured: true },
+            { name: 'Annual', label: 'One visit per year' },
+          ].map(({ name, label, featured }) => (
+            <div class={`care-plan__plan${featured ? ' care-plan__plan--featured' : ''}`}>
+              <p class="care-plan__plan-name">{name}</p>
+              <p class="care-plan__plan-label">{label}</p>
+            </div>
+          ))}
+        </div>
+        <a href="/contact#care-plan" class="btn btn--primary btn--lg">
+          Learn About the Aloha Care Plan
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <CTASection
+    eyebrow="Ready to Get Started?"
+    title="Let's Talk About Your Project"
+    subtitle="Get an honest estimate from Kauai's most trusted home improvement contractor. No obligation, no pressure — just great work."
+    primaryLabel="Request a Free Estimate"
+    secondaryLabel="Call (808) 555-1234"
+    secondaryHref="tel:+18085551234"
+    note="Trusted by homeowners across Kauai since 2019"
+  />
+</BaseLayout>

@@ -1,0 +1,18 @@
+/* ============================================================
+   AD VALUE HOME IMPROVEMENT — Global Styles
+   BEM Methodology | Mobile-First Responsive
+   ============================================================
+   Edit individual partials in this folder rather than here.
+   ============================================================ */
+
+@import './variables.css';
+@import './base.css';
+@import './layout.css';
+@import './header.css';
+@import './hero.css';
+@import './buttons.css';
+@import './cards.css';
+@import './forms.css';
+@import './sections.css';
+@import './footer.css';
+@import './utilities.css';

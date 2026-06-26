@@ -1,0 +1,248 @@
+# ===========================================================
+# Sveltia CMS Configuration
+# Ad Value Home Improvement
+#
+# This file lives at: public/admin/config.yml
+# CMS is accessible at: /admin/
+#
+# Backend requires Netlify Identity + Git Gateway,
+# OR use the local backend for development:
+#   local_backend: true  (and run: npx netlify-cms-proxy-server)
+#
+# Docs: https://github.com/sveltia/sveltia-cms
+# Netlify CMS docs: https://www.netlifycms.org/docs/
+# ===========================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment for local development:
+# local_backend: true
+
+# Media files (uploaded images)
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Site URL (used for previews)
+site_url: https://advaluehomeimprovement.com
+
+# CMS display name
+display_url: https://advaluehomeimprovement.com
+
+# Slug options
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+
+  # -----------------------------------------------------------
+  # SITE SETTINGS
+  # -----------------------------------------------------------
+  - name: settings
+    label: "Site Settings"
+    description: "Global site settings — business info, contact, hours"
+    files:
+      - name: general
+        label: "General Settings"
+        file: "src/data/settings.json"
+        fields:
+          - { label: "Business Name", name: businessName, widget: string }
+          - { label: "Tagline", name: tagline, widget: string }
+          - { label: "Phone (display)", name: phone, widget: string, hint: "e.g. (808) 555-1234" }
+          - { label: "Phone (raw, for tel: links)", name: phoneRaw, widget: string, hint: "e.g. +18085551234" }
+          - { label: "Email", name: email, widget: string }
+          - label: "Address"
+            name: address
+            widget: object
+            fields:
+              - { label: "Street/Area", name: street, widget: string }
+              - { label: "City/Island", name: city, widget: string }
+              - { label: "State", name: state, widget: string }
+              - { label: "ZIP", name: zip, widget: string }
+          - label: "Business Hours"
+            name: hours
+            widget: object
+            fields:
+              - { label: "Weekday Hours", name: weekdays, widget: string }
+              - { label: "Saturday Hours", name: saturday, widget: string }
+              - { label: "Sunday Hours", name: sunday, widget: string }
+          - label: "Service Areas"
+            name: serviceAreas
+            widget: list
+            field: { label: "Area", name: area, widget: string }
+          - { label: "License Info", name: license, widget: string }
+          - { label: "Founded Year", name: foundedYear, widget: string }
+          - { label: "Owner Name", name: ownerName, widget: string }
+
+  # -----------------------------------------------------------
+  # HOMEPAGE CONTENT
+  # -----------------------------------------------------------
+  - name: homepage
+    label: "Homepage"
+    description: "Edit homepage hero text, taglines, and CTA"
+    files:
+      - name: hero
+        label: "Hero Section"
+        file: "src/data/homepage.json"
+        fields:
+          - { label: "Hero Headline", name: headline, widget: string }
+          - { label: "Hero Subheadline", name: subheadline, widget: string }
+          - { label: "Supporting Headline", name: support, widget: string }
+          - { label: "Services Line", name: services, widget: string, hint: "Separate with •" }
+          - { label: "CTA Button Label", name: ctaLabel, widget: string }
+          - { label: "Trust Line", name: trustLine, widget: string }
+          - label: "Hero Image"
+            name: heroImage
+            widget: image
+            required: false
+
+  # -----------------------------------------------------------
+  # ABOUT PAGE
+  # -----------------------------------------------------------
+  - name: about
+    label: "About Page"
+    files:
+      - name: about_content
+        label: "About Content"
+        file: "src/data/about.json"
+        fields:
+          - { label: "Owner Name", name: ownerName, widget: string }
+          - { label: "Owner Title", name: ownerTitle, widget: string }
+          - label: "Owner Photo"
+            name: ownerPhoto
+            widget: image
+            required: false
+          - label: "Bio Paragraphs"
+            name: bio
+            widget: list
+            field: { label: "Paragraph", name: text, widget: text }
+          - { label: "Closing Signature Text", name: signature, widget: string }
+
+  # -----------------------------------------------------------
+  # SERVICES
+  # -----------------------------------------------------------
+  - name: services
+    label: "Services"
+    description: "Manage service cards shown on the website"
+    file: "src/data/services.json"
+    label_singular: "Service"
+    widget: list
+    fields:
+      - { label: "ID (no spaces)", name: id, widget: string }
+      - { label: "Service Title", name: title, widget: string }
+      - { label: "Short Description", name: description, widget: text }
+      - label: "Icon"
+        name: icon
+        widget: image
+        required: false
+      - { label: "Link (href)", name: href, widget: string }
+      - label: "Service Items"
+        name: items
+        widget: list
+        field: { label: "Item", name: item, widget: string }
+
+  # -----------------------------------------------------------
+  # GALLERY
+  # -----------------------------------------------------------
+  - name: gallery
+    label: "Gallery"
+    description: "Add and edit project photos"
+    file: "src/data/gallery.json"
+    label_singular: "Gallery Item"
+    widget: list
+    fields:
+      - { label: "Project Title", name: title, widget: string }
+      - label: "Category"
+        name: category
+        widget: select
+        options:
+          - "Before & After"
+          - "Decks"
+          - "Bathrooms"
+          - "Kitchens"
+          - "Fences"
+          - "Outdoor Spaces"
+          - "Repairs"
+          - "Carpentry"
+      - label: "Project Photo"
+        name: image
+        widget: image
+      - { label: "Description", name: description, widget: text, required: false }
+
+  # -----------------------------------------------------------
+  # REVIEWS
+  # -----------------------------------------------------------
+  - name: reviews
+    label: "Client Reviews"
+    description: "Add and manage client testimonials"
+    file: "src/data/reviews.json"
+    label_singular: "Review"
+    widget: list
+    fields:
+      - { label: "Client Name", name: name, widget: string }
+      - { label: "Neighborhood", name: neighborhood, widget: string }
+      - label: "Star Rating"
+        name: stars
+        widget: number
+        default: 5
+        min: 1
+        max: 5
+      - { label: "Review Text", name: text, widget: text }
+      - label: "Client Photo"
+        name: photo
+        widget: image
+        required: false
+        default: "/images/placeholder-person.svg"
+
+  # -----------------------------------------------------------
+  # SEO LANDING PAGES
+  # -----------------------------------------------------------
+  - name: seo_pages
+    label: "SEO Landing Pages"
+    description: "Manage content for SEO service pages"
+    folder: "src/data/seo-pages"
+    create: true
+    slug: "{{slug}}"
+    label_singular: "SEO Page"
+    fields:
+      - { label: "Page Title (h1)", name: pageTitle, widget: string }
+      - { label: "Meta Title", name: metaTitle, widget: string }
+      - { label: "Meta Description", name: metaDescription, widget: text }
+      - { label: "Eyebrow Text", name: eyebrow, widget: string }
+      - { label: "Subtitle", name: subtitle, widget: string }
+      - { label: "Intro Paragraph", name: intro, widget: text }
+      - label: "Service Items"
+        name: serviceItems
+        widget: list
+        field: { label: "Service", name: item, widget: string }
+      - label: "Page Image"
+        name: imageSrc
+        widget: image
+        required: false
+
+  # -----------------------------------------------------------
+  # CONTACT PAGE / ALOHA CARE PLAN
+  # -----------------------------------------------------------
+  - name: contact
+    label: "Contact & Care Plan"
+    files:
+      - name: care_plan
+        label: "Aloha Home Care Plan"
+        file: "src/data/care-plan.json"
+        fields:
+          - { label: "Plan Title", name: title, widget: string }
+          - { label: "Plan Description", name: description, widget: text }
+          - label: "What's Included"
+            name: includes
+            widget: list
+            field: { label: "Item", name: item, widget: string }
+          - label: "Plans"
+            name: plans
+            widget: list
+            fields:
+              - { label: "Plan Name", name: name, widget: string }
+              - { label: "Description", name: desc, widget: string }
+              - { label: "Most Popular?", name: best, widget: boolean, default: false }

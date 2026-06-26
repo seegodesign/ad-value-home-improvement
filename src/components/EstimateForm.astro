@@ -1,0 +1,175 @@
+---
+// EstimateForm component — no props needed, self-contained
+---
+
+<div class="estimate-form">
+  <h2 class="estimate-form__title">Request a Free Estimate</h2>
+  <p class="estimate-form__subtitle">
+    Fill out the form below and Adam will be in touch within 1 business day.
+    No pressure, no obligation.
+  </p>
+
+  <form
+    class="estimate-form__form"
+    name="estimate"
+    method="POST"
+    enctype="multipart/form-data"
+    netlify
+    netlify-honeypot="bot-field"
+    aria-label="Estimate request form"
+  >
+    <!-- Honeypot for spam -->
+    <p style="display:none;" aria-hidden="true">
+      <label>Don't fill this out: <input name="bot-field" /></label>
+    </p>
+    <input type="hidden" name="form-name" value="estimate" />
+
+    <div class="estimate-form__grid">
+      <!-- Name -->
+      <div class="estimate-form__group">
+        <label for="ef-name" class="estimate-form__label estimate-form__label--required">
+          Full Name
+        </label>
+        <input
+          id="ef-name"
+          type="text"
+          name="name"
+          class="estimate-form__input"
+          placeholder="Your full name"
+          required
+          autocomplete="name"
+        />
+      </div>
+
+      <!-- Phone -->
+      <div class="estimate-form__group">
+        <label for="ef-phone" class="estimate-form__label estimate-form__label--required">
+          Phone Number
+        </label>
+        <input
+          id="ef-phone"
+          type="tel"
+          name="phone"
+          class="estimate-form__input"
+          placeholder="(808) 555-0000"
+          required
+          autocomplete="tel"
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="estimate-form__group">
+        <label for="ef-email" class="estimate-form__label estimate-form__label--required">
+          Email Address
+        </label>
+        <input
+          id="ef-email"
+          type="email"
+          name="email"
+          class="estimate-form__input"
+          placeholder="you@example.com"
+          required
+          autocomplete="email"
+        />
+      </div>
+
+      <!-- Project Address -->
+      <div class="estimate-form__group">
+        <label for="ef-address" class="estimate-form__label estimate-form__label--required">
+          Project Address
+        </label>
+        <input
+          id="ef-address"
+          type="text"
+          name="address"
+          class="estimate-form__input"
+          placeholder="Street address, Kauai"
+          required
+          autocomplete="street-address"
+        />
+      </div>
+
+      <!-- Project Description — full width -->
+      <div class="estimate-form__group estimate-form__group--full">
+        <label for="ef-project" class="estimate-form__label estimate-form__label--required">
+          Describe Your Project
+        </label>
+        <textarea
+          id="ef-project"
+          name="project"
+          class="estimate-form__textarea"
+          placeholder="Tell us about your project — what needs to be done, approximate size, any special requirements..."
+          required
+          rows="5"
+        ></textarea>
+      </div>
+
+      <!-- Photo Upload -->
+      <div class="estimate-form__group estimate-form__group--full">
+        <label for="ef-photos" class="estimate-form__label">
+          Upload Photos (optional)
+        </label>
+        <label for="ef-photos" class="estimate-form__file-label">
+          <span class="estimate-form__file-icon">📷</span>
+          <span>Click to upload photos or drag and drop</span>
+          <span style="font-size:0.75rem;color:var(--color-gray-500);">JPG, PNG, HEIC up to 10MB each</span>
+        </label>
+        <input
+          id="ef-photos"
+          type="file"
+          name="photos"
+          class="estimate-form__file"
+          multiple
+          accept="image/*"
+        />
+      </div>
+
+      <!-- Preferred Start Date -->
+      <div class="estimate-form__group">
+        <label for="ef-date" class="estimate-form__label">
+          Preferred Start Date
+        </label>
+        <input
+          id="ef-date"
+          type="date"
+          name="start_date"
+          class="estimate-form__input"
+        />
+      </div>
+
+      <!-- Service Type -->
+      <div class="estimate-form__group">
+        <label for="ef-service" class="estimate-form__label">
+          Service Type
+        </label>
+        <select id="ef-service" name="service" class="estimate-form__select">
+          <option value="">Select a service…</option>
+          <option value="decks">Decks &amp; Railings</option>
+          <option value="fencing">Fencing</option>
+          <option value="kitchen">Kitchen Remodel</option>
+          <option value="bathroom">Bathroom Remodel</option>
+          <option value="carpentry">Custom Carpentry</option>
+          <option value="drywall">Drywall &amp; Painting</option>
+          <option value="maintenance">Property Maintenance</option>
+          <option value="outdoor">Outdoor Living</option>
+          <option value="other">Other / Not Sure</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="estimate-form__submit">
+      <button type="submit" class="btn btn--primary btn--lg btn--full">
+        Submit Estimate Request
+      </button>
+    </div>
+    <p class="estimate-form__note">
+      ★ We respond within 1 business day. Your information is never sold or shared.
+    </p>
+  </form>
+</div>
+
+<style>
+  .estimate-form__group--full {
+    grid-column: 1 / -1;
+  }
+</style>

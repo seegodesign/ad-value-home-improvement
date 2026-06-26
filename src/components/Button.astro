@@ -1,0 +1,35 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline-white' | 'outline-navy';
+  size?: 'sm' | 'base' | 'lg' | 'xl';
+  full?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  'aria-label'?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'base',
+  full = false,
+  type = 'button',
+  class: extraClass = '',
+  'aria-label': ariaLabel,
+} = Astro.props;
+
+const sizeClass = size !== 'base' ? `btn--${size}` : '';
+const fullClass = full ? 'btn--full' : '';
+const classes = `btn btn--${variant} ${sizeClass} ${fullClass} ${extraClass}`.trim().replace(/\s+/g, ' ');
+---
+
+{href ? (
+  <a href={href} class={classes} aria-label={ariaLabel}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes} aria-label={ariaLabel}>
+    <slot />
+  </button>
+)}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+  <!-- House -->
+  <polygon points="14,3 25,12 25,25 3,25 3,12" fill="#0B2F56"/>
+  <polygon points="14,2 27,12 1,12" fill="#5A8F29"/>
+  <!-- Door -->
+  <rect x="11" y="16" width="6" height="9" rx="1" fill="#FFFFFF"/>
+  <!-- Checkmark overlay -->
+  <circle cx="20" cy="20" r="6" fill="#B9854D"/>
+  <polyline points="17,20 19,22 23,17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,122 @@
+/* ============================================================
+   FORMS — Estimate form
+   ============================================================ */
+
+.estimate-form {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-10);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-gray-200);
+}
+
+.estimate-form__title {
+  font-size: var(--fs-2xl);
+  color: var(--color-navy);
+  margin-bottom: var(--sp-2);
+}
+
+.estimate-form__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--sp-8);
+}
+
+.estimate-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-5);
+}
+
+.estimate-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.estimate-form__label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.estimate-form__label--required::after {
+  content: ' *';
+  color: var(--color-green);
+}
+
+.estimate-form__input,
+.estimate-form__textarea,
+.estimate-form__select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius);
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  line-height: var(--lh-normal);
+}
+
+.estimate-form__input:focus,
+.estimate-form__textarea:focus,
+.estimate-form__select:focus {
+  outline: none;
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(90,143,41,0.15);
+}
+
+.estimate-form__input::placeholder,
+.estimate-form__textarea::placeholder {
+  color: var(--color-gray-500);
+}
+
+.estimate-form__textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.estimate-form__file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: var(--sp-8);
+  border: 2px dashed var(--color-gray-300);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  text-align: center;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.estimate-form__file-label:hover {
+  border-color: var(--color-green);
+  background-color: rgba(90,143,41,0.04);
+  color: var(--color-green);
+}
+
+.estimate-form__file {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.estimate-form__file-icon {
+  font-size: 2rem;
+}
+
+.estimate-form__submit {
+  margin-top: var(--sp-4);
+}
+
+.estimate-form__note {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--sp-3);
+}

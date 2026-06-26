@@ -1,0 +1,48 @@
+---
+import SEOPageLayout from '../components/SEOPageLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Trex Deck Builder Kauai',
+  description: 'Certified Trex composite deck installation on Kauai. Low maintenance, beautiful, and built to last in Hawaii\'s climate.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Ad Value Home Improvement',
+    telephone: '+18085551234',
+    areaServed: 'Kauai, Hawaii',
+  },
+  serviceType: 'Trex Deck Installation',
+};
+---
+
+<SEOPageLayout
+  title="Trex Deck Builder Kauai"
+  metaTitle="Trex Deck Builder Kauai | Composite Deck Installation | Ad Value Home Improvement"
+  metaDescription="Expert Trex composite deck installation on Kauai. Low maintenance, splinter-free, and built for Hawaii. Railings, stairs, and custom designs. Free estimates. Licensed & insured."
+  eyebrow="Trex Composite Decks · Kauai, Hawaii"
+  pageTitle="Trex Composite Decks for Kauai Homes"
+  subtitle="The low-maintenance deck that handles Hawaii's climate — and looks beautiful doing it."
+  intro="Trex composite decking is one of the best investments a Kauai homeowner can make. Unlike natural wood, Trex won't rot, warp, or splinter — critical advantages in Hawaii's humid, UV-intense environment. Ad Value Home Improvement has extensive experience installing Trex decking systems, including railings and fascia, to create a complete, beautiful outdoor living space."
+  highlights={[
+    { icon: '☀️', title: 'UV & Moisture Resistant', description: 'Trex is engineered to resist fading, staining, and mold growth — perfect for Kauai\'s tropical conditions.' },
+    { icon: '🛠️', title: 'Low Maintenance', description: 'No staining, sealing, or sanding required. Just an occasional wash to keep it looking new.' },
+    { icon: '♻️', title: 'Eco-Friendly Material', description: 'Trex is made from 95% recycled material — a responsible choice for Hawaii\'s environment.' },
+    { icon: '🎨', title: 'Color & Style Options', description: 'Dozens of colors and grain patterns to match your home\'s aesthetic and your personal style.' },
+  ]}
+  serviceItems={[
+    'Trex Transcend Decking',
+    'Trex Enhance Decking',
+    'Trex Select Decking',
+    'Trex Signature Railing',
+    'Trex Transcend Railing',
+    'Cable Railing Systems',
+    'Trex Fascia & Trim',
+    'Deck Stairs & Landings',
+    'Multi-Level Deck Designs',
+    'Built-in Seating & Planters',
+    'Trex Pergola Systems',
+    'Old Deck Removal & Disposal',
+  ]}
+  schema={schema}
+/>

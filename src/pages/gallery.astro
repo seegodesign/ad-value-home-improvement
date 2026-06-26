@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import CTASection from '../components/CTASection.astro';
+import gallery from '../data/gallery.json';
+---
+
+<BaseLayout
+  title="Project Gallery | Ad Value Home Improvement Kauai"
+  description="Browse our Kauai home improvement project gallery. Before & after photos of decks, bathrooms, kitchens, fences, outdoor spaces, and repairs. Serving Kauai since 2019."
+>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/" class="breadcrumb__link">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">›</span>
+        <span>Gallery</span>
+      </nav>
+      <p class="page-hero__eyebrow">Our Work Speaks for Itself</p>
+      <h1 class="page-hero__title">Project Gallery</h1>
+      <p class="page-hero__subtitle">
+        Real projects on Kauai. Real craftsmanship. Browse by category to see what's possible.
+      </p>
+      <div class="page-hero__accent-bar" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__eyebrow">Browse Projects</span>
+        <h2 id="gallery-heading" class="section__title">Filter by Category</h2>
+      </div>
+      <GalleryGrid items={gallery} showFilters={true} />
+    </div>
+  </section>
+
+  <!-- Note about photos -->
+  <section class="section section--sand section--sm">
+    <div class="container" style="text-align:center;max-width:680px;">
+      <p style="font-size:1.0625rem;color:var(--color-text-muted);line-height:1.75;">
+        <strong style="color:var(--color-navy);">Have a project in mind?</strong> Every project in our gallery
+        started with a conversation. We'd love to hear what you're envisioning for your home.
+      </p>
+      <div style="margin-top:1.5rem;">
+        <a href="/estimate" class="btn btn--primary btn--lg">Request a Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow="Ready for Your Transformation?"
+    title="Your Project Could Be Next"
+    subtitle="Let's talk about what you're planning. Free estimate, no obligation."
+    primaryLabel="Start Your Project"
+    secondaryLabel="View Services"
+    secondaryHref="/services"
+    variant="navy"
+  />
+</BaseLayout>

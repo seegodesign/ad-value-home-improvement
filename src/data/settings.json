@@ -1,0 +1,30 @@
+{
+  "businessName": "Ad Value Home Improvement",
+  "tagline": "Kauai's Trusted Home Improvement Partner",
+  "phone": "(808) 555-1234",
+  "phoneRaw": "+18085551234",
+  "email": "info@advaluehomeimprovement.com",
+  "address": {
+    "street": "Lihue",
+    "city": "Kauai",
+    "state": "HI",
+    "zip": "96766"
+  },
+  "hours": {
+    "weekdays": "Monday – Friday: 7:00 AM – 5:00 PM",
+    "saturday": "Saturday: 8:00 AM – 2:00 PM",
+    "sunday": "Sunday: By appointment"
+  },
+  "serviceAreas": [
+    "Lihue", "Kapaa", "Princeville", "Hanalei",
+    "Kalaheo", "Koloa", "Poipu", "Hanapepe"
+  ],
+  "social": {
+    "facebook": "https://facebook.com/advaluehomeimprovement",
+    "instagram": "https://instagram.com/advaluehomeimprovement",
+    "nextdoor": "https://nextdoor.com"
+  },
+  "license": "Licensed & Insured · Kauai, Hawaii",
+  "foundedYear": "2019",
+  "ownerName": "Adam Marchacos"
+}

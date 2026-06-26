@@ -1,0 +1,93 @@
+/* ============================================================
+   BUTTONS — .btn variants and sizes
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-family: var(--font-heading);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius);
+  transition: background-color var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-brown);
+  outline-offset: 3px;
+}
+
+.btn:active { transform: translateY(1px); }
+
+/* Primary — Green */
+.btn--primary {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border-color: var(--color-green);
+}
+.btn--primary:hover {
+  background-color: var(--color-green-dark);
+  border-color: var(--color-green-dark);
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary — Navy */
+.btn--secondary {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border-color: var(--color-navy);
+}
+.btn--secondary:hover {
+  background-color: var(--color-navy-dark);
+  border-color: var(--color-navy-dark);
+  box-shadow: var(--shadow-md);
+}
+
+/* Accent — Brown/Gold */
+.btn--accent {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+  border-color: var(--color-brown);
+}
+.btn--accent:hover {
+  background-color: var(--color-brown-dark);
+  border-color: var(--color-brown-dark);
+  box-shadow: var(--shadow-md);
+}
+
+/* Outline — White (for dark backgrounds) */
+.btn--outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: rgba(255,255,255,0.6);
+}
+.btn--outline-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  border-color: var(--color-white);
+}
+
+/* Outline — Navy */
+.btn--outline-navy {
+  background-color: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+.btn--outline-navy:hover {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+/* Sizes */
+.btn--sm   { font-size: var(--fs-sm); padding: 0.625rem 1.25rem; }
+.btn--lg   { font-size: var(--fs-lg); padding: 1.1rem 2.25rem; border-radius: var(--radius); }
+.btn--xl   { font-size: var(--fs-xl); padding: 1.25rem 2.75rem; }
+.btn--full { width: 100%; }

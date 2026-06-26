@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+  <!-- Sun -->
+  <circle cx="14" cy="8" r="4" fill="#B9854D"/>
+  <!-- Pergola top beam -->
+  <rect x="2" y="13" width="24" height="2.5" rx="1" fill="#0B2F56"/>
+  <!-- Slats -->
+  <rect x="5" y="10" width="2" height="6" rx="1" fill="#5A8F29"/>
+  <rect x="10" y="10" width="2" height="6" rx="1" fill="#5A8F29"/>
+  <rect x="15" y="10" width="2" height="6" rx="1" fill="#5A8F29"/>
+  <rect x="20" y="10" width="2" height="6" rx="1" fill="#5A8F29"/>
+  <!-- Posts -->
+  <rect x="3" y="15.5" width="3" height="11" rx="1" fill="#0B2F56"/>
+  <rect x="22" y="15.5" width="3" height="11" rx="1" fill="#0B2F56"/>
+  <!-- Deck floor -->
+  <rect x="2" y="24" width="24" height="3" rx="1" fill="#B9854D"/>
+</svg>

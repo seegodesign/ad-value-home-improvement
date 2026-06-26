@@ -1,0 +1,82 @@
+---
+interface GalleryItem {
+  title: string;
+  category: string;
+  image: string;
+  description?: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+  showFilters?: boolean;
+}
+
+const { items, showFilters = true } = Astro.props;
+
+const categories = ['All', ...new Set(items.map((i) => i.category))];
+---
+
+<div class="gallery-grid">
+  {showFilters && (
+    <div class="gallery-grid__filters" role="group" aria-label="Filter gallery by category">
+      {categories.map((cat, idx) => (
+        <button
+          class={`gallery-grid__filter${idx === 0 ? ' gallery-grid__filter--active' : ''}`}
+          data-category={cat === 'All' ? 'all' : cat}
+          aria-pressed={idx === 0 ? 'true' : 'false'}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+  )}
+
+  <div class="gallery-grid__items">
+    {items.map(({ title, category, image, description }) => (
+      <div
+        class="gallery-grid__item"
+        data-category={category}
+        role="figure"
+        aria-label={title}
+      >
+        <div class="gallery-grid__image-wrap">
+          <img
+            src={image}
+            alt={description || title}
+            class="gallery-grid__image"
+            width="400"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="gallery-grid__caption">
+          <span class="gallery-grid__category">{category}</span>
+          <p class="gallery-grid__label">{title}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('.gallery-grid__filter');
+  const items   = document.querySelectorAll<HTMLElement>('.gallery-grid__item');
+
+  filters.forEach((filter) => {
+    filter.addEventListener('click', () => {
+      const category = filter.dataset.category ?? 'all';
+
+      filters.forEach((f) => {
+        f.classList.remove('gallery-grid__filter--active');
+        f.setAttribute('aria-pressed', 'false');
+      });
+      filter.classList.add('gallery-grid__filter--active');
+      filter.setAttribute('aria-pressed', 'true');
+
+      items.forEach((item) => {
+        const show = category === 'all' || item.dataset.category === category;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>

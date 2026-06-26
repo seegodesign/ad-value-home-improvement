@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import services from '../data/services.json';
+
+const serviceDetails = {
+  decks: {
+    href: '/deck-builder-kauai',
+    fullList: ['Trex Composite Decks', 'Ipe Hardwood Decks', 'Deck Repairs & Restoration', 'Railings & Balusters', 'Stairs & Landings', 'Custom Deck Designs', 'Post & Beam Pergolas'],
+  },
+  carpentry: {
+    href: '/custom-carpentry-kauai',
+    fullList: ['Finish Carpentry', 'Custom Built-ins', 'Door Installation', 'Window & Slider Installation', 'Hardwood & Tile Flooring', 'Trim & Crown Molding', 'Siding Repair & Replacement', 'Framing', 'Wood Repairs', 'Chicken Coops', 'Farm Stands', 'Horse Mounting Blocks'],
+  },
+  kitchens: {
+    href: '/kitchen-remodel-kauai',
+    fullList: ['Cabinet Installation & Refacing', 'Countertop Fabrication & Install', 'Backsplash Tile', 'Flooring', 'Appliance Hook-up', 'Design Services'],
+  },
+  bathrooms: {
+    href: '/bathroom-remodel-kauai',
+    fullList: ['Tile Installation', 'Vanity Installation', 'Shower & Tub Remodel', 'Mirrors & Towel Racks', 'Water Damage Repair', 'Design Services'],
+  },
+  drywall: {
+    href: '/drywall-repair-kauai',
+    fullList: ['Drywall Repairs', 'Texture Matching', 'Interior Painting', 'Exterior Painting', 'Trim Painting', 'Deck Staining & Sealing'],
+  },
+  fencing: {
+    href: '/fence-contractor-kauai',
+    fullList: ['Cedar Fencing', 'Ipe Hardwood Fencing', 'Hog Wire Fencing', 'Chain Link Fencing', 'Bamboo Fencing', 'Custom Gates', 'Privacy Fencing', 'Split Rail'],
+  },
+  maintenance: {
+    href: '/property-maintenance-kauai',
+    fullList: ['Rental Turnovers', 'Pressure Washing', 'General Repairs', 'Maintenance Packages', 'Garage Organization', 'Gutter Cleaning'],
+  },
+  outdoor: {
+    href: '/services',
+    fullList: ['Pergolas', 'Covered Patios', 'Garden Features', 'Walkways & Pathways', 'Exterior Stairs', 'Outdoor Showers', 'Facelifts & Upgrades'],
+  },
+};
+---
+
+<BaseLayout
+  title="Home Improvement Services Kauai | Ad Value Home Improvement"
+  description="Full-service home improvement on Kauai. Decks, fencing, kitchen & bathroom remodels, custom carpentry, drywall, painting, property maintenance, and outdoor living. Licensed & insured."
+>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/" class="breadcrumb__link">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">›</span>
+        <span>Services</span>
+      </nav>
+      <p class="page-hero__eyebrow">Full-Service Home Improvement</p>
+      <h1 class="page-hero__title">What We Build, Repair &amp; Maintain</h1>
+      <p class="page-hero__subtitle">
+        From a single repair to a complete remodel — quality work, honestly priced, delivered on time.
+      </p>
+      <div class="page-hero__accent-bar" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__eyebrow">Our Services</span>
+        <h2 id="services-heading" class="section__title">Everything Your Home Needs</h2>
+        <p class="section__subtitle">
+          Whether you're building, renovating, or maintaining — we have the skills and experience to do it right.
+        </p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:5rem;">
+        {services.map((service) => {
+          const details = serviceDetails[service.id as keyof typeof serviceDetails];
+          return (
+            <div
+              id={service.id}
+              style="display:grid;gap:3rem;align-items:start;"
+              class="services-detail-row"
+            >
+              <div>
+                <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+                  <div style="width:56px;height:56px;background:var(--color-sand);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <img src={service.icon} alt="" width="28" height="28" aria-hidden="true" />
+                  </div>
+                  <h2 style="font-size:1.75rem;color:var(--color-navy);">{service.title}</h2>
+                </div>
+                <span class="accent-bar" aria-hidden="true"></span>
+                <p style="font-size:1.0625rem;color:var(--color-text-muted);line-height:1.8;margin-bottom:1.5rem;">
+                  {service.description}
+                </p>
+                {details?.href && details.href !== '/services' && (
+                  <a href={details.href} class="btn btn--primary btn--sm" style="margin-bottom:1.5rem;">
+                    {service.title} Details →
+                  </a>
+                )}
+              </div>
+
+              <div style="background:var(--color-off-white);border-radius:var(--radius-lg);padding:2rem;border:1px solid var(--color-gray-200);">
+                <h3 style="font-size:1rem;color:var(--color-navy);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.08em;font-size:0.75rem;">
+                  Services Include
+                </h3>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.625rem;">
+                  {(details?.fullList || service.items).map((item) => (
+                    <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.9375rem;color:var(--color-text-muted);">
+                      <span style="color:var(--color-green);font-weight:700;flex-shrink:0;">✓</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Aloha Care Plan callout -->
+  <section class="section section--sand" aria-labelledby="care-heading">
+    <div class="container" style="max-width:800px;">
+      <div class="section__header">
+        <span class="section__eyebrow">New: Recurring Service</span>
+        <h2 id="care-heading" class="section__title">The Aloha Home Care Plan</h2>
+        <p class="section__subtitle">
+          Monthly, quarterly, or annual maintenance membership to keep your property in peak condition year-round.
+        </p>
+      </div>
+      <div style="text-align:center;">
+        <a href="/contact#care-plan" class="btn btn--primary btn--lg">Learn More About the Care Plan</a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow="Get Started"
+    title="Request a Free Estimate"
+    subtitle="Tell us about your project and we'll be in touch within 1 business day."
+    primaryLabel="Request a Free Estimate"
+    secondaryLabel="(808) 555-1234"
+    secondaryHref="tel:+18085551234"
+  />
+</BaseLayout>
+
+<style>
+  @media (min-width: 768px) {
+    .services-detail-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

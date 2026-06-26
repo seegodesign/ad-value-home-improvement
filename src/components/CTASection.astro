@@ -1,0 +1,50 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  note?: string;
+  variant?: 'navy' | 'green' | 'sand';
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  primaryLabel = 'Request a Free Estimate',
+  primaryHref = '/estimate',
+  secondaryLabel,
+  secondaryHref,
+  note,
+  variant = 'navy',
+} = Astro.props;
+---
+
+<section class={`cta-section cta-section--${variant}`} aria-label="Call to action">
+  <div class="container cta-section__inner">
+    {eyebrow && <span class="cta-section__eyebrow">{eyebrow}</span>}
+    <h2 class="cta-section__title">{title}</h2>
+    {subtitle && <p class="cta-section__subtitle">{subtitle}</p>}
+    <div class="cta-section__actions">
+      <a
+        href={primaryHref}
+        class={`btn btn--lg ${variant === 'sand' ? 'btn--primary' : 'btn--primary'}`}
+      >
+        {primaryLabel}
+      </a>
+      {secondaryLabel && secondaryHref && (
+        <a
+          href={secondaryHref}
+          class={`btn btn--lg ${variant === 'sand' ? 'btn--outline-navy' : 'btn--outline-white'}`}
+        >
+          {secondaryLabel}
+        </a>
+      )}
+    </div>
+    {note && <p class="cta-section__note">{note}</p>}
+  </div>
+</section>

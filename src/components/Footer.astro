@@ -1,0 +1,116 @@
+---
+const quickLinks = [
+  { label: 'Home',             href: '/' },
+  { label: 'About',            href: '/about' },
+  { label: 'Services',         href: '/services' },
+  { label: 'Gallery',          href: '/gallery' },
+  { label: 'Reviews',          href: '/reviews' },
+  { label: 'Request Estimate', href: '/estimate' },
+  { label: 'Contact',          href: '/contact' },
+];
+
+const serviceLinks = [
+  { label: 'Deck Builder Kauai',          href: '/deck-builder-kauai' },
+  { label: 'Fence Contractor Kauai',      href: '/fence-contractor-kauai' },
+  { label: 'Kitchen Remodel Kauai',       href: '/kitchen-remodel-kauai' },
+  { label: 'Bathroom Remodel Kauai',      href: '/bathroom-remodel-kauai' },
+  { label: 'Handyman Kauai',              href: '/handyman-kauai' },
+  { label: 'Drywall Repair Kauai',        href: '/drywall-repair-kauai' },
+  { label: 'Trex Deck Builder Kauai',     href: '/trex-deck-builder-kauai' },
+  { label: 'Custom Carpentry Kauai',      href: '/custom-carpentry-kauai' },
+  { label: 'Property Maintenance Kauai',  href: '/property-maintenance-kauai' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__top">
+    <div class="container footer__grid">
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a href="/" aria-label="Ad Value Home Improvement — Home">
+          <img
+            src="/images/logo-compact.svg"
+            alt="Ad Value Home Improvement"
+            class="footer__logo-img"
+            width="200"
+            height="48"
+          />
+        </a>
+        <p class="footer__tagline">
+          Kauai's trusted home improvement partner since 2019.
+          Honest work, skilled hands, island values.
+        </p>
+        <div class="footer__social">
+          <a href="https://facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+          <a href="https://instagram.com" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">ig</a>
+          <a href="https://nextdoor.com" class="footer__social-link" aria-label="Nextdoor" target="_blank" rel="noopener noreferrer">nd</a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__column">
+        <span class="footer__column-title">Quick Links</span>
+        <ul class="footer__list" role="list">
+          {quickLinks.map(({ label, href }) => (
+            <li>
+              <a href={href} class="footer__link">{label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer__column">
+        <span class="footer__column-title">Services</span>
+        <ul class="footer__list" role="list">
+          {serviceLinks.map(({ label, href }) => (
+            <li>
+              <a href={href} class="footer__link">{label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__column">
+        <span class="footer__column-title">Contact</span>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon">📞</span>
+          <a href="tel:+18085551234">(808) 555-1234</a>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon">✉</span>
+          <a href="mailto:info@advaluehomeimprovement.com">info@advaluehomeimprovement.com</a>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon">📍</span>
+          <span>Lihue, Hawaii 96766</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon">🕐</span>
+          <span>Mon–Fri 7am–5pm<br/>Sat 8am–2pm</span>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="/estimate" class="btn btn--primary btn--sm btn--full">
+            Free Estimate
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p class="footer__copyright">
+        &copy; {year} Ad Value Home Improvement. All rights reserved. Licensed &amp; Insured · Kauai, Hawaii
+      </p>
+      <div class="footer__bottom-links">
+        <a href="/privacy" class="footer__bottom-link">Privacy Policy</a>
+        <a href="/sitemap.xml" class="footer__bottom-link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>

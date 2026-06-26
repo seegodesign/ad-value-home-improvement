@@ -1,0 +1,164 @@
+---
+const navLinks = [
+  { label: 'Home',     href: '/' },
+  { label: 'About',    href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Gallery',  href: '/gallery' },
+  { label: 'Reviews',  href: '/reviews' },
+  { label: 'Contact',  href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header" role="banner">
+  <div class="container header__inner">
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="Ad Value Home Improvement — Home">
+      <img
+        src="/images/logo-compact.svg"
+        alt="Ad Value Home Improvement"
+        class="header__logo-img"
+        width="330"
+        height="66"
+      />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="header__nav" aria-label="Main navigation">
+      <ul class="header__nav-list" role="list">
+        {navLinks.map(({ label, href }) => (
+          <li class="header__nav-item">
+            <a
+              href={href}
+              class={`header__nav-link${currentPath === href || (href !== '/' && currentPath.startsWith(href)) ? ' header__nav-link--active' : ''}`}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <div class="header__actions">
+      <a href="tel:+18085551234" class="header__phone" aria-label="Call us">
+        <span class="header__phone-icon">📞</span>
+        <span>(808) 555-1234</span>
+      </a>
+      <a href="/estimate" class="btn btn--primary btn--sm">Request Estimate</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button
+      class="header__hamburger"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <span class="header__hamburger-bar"></span>
+      <span class="header__hamburger-bar"></span>
+      <span class="header__hamburger-bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<nav
+  id="mobile-nav"
+  class="mobile-nav"
+  aria-label="Mobile navigation"
+  aria-hidden="true"
+>
+  <div class="mobile-nav__header">
+    <a href="/" class="mobile-nav__logo-link" aria-label="Ad Value Home Improvement — Home">
+      <img
+        src="/images/logo-compact.svg"
+        alt="Ad Value Home Improvement"
+        class="mobile-nav__logo-img"
+        width="180"
+        height="40"
+      />
+    </a>
+    <button
+      class="mobile-nav__close"
+      aria-label="Close navigation menu"
+    >
+      ✕
+    </button>
+  </div>
+
+  <ul class="mobile-nav__list" role="list">
+    {navLinks.map(({ label, href }) => (
+      <li>
+        <a href={href} class="mobile-nav__link">{label}</a>
+      </li>
+    ))}
+  </ul>
+
+  <a href="/estimate" class="btn btn--primary btn--full mobile-nav__cta">
+    Request a Free Estimate
+  </a>
+
+  <div class="mobile-nav__contact">
+    <p>📞 <a href="tel:+18085551234">(808) 555-1234</a></p>
+    <p style="margin-top:0.5rem;">✉ <a href="mailto:info@advaluehomeimprovement.com">info@advaluehomeimprovement.com</a></p>
+  </div>
+</nav>
+
+<style>
+  .header__phone {
+    display: none;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-navy);
+    transition: color var(--transition);
+  }
+
+  .header__phone:hover { color: var(--color-green); }
+  .header__phone-icon { font-size: 0.875rem; }
+
+  @media (min-width: 1024px) {
+    .header__phone { display: flex; }
+  }
+</style>
+
+<script>
+  const header    = document.querySelector('.header') as HTMLElement;
+  const hamburger = header?.querySelector('.header__hamburger') as HTMLButtonElement;
+  const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
+  const closeBtn  = mobileNav?.querySelector('.mobile-nav__close') as HTMLButtonElement;
+
+  function openNav() {
+    mobileNav.classList.add('mobile-nav--open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.classList.add('header__hamburger--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    mobileNav.classList.remove('mobile-nav--open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.classList.remove('header__hamburger--open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger?.addEventListener('click', () => {
+    hamburger.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
+  });
+
+  closeBtn?.addEventListener('click', closeNav);
+
+  mobileNav?.querySelectorAll('.mobile-nav__link, .mobile-nav__cta').forEach((link) => {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNav();
+  });
+</script>
