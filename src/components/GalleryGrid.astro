@@ -39,16 +39,26 @@ const categories = ['All', ...new Set(items.map((i) => i.category))];
         role="figure"
         aria-label={title}
       >
-        <div class="gallery-grid__image-wrap">
-          <img
-            src={image}
-            alt={description || title}
-            class="gallery-grid__image"
-            width="400"
-            height="300"
-            loading="lazy"
-          />
-        </div>
+        <button
+          type="button"
+          class="gallery-grid__image-button"
+          data-lightbox-image={image}
+          data-lightbox-title={title}
+          data-lightbox-category={category}
+          data-lightbox-caption={description || ''}
+          aria-label={`View full-size image: ${title}`}
+        >
+          <div class="gallery-grid__image-wrap">
+            <img
+              src={image}
+              alt={description || title}
+              class="gallery-grid__image"
+              width="400"
+              height="300"
+              loading="lazy"
+            />
+          </div>
+        </button>
         <div class="gallery-grid__caption">
           <span class="gallery-grid__category">{category}</span>
           <p class="gallery-grid__label">{title}</p>
@@ -56,27 +66,74 @@ const categories = ['All', ...new Set(items.map((i) => i.category))];
       </div>
     ))}
   </div>
+
+  <dialog class="gallery-lightbox" aria-label="Project image preview">
+    <button type="button" class="gallery-lightbox__close" aria-label="Close image preview">&times;</button>
+    <div class="gallery-lightbox__content">
+      <img class="gallery-lightbox__image" alt="" />
+      <div class="gallery-lightbox__meta">
+        <span class="gallery-lightbox__category"></span>
+        <p class="gallery-lightbox__title"></p>
+        <p class="gallery-lightbox__caption"></p>
+      </div>
+    </div>
+  </dialog>
 </div>
 
 <script>
-  const filters = document.querySelectorAll<HTMLButtonElement>('.gallery-grid__filter');
-  const items   = document.querySelectorAll<HTMLElement>('.gallery-grid__item');
+  document.querySelectorAll<HTMLElement>('.gallery-grid').forEach((grid) => {
+    const filters = grid.querySelectorAll<HTMLButtonElement>('.gallery-grid__filter');
+    const items = grid.querySelectorAll<HTMLElement>('.gallery-grid__item');
+    const lightbox = grid.querySelector<HTMLDialogElement>('.gallery-lightbox');
+    const lightboxImage = lightbox?.querySelector<HTMLImageElement>('.gallery-lightbox__image');
+    const lightboxCategory = lightbox?.querySelector<HTMLElement>('.gallery-lightbox__category');
+    const lightboxTitle = lightbox?.querySelector<HTMLElement>('.gallery-lightbox__title');
+    const lightboxCaption = lightbox?.querySelector<HTMLElement>('.gallery-lightbox__caption');
+    const closeButton = lightbox?.querySelector<HTMLButtonElement>('.gallery-lightbox__close');
 
-  filters.forEach((filter) => {
-    filter.addEventListener('click', () => {
-      const category = filter.dataset.category ?? 'all';
+    filters.forEach((filter) => {
+      filter.addEventListener('click', () => {
+        const category = filter.dataset.category ?? 'all';
 
-      filters.forEach((f) => {
-        f.classList.remove('gallery-grid__filter--active');
-        f.setAttribute('aria-pressed', 'false');
+        filters.forEach((f) => {
+          f.classList.remove('gallery-grid__filter--active');
+          f.setAttribute('aria-pressed', 'false');
+        });
+        filter.classList.add('gallery-grid__filter--active');
+        filter.setAttribute('aria-pressed', 'true');
+
+        items.forEach((item) => {
+          const show = category === 'all' || item.dataset.category === category;
+          item.style.display = show ? '' : 'none';
+        });
       });
-      filter.classList.add('gallery-grid__filter--active');
-      filter.setAttribute('aria-pressed', 'true');
+    });
 
-      items.forEach((item) => {
-        const show = category === 'all' || item.dataset.category === category;
-        item.style.display = show ? '' : 'none';
+    grid.querySelectorAll<HTMLButtonElement>('.gallery-grid__image-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!lightbox || !lightboxImage || !lightboxCategory || !lightboxTitle || !lightboxCaption) return;
+
+        const image = button.dataset.lightboxImage ?? '';
+        const title = button.dataset.lightboxTitle ?? '';
+        const category = button.dataset.lightboxCategory ?? '';
+        const caption = button.dataset.lightboxCaption ?? '';
+
+        lightboxImage.src = image;
+        lightboxImage.alt = caption || title;
+        lightboxCategory.textContent = category;
+        lightboxTitle.textContent = title;
+        lightboxCaption.textContent = caption;
+        lightboxCaption.hidden = caption.length === 0;
+        lightbox.showModal();
       });
+    });
+
+    closeButton?.addEventListener('click', () => lightbox?.close());
+
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        lightbox.close();
+      }
     });
   });
 </script>

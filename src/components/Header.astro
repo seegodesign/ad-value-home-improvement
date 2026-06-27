@@ -1,8 +1,9 @@
 ---
+import services from '../data/services.json';
+
 const navLinks = [
   { label: 'Home',     href: '/' },
   { label: 'About',    href: '/about' },
-  { label: 'Services', href: '/services' },
   { label: 'Gallery',  href: '/gallery' },
   { label: 'Reviews',  href: '/reviews' },
   { label: 'Contact',  href: '/contact' },
@@ -27,7 +28,44 @@ const currentPath = Astro.url.pathname;
     <!-- Desktop Nav -->
     <nav class="header__nav" aria-label="Main navigation">
       <ul class="header__nav-list" role="list">
-        {navLinks.map(({ label, href }) => (
+        {navLinks.slice(0, 2).map(({ label, href }) => (
+          <li class="header__nav-item">
+            <a
+              href={href}
+              class={`header__nav-link${currentPath === href || (href !== '/' && currentPath.startsWith(href)) ? ' header__nav-link--active' : ''}`}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+
+        <!-- Services dropdown -->
+        <li class="header__nav-item header__nav-item--dropdown">
+          <button
+            class={`header__nav-link header__nav-link--dropdown-trigger${currentPath.startsWith('/services') || services.some(s => currentPath === s.href) ? ' header__nav-link--active' : ''}`}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            Services
+            <svg class="header__dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="header__dropdown" role="region">
+            <ul class="header__dropdown-list" role="list">
+              {services.map((service) => (
+                <li>
+                  <a href={service.href} class="header__dropdown-link">
+                    {service.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href="/services" class="header__dropdown-footer">View All Services →</a>
+          </div>
+        </li>
+
+        {navLinks.slice(2).map(({ label, href }) => (
           <li class="header__nav-item">
             <a
               href={href}
@@ -43,7 +81,7 @@ const currentPath = Astro.url.pathname;
     <!-- Desktop CTA -->
     <div class="header__actions">
       <a href="tel:+18085551234" class="header__phone" aria-label="Call us">
-        <span class="header__phone-icon">📞</span>
+        <span class="icon-mask icon-phone icon-sm" aria-hidden="true"></span>
         <span>(808) 555-1234</span>
       </a>
       <a href="/estimate" class="btn btn--primary btn--sm">Request Estimate</a>
@@ -89,7 +127,33 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <ul class="mobile-nav__list" role="list">
-    {navLinks.map(({ label, href }) => (
+    {navLinks.slice(0, 2).map(({ label, href }) => (
+      <li>
+        <a href={href} class="mobile-nav__link">{label}</a>
+      </li>
+    ))}
+
+    <!-- Mobile Services accordion -->
+    <li class="mobile-nav__accordion">
+      <button class="mobile-nav__link mobile-nav__accordion-trigger" aria-expanded="false">
+        Services
+        <svg class="mobile-nav__accordion-chevron" width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul class="mobile-nav__sub" role="list" hidden>
+        {services.map((service) => (
+          <li>
+            <a href={service.href} class="mobile-nav__sub-link">{service.title}</a>
+          </li>
+        ))}
+        <li>
+          <a href="/services" class="mobile-nav__sub-link mobile-nav__sub-link--all">View All Services →</a>
+        </li>
+      </ul>
+    </li>
+
+    {navLinks.slice(2).map(({ label, href }) => (
       <li>
         <a href={href} class="mobile-nav__link">{label}</a>
       </li>
@@ -101,8 +165,8 @@ const currentPath = Astro.url.pathname;
   </a>
 
   <div class="mobile-nav__contact">
-    <p>📞 <a href="tel:+18085551234">(808) 555-1234</a></p>
-    <p style="margin-top:0.5rem;">✉ <a href="mailto:info@advaluehomeimprovement.com">info@advaluehomeimprovement.com</a></p>
+    <p><span class="icon-mask icon-phone icon-sm" style="margin-right:0.375rem;" aria-hidden="true"></span><a href="tel:+18085551234">(808) 555-1234</a></p>
+    <p style="margin-top:0.5rem;"><span class="icon-mask icon-email icon-sm" style="margin-right:0.375rem;" aria-hidden="true"></span><a href="mailto:info@advaluehomeimprovement.com">info@advaluehomeimprovement.com</a></p>
   </div>
 </nav>
 
@@ -119,10 +183,169 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__phone:hover { color: var(--color-green); }
-  .header__phone-icon { font-size: 0.875rem; }
 
   @media (min-width: 1024px) {
     .header__phone { display: flex; }
+  }
+
+  /* ---- Desktop dropdown ---- */
+  .header__nav-item--dropdown {
+    position: relative;
+  }
+
+  .header__nav-link--dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-navy);
+    padding: var(--sp-6) var(--sp-3);
+    transition: color var(--transition);
+  }
+
+  .header__nav-link--dropdown-trigger:hover,
+  .header__nav-item--dropdown:hover .header__nav-link--dropdown-trigger,
+  .header__nav-link--dropdown-trigger[aria-expanded="true"] {
+    color: var(--color-green);
+  }
+
+  .header__dropdown-chevron {
+    transition: transform var(--transition);
+    flex-shrink: 0;
+    color: currentColor;
+  }
+
+  .header__nav-item--dropdown:hover .header__dropdown-chevron,
+  .header__nav-link--dropdown-trigger[aria-expanded="true"] .header__dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Invisible bridge fills the gap so cursor doesn't leave the li */
+  .header__dropdown::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+  }
+
+  .header__dropdown {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--sp-3) 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
+    transform: translateX(-50%) translateY(-6px);
+    z-index: 200;
+  }
+
+  .header__nav-item--dropdown:hover .header__dropdown,
+  .header__nav-item--dropdown:focus-within .header__dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .header__dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__dropdown-link {
+    display: block;
+    padding: var(--sp-2) var(--sp-5);
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-navy);
+    transition: background-color var(--transition), color var(--transition);
+    white-space: nowrap;
+  }
+
+  .header__dropdown-link:hover {
+    background-color: var(--color-sand);
+    color: var(--color-green);
+  }
+
+  .header__dropdown-footer {
+    display: block;
+    padding: var(--sp-2) var(--sp-5);
+    margin-top: var(--sp-2);
+    border-top: 1px solid var(--color-gray-200);
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    color: var(--color-green);
+    transition: color var(--transition);
+  }
+
+  .header__dropdown-footer:hover {
+    color: var(--color-green-dark);
+  }
+
+  /* ---- Mobile accordion ---- */
+  .mobile-nav__accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    text-align: left;
+  }
+
+  .mobile-nav__accordion-chevron {
+    flex-shrink: 0;
+    transition: transform var(--transition);
+    color: currentColor;
+  }
+
+  .mobile-nav__accordion-trigger[aria-expanded="true"] .mobile-nav__accordion-chevron {
+    transform: rotate(180deg);
+  }
+
+  .mobile-nav__sub {
+    list-style: none;
+    margin: 0;
+    padding: var(--sp-2) 0 var(--sp-3) var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+
+  .mobile-nav__sub-link {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    color: rgba(255,255,255,0.75);
+    padding: var(--sp-2) var(--sp-2);
+    transition: color var(--transition);
+  }
+
+  .mobile-nav__sub-link:hover {
+    color: var(--color-brown-light);
+  }
+
+  .mobile-nav__sub-link--all {
+    color: var(--color-green-light);
+    margin-top: var(--sp-1);
   }
 </style>
 
@@ -154,11 +377,25 @@ const currentPath = Astro.url.pathname;
 
   closeBtn?.addEventListener('click', closeNav);
 
-  mobileNav?.querySelectorAll('.mobile-nav__link, .mobile-nav__cta').forEach((link) => {
+  mobileNav?.querySelectorAll('.mobile-nav__link:not(.mobile-nav__accordion-trigger), .mobile-nav__cta, .mobile-nav__sub-link').forEach((link) => {
     link.addEventListener('click', closeNav);
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeNav();
+  });
+
+  // Mobile accordion
+  const accordionTrigger = mobileNav?.querySelector('.mobile-nav__accordion-trigger') as HTMLButtonElement;
+  const accordionSub     = mobileNav?.querySelector('.mobile-nav__sub') as HTMLElement;
+
+  accordionTrigger?.addEventListener('click', () => {
+    const expanded = accordionTrigger.getAttribute('aria-expanded') === 'true';
+    accordionTrigger.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) {
+      accordionSub.hidden = true;
+    } else {
+      accordionSub.hidden = false;
+    }
   });
 </script>

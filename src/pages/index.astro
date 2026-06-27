@@ -62,7 +62,7 @@ const outcomes = [
     <div class="container trust-bar__inner">
       {stats.map(({ number, label }, i) => (
         <>
-          <div class="trust-bar__stat">
+          <div class="trust-bar__stat" data-motion={`motion-preset-fade-md motion-duration-700${i > 0 ? ` motion-delay-${i === 1 ? '150' : i === 2 ? '300' : '500'}` : ''}`}>
             <span class="trust-bar__number">{number}</span>
             <span class="trust-bar__label">{label}</span>
           </div>
@@ -75,7 +75,7 @@ const outcomes = [
   <!-- Services -->
   <section class="section" aria-labelledby="services-heading">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header" data-motion="motion-preset-slide-up-sm motion-duration-700">
         <span class="section__eyebrow">What We Do</span>
         <h2 id="services-heading" class="section__title">Expert Home Improvement Services</h2>
         <p class="section__subtitle">
@@ -88,7 +88,6 @@ const outcomes = [
             title={service.title}
             description={service.description}
             items={service.items}
-            icon={service.icon}
             href={service.href}
           />
         ))}
@@ -102,7 +101,7 @@ const outcomes = [
   <!-- About Preview -->
   <section class="section section--sand" aria-labelledby="about-heading">
     <div class="container about-preview">
-      <div class="about-preview__content">
+      <div class="about-preview__content" data-motion="motion-preset-slide-up-sm motion-duration-700">
         <span class="section__eyebrow">Meet the Owner</span>
         <h2 id="about-heading" class="section__title">Built on Aloha &amp; Craftsmanship</h2>
         <blockquote class="about-preview__quote">
@@ -115,7 +114,6 @@ const outcomes = [
           craftsmanship, and aloha. Every project, big or small, gets my personal attention.
         </p>
         <div class="about-preview__signature">
-          <span class="about-preview__sig-line" aria-hidden="true"></span>
           <div>
             <p class="about-preview__sig-name">Adam Marchacos</p>
             <p class="about-preview__sig-title">Owner, Ad Value Home Improvement</p>
@@ -125,17 +123,16 @@ const outcomes = [
           <a href="/about" class="btn btn--secondary">Meet Adam →</a>
         </div>
       </div>
-      <div class="about-preview__image">
+      <div class="about-preview__image" data-motion="motion-preset-slide-up-sm motion-duration-700 motion-delay-150">
         <div class="about-preview__photo-frame">
           <img
-            src="/images/placeholder-person.svg"
+            src="/images/adam-marchacos.jpg"
             alt="Adam Marchacos, owner of Ad Value Home Improvement"
             width="400"
             height="533"
             loading="lazy"
           />
         </div>
-        <div class="about-preview__photo-accent" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -143,7 +140,7 @@ const outcomes = [
   <!-- Outcomes -->
   <section class="section" aria-labelledby="outcomes-heading">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header" data-motion="motion-preset-slide-up-sm motion-duration-700">
         <span class="section__eyebrow">Our Approach</span>
         <h2 id="outcomes-heading" class="section__title">Every Project Has a Purpose</h2>
         <p class="section__subtitle">
@@ -151,10 +148,13 @@ const outcomes = [
         </p>
       </div>
       <div class="outcomes">
-        {outcomes.map(({ id, icon, title, color, items }) => (
-          <div class={`outcome-card outcome-card--${color}`}>
+        {outcomes.map(({ id, icon, title, color, items }, i) => (
+          <div
+            class={`outcome-card outcome-card--${color}`}
+            data-motion={`motion-preset-slide-up-sm motion-duration-500${i > 0 ? ` motion-delay-${i === 1 ? '150' : i === 2 ? '300' : '500'}` : ''}`}
+          >
             <div class="outcome-card__header">
-              <span class="outcome-card__icon" aria-hidden="true">{icon}</span>
+              {/* <span class="outcome-card__icon" aria-hidden="true">{icon}</span> */}
               <h3 class="outcome-card__title">{title}</h3>
             </div>
             <div class="outcome-card__body">
@@ -173,14 +173,14 @@ const outcomes = [
   <!-- Gallery Preview -->
   <section class="section section--off-white" aria-labelledby="gallery-heading">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header" data-motion="motion-preset-slide-up-sm motion-duration-700">
         <span class="section__eyebrow">Our Work</span>
         <h2 id="gallery-heading" class="section__title">Recent Projects</h2>
         <p class="section__subtitle">Real projects on Kauai. Real results.</p>
       </div>
       <div class="gallery-grid__items" style="margin-bottom:3rem;">
         {featuredGallery.map(({ title, category, image, description }) => (
-          <div class="gallery-grid__item">
+          <div class="gallery-grid__item" data-motion="motion-preset-slide-up-sm motion-duration-500">
             <div class="gallery-grid__image-wrap">
               <img
                 src={image}
@@ -207,7 +207,7 @@ const outcomes = [
   <!-- Reviews -->
   <section class="section section--sand" aria-labelledby="reviews-heading">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header" data-motion="motion-preset-slide-up-sm motion-duration-700">
         <span class="section__eyebrow">What Clients Say</span>
         <h2 id="reviews-heading" class="section__title">Trusted by Kauai Homeowners</h2>
         <p class="section__subtitle">
@@ -234,7 +234,7 @@ const outcomes = [
   <!-- Aloha Home Care Plan -->
   <section class="section" aria-labelledby="care-plan-heading">
     <div class="container">
-      <div class="care-plan">
+      <div class="care-plan" data-motion="motion-preset-fade-md motion-duration-700">
         <p class="care-plan__eyebrow">New: Recurring Service</p>
         <h2 id="care-plan-heading" class="care-plan__title">
           The Aloha Home Care Plan

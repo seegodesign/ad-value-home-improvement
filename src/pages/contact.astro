@@ -54,7 +54,7 @@ const carePlans = [
           </h2>
 
           <div class="contact-info__item">
-            <div class="contact-info__item-icon" aria-hidden="true">📞</div>
+            <div class="contact-info__item-icon" aria-hidden="true"><span class="icon-mask icon-phone icon-md"></span></div>
             <div class="contact-info__item-content">
               <p class="contact-info__item-label">Phone</p>
               <p class="contact-info__item-value">
@@ -64,7 +64,7 @@ const carePlans = [
           </div>
 
           <div class="contact-info__item">
-            <div class="contact-info__item-icon" aria-hidden="true">✉</div>
+            <div class="contact-info__item-icon" aria-hidden="true"><span class="icon-mask icon-email icon-md"></span></div>
             <div class="contact-info__item-content">
               <p class="contact-info__item-label">Email</p>
               <p class="contact-info__item-value">
@@ -74,7 +74,7 @@ const carePlans = [
           </div>
 
           <div class="contact-info__item">
-            <div class="contact-info__item-icon" aria-hidden="true">📍</div>
+            <div class="contact-info__item-icon" aria-hidden="true"><span class="icon-mask icon-location icon-md"></span></div>
             <div class="contact-info__item-content">
               <p class="contact-info__item-label">Location</p>
               <p class="contact-info__item-value">Lihue, Kauai, Hawaii 96766</p>
@@ -82,7 +82,7 @@ const carePlans = [
           </div>
 
           <div class="contact-info__item">
-            <div class="contact-info__item-icon" aria-hidden="true">🕐</div>
+            <div class="contact-info__item-icon" aria-hidden="true"><span class="icon-mask icon-clock icon-md"></span></div>
             <div class="contact-info__item-content">
               <p class="contact-info__item-label">Business Hours</p>
               <p class="contact-info__item-value">{settings.hours.weekdays}</p>
@@ -190,7 +190,7 @@ const carePlans = [
           <div style="display:flex;flex-direction:column;gap:0.875rem;">
             {careIncludes.map((item) => (
               <div style="display:flex;align-items:flex-start;gap:0.875rem;padding:0.875rem;background:white;border-radius:var(--radius);border:1px solid var(--color-gray-200);">
-                <span style="color:var(--color-green);font-weight:700;flex-shrink:0;font-size:1.1rem;">✓</span>
+                <span class="icon-mask icon-check" style="width:18px;height:18px;color:var(--color-green);flex-shrink:0;"></span>
                 <span style="font-size:0.9375rem;color:var(--color-text-muted);">{item}</span>
               </div>
             ))}

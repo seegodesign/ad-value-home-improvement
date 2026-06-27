@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 ---
 
-<article class="review-card" aria-label={`Review by ${name}`}>
+<article class="review-card" aria-label={`Review by ${name}`} data-motion="motion-preset-slide-up-sm motion-duration-500">
   <div class="review-card__stars" aria-label={`${stars} out of 5 stars`}>
     {Array.from({ length: stars }).map(() => <span aria-hidden="true">★</span>)}
   </div>

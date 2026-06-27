@@ -1,74 +1,182 @@
 [
   {
-    "title": "Trex Deck Before & After",
-    "category": "Before & After",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Complete Trex composite deck replacement in Kapaa — before and after transformation."
-  },
-  {
-    "title": "Master Bathroom Renovation",
-    "category": "Bathrooms",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Full bathroom remodel with custom tile, walk-in shower, and double vanity in Poipu."
-  },
-  {
-    "title": "Modern Kitchen Remodel",
-    "category": "Kitchens",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Kitchen update with new cabinets, quartz countertops, and subway tile backsplash in Princeville."
-  },
-  {
-    "title": "Cedar Privacy Fence",
+    "title": "Fence",
     "category": "Fences",
-    "image": "/images/placeholder-gallery.svg",
+    "image": "/images/uploads/fence_0503.avif",
     "description": "6-foot cedar privacy fence with custom gate in Lihue."
   },
   {
-    "title": "Ipe Hardwood Deck",
-    "category": "Decks",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Custom ipe deck with built-in planters and cable railings overlooking the garden."
-  },
-  {
-    "title": "Covered Lanai",
-    "category": "Outdoor Spaces",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "New covered lanai with ceiling fan, recessed lighting, and outdoor kitchen rough-in."
-  },
-  {
-    "title": "Water Damage Drywall Repair",
-    "category": "Repairs",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Seamless drywall repair and texture matching after roof leak damage in Kapaa."
-  },
-  {
-    "title": "Hog Wire Fence",
+    "title": "Fence",
     "category": "Fences",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Modern hog wire fence with cedar posts and custom gate for a contemporary look."
+    "image": "/images/uploads/fence_0616.avif",
+    "description": ""
   },
   {
-    "title": "Bathroom Before & After",
-    "category": "Before & After",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Dated bathroom transformed with new tile, vanity, and fixtures — dramatic before/after."
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_0736.avif",
+    "description": ""
   },
   {
-    "title": "Composite Deck with Stairs",
-    "category": "Decks",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Multi-level Trex deck with wide staircase and built-in seating wall."
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_0757.avif",
+    "description": ""
   },
   {
-    "title": "Outdoor Shower",
-    "category": "Outdoor Spaces",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Custom outdoor shower with ipe wood surround and privacy screen — perfect for Kauai."
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_0759.avif",
+    "description": ""
   },
   {
-    "title": "Deck Rot Repair",
-    "category": "Repairs",
-    "image": "/images/placeholder-gallery.svg",
-    "description": "Structural rot repair and deck board replacement — restored to better than new condition."
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_0896.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_0899.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_0903.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_0904.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_1354.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_1356.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_1357.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_1397.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_1552.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_1555.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_1715.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2273.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2275.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2278.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2508.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2509.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2510.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2523.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2524.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2536.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2641.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2849.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2884.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2895.avif",
+    "description": ""
+  },
+  {
+    "title": "Fence",
+    "category": "Fences",
+    "image": "/images/uploads/fence_2956.avif",
+    "description": ""
   }
 ]

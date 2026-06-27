@@ -3,12 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
 
 const values = [
-  { icon: '🤝', title: 'Honest Communication', desc: 'No surprises, no runaround. I answer my own phone and give you straight answers from start to finish.' },
-  { icon: '🔨', title: 'Skilled Craftsmanship', desc: "Building in Hawaii's climate requires real expertise. Every material choice and technique is selected for longevity." },
-  { icon: '📅', title: 'We Show Up', desc: "When we commit to a date, we're there. Respecting your time is a core part of how we operate." },
-  { icon: '🌺', title: 'Aloha Values', desc: 'As a Kauai family, we treat your home like our own. This community deserves contractors who care.' },
-  { icon: '🏅', title: 'Licensed & Insured', desc: "Fully licensed and insured for your peace of mind. We do things right, not just fast." },
-  { icon: '💬', title: 'Local & Accountable', desc: "We live here. We're not a mainland company that'll disappear. Our reputation is everything." },
+  { icon: 'hand-raised', title: 'Honest Communication', desc: 'No surprises, no runaround. I answer my own phone and give you straight answers from start to finish.' },
+  { icon: 'wrench-screwdriver', title: 'Skilled Craftsmanship', desc: "Building in Hawaii's climate requires real expertise. Every material choice and technique is selected for longevity." },
+  { icon: 'calendar-days', title: 'We Show Up', desc: "When we commit to a date, we're there. Respecting your time is a core part of how we operate." },
+  { icon: 'sparkles', title: 'Aloha Values', desc: 'As a Kauai family, we treat your home like our own. This community deserves contractors who care.' },
+  { icon: 'badge-check', title: 'Licensed & Insured', desc: "Fully licensed and insured for your peace of mind. We do things right, not just fast." },
+  { icon: 'chat-bubble-left-right', title: 'Local & Accountable', desc: "We live here. We're not a mainland company that'll disappear. Our reputation is everything." },
 ];
 ---
 
@@ -39,7 +39,7 @@ const values = [
       <div class="about-preview__image">
         <div class="about-preview__photo-frame">
           <img
-            src="/images/placeholder-person.svg"
+            src="/images/adam-marchacos.jpg"
             alt="Adam Marchacos, owner of Ad Value Home Improvement"
             width="420"
             height="560"
@@ -73,7 +73,6 @@ const values = [
         </p>
 
         <div class="about-preview__signature">
-          <span class="about-preview__sig-line" aria-hidden="true"></span>
           <div>
             <p class="about-preview__sig-name">Adam Marchacos</p>
             <p class="about-preview__sig-title">Owner, Ad Value Home Improvement · Kauai</p>
@@ -101,7 +100,9 @@ const values = [
       <div class="grid grid--3">
         {values.map(({ icon, title, desc }) => (
           <div style="background:white;border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-sm);border:1px solid var(--color-gray-200);">
-            <div style="font-size:2rem;margin-bottom:1rem;" aria-hidden="true">{icon}</div>
+            <div style="width:44px;height:44px;background:var(--color-sand);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;" aria-hidden="true">
+              <span class="icon-mask" style={`-webkit-mask-image:url('/icons/${icon}.svg');mask-image:url('/icons/${icon}.svg');width:24px;height:24px;color:var(--color-navy);`}></span>
+            </div>
             <h3 style="font-size:1.125rem;color:var(--color-navy);margin-bottom:0.75rem;">{title}</h3>
             <p style="font-size:0.9375rem;color:var(--color-text-muted);line-height:1.7;margin:0;">{desc}</p>
           </div>

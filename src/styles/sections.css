@@ -28,15 +28,17 @@
   background-color: var(--color-green);
 }
 
-.cta-section--sand {
+.cta-section--wood {
   background-color: var(--color-sand);
   color: var(--color-text);
+  border-top: 3px solid var(--color-brown);
+  border-bottom: 3px solid var(--color-brown);
 }
 
 .cta-section--sand::after { display: none; }
 
-.cta-section--sand h2,
-.cta-section--sand h3 { color: var(--color-navy); }
+.cta-section--wood h2,
+.cta-section--wood h3 { color: var(--color-navy); }
 
 .cta-section__inner {
   position: relative;
@@ -67,7 +69,7 @@
   margin-inline: auto;
 }
 
-.cta-section--sand .cta-section__title { color: var(--color-navy); }
+.cta-section--wood .cta-section__title { color: var(--color-navy); }
 
 .cta-section__subtitle {
   font-size: var(--fs-lg);
@@ -78,7 +80,7 @@
   line-height: var(--lh-relaxed);
 }
 
-.cta-section--sand .cta-section__subtitle { color: var(--color-text-muted); }
+.cta-section--wood .cta-section__subtitle { color: var(--color-text-muted); }
 
 .cta-section__actions {
   display: flex;
@@ -90,7 +92,7 @@
 .cta-section__note {
   font-size: var(--fs-sm);
   color: rgba(255,255,255,0.6);
-  margin-top: var(--sp-2);
+  margin-top: var(--sp-12);
 }
 
 /* ---- Page Hero (inner pages) ---- */
@@ -209,17 +211,12 @@
   gap: var(--sp-4);
 }
 
-.about-preview__sig-line {
-  width: 48px;
-  height: 2px;
-  background-color: var(--color-brown);
-}
-
 .about-preview__sig-name {
   font-family: var(--font-heading);
   font-size: var(--fs-base);
   font-weight: var(--fw-bold);
   color: var(--color-navy);
+  margin-bottom: 2px;
 }
 
 .about-preview__sig-title {
@@ -229,6 +226,8 @@
 
 .about-preview__image {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .about-preview__photo-frame {
@@ -237,6 +236,7 @@
   overflow: hidden;
   aspect-ratio: 3/4;
   background-color: var(--color-sand);
+  width: 100%;
 }
 
 .about-preview__photo-frame img {

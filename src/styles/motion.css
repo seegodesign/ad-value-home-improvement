@@ -1,0 +1,8 @@
+/*
+  motion.css — tailwindcss-motion integration
+  Presets (motion-preset-*) live in the components layer.
+  Base/utilities (motion-duration-*, motion-delay-*, @keyframes) in base/utilities.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

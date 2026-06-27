@@ -32,7 +32,7 @@ const steps = [
   </section>
 
   <!-- Process Steps -->
-  <section class="section section--sand section--sm" aria-label="How the estimate process works">
+  <section class="section section--wood section--sm" aria-label="How the estimate process works">
     <div class="container">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;">
         {steps.map(({ n, title, desc }) => (
@@ -63,9 +63,9 @@ const steps = [
           <p style="color:rgba(255,255,255,0.8);font-size:0.9375rem;margin-bottom:1.25rem;">
             Adam answers his own phone. You'll always talk to the person doing the work.
           </p>
-          <a href="tel:+18085551234" class="btn btn--primary btn--full">📞 (808) 555-1234</a>
+          <a href="tel:+18085551234" class="btn btn--primary btn--full"><span class="icon-mask icon-phone icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> (808) 555-1234</a>
           <a href="mailto:info@advaluehomeimprovement.com" class="btn btn--outline-white btn--full" style="margin-top:0.75rem;">
-            ✉ Email Us
+            <span class="icon-mask icon-email icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> Email Us
           </a>
         </div>
 
@@ -74,7 +74,7 @@ const steps = [
           <ul style="display:flex;flex-direction:column;gap:0.625rem;">
             {['Your contact info', 'Project address', 'What you want done', 'Any photos if you have them', 'Rough timeline or urgency'].map((tip) => (
               <li style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:var(--color-text-muted);">
-                <span style="color:var(--color-green);font-weight:700;flex-shrink:0;">✓</span>
+                <span class="icon-mask icon-check" style="width:14px;height:14px;color:var(--color-green);flex-shrink:0;"></span>
                 {tip}
               </li>
             ))}

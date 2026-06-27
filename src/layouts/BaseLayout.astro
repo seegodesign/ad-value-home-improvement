@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/motion.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -146,5 +147,31 @@ const schemas = [
       <slot />
     </main>
     <Footer />
+    <script>
+      // Trigger motion-preset classes when elements enter the viewport
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              const classes = (el.dataset.motion || '').trim().split(/\s+/).filter(Boolean);
+              if (classes.length) {
+                // Remove inline hide before adding animation so the
+                // animation keyframes fully control opacity
+                el.style.opacity = '';
+                el.classList.add(...classes);
+              }
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('[data-motion]').forEach((el) => {
+        // Hide via inline style so CSS animations can cleanly override it
+        (el as HTMLElement).style.opacity = '0';
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>

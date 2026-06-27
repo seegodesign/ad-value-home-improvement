@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
 # ===========================================================
 # Sveltia CMS Configuration
 # Ad Value Home Improvement
@@ -5,20 +7,17 @@
 # This file lives at: public/admin/config.yml
 # CMS is accessible at: /admin/
 #
-# Backend requires Netlify Identity + Git Gateway,
-# OR use the local backend for development:
-#   local_backend: true  (and run: npx netlify-cms-proxy-server)
+# Sveltia supports GitHub/GitLab/Gitea-Forgejo backends.
+# This project uses GitHub.
 #
 # Docs: https://github.com/sveltia/sveltia-cms
 # Netlify CMS docs: https://www.netlifycms.org/docs/
 # ===========================================================
 
 backend:
-  name: git-gateway
+  name: github
+  repo: seegodesign/ad-value-home-improvement
   branch: main
-
-# Uncomment for local development:
-# local_backend: true
 
 # Media files (uploaded images)
 media_folder: "public/images/uploads"
@@ -127,22 +126,29 @@ collections:
   - name: services
     label: "Services"
     description: "Manage service cards shown on the website"
-    file: "src/data/services.json"
     label_singular: "Service"
-    widget: list
-    fields:
-      - { label: "ID (no spaces)", name: id, widget: string }
-      - { label: "Service Title", name: title, widget: string }
-      - { label: "Short Description", name: description, widget: text }
-      - label: "Icon"
-        name: icon
-        widget: image
-        required: false
-      - { label: "Link (href)", name: href, widget: string }
-      - label: "Service Items"
-        name: items
-        widget: list
-        field: { label: "Item", name: item, widget: string }
+    files:
+      - name: services_list
+        label: "Services List"
+        file: "src/data/services.json"
+        fields:
+          - label: "Services"
+            name: services
+            widget: list
+            root: true
+            fields:
+              - { label: "ID (no spaces)", name: id, widget: string }
+              - { label: "Service Title", name: title, widget: string }
+              - { label: "Short Description", name: description, widget: text }
+              - label: "Icon"
+                name: icon
+                widget: image
+                required: false
+              - { label: "Link (href)", name: href, widget: string }
+              - label: "Service Items"
+                name: items
+                widget: list
+                field: { label: "Item", name: item, widget: string }
 
   # -----------------------------------------------------------
   # GALLERY
@@ -150,27 +156,34 @@ collections:
   - name: gallery
     label: "Gallery"
     description: "Add and edit project photos"
-    file: "src/data/gallery.json"
     label_singular: "Gallery Item"
-    widget: list
-    fields:
-      - { label: "Project Title", name: title, widget: string }
-      - label: "Category"
-        name: category
-        widget: select
-        options:
-          - "Before & After"
-          - "Decks"
-          - "Bathrooms"
-          - "Kitchens"
-          - "Fences"
-          - "Outdoor Spaces"
-          - "Repairs"
-          - "Carpentry"
-      - label: "Project Photo"
-        name: image
-        widget: image
-      - { label: "Description", name: description, widget: text, required: false }
+    files:
+      - name: gallery_list
+        label: "Gallery Items"
+        file: "src/data/gallery.json"
+        fields:
+          - label: "Gallery"
+            name: gallery
+            widget: list
+            root: true
+            fields:
+              - { label: "Project Title", name: title, widget: string }
+              - label: "Category"
+                name: category
+                widget: select
+                options:
+                  - "Before & After"
+                  - "Decks"
+                  - "Bathrooms"
+                  - "Kitchens"
+                  - "Fences"
+                  - "Outdoor Spaces"
+                  - "Repairs"
+                  - "Carpentry"
+              - label: "Project Photo"
+                name: image
+                widget: image
+              - { label: "Description", name: description, widget: text, required: false }
 
   # -----------------------------------------------------------
   # REVIEWS
@@ -178,24 +191,31 @@ collections:
   - name: reviews
     label: "Client Reviews"
     description: "Add and manage client testimonials"
-    file: "src/data/reviews.json"
     label_singular: "Review"
-    widget: list
-    fields:
-      - { label: "Client Name", name: name, widget: string }
-      - { label: "Neighborhood", name: neighborhood, widget: string }
-      - label: "Star Rating"
-        name: stars
-        widget: number
-        default: 5
-        min: 1
-        max: 5
-      - { label: "Review Text", name: text, widget: text }
-      - label: "Client Photo"
-        name: photo
-        widget: image
-        required: false
-        default: "/images/placeholder-person.svg"
+    files:
+      - name: reviews_list
+        label: "Reviews List"
+        file: "src/data/reviews.json"
+        fields:
+          - label: "Reviews"
+            name: reviews
+            widget: list
+            root: true
+            fields:
+              - { label: "Client Name", name: name, widget: string }
+              - { label: "Neighborhood", name: neighborhood, widget: string }
+              - label: "Star Rating"
+                name: stars
+                widget: number
+                default: 5
+                min: 1
+                max: 5
+              - { label: "Review Text", name: text, widget: text }
+              - label: "Client Photo"
+                name: photo
+                widget: image
+                required: false
+                default: "/images/placeholder-person.svg"
 
   # -----------------------------------------------------------
   # SEO LANDING PAGES

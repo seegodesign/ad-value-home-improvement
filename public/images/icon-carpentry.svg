@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-  <!-- Hammer handle -->
-  <rect x="14" y="12" width="3" height="14" rx="1.5" transform="rotate(-40 14 12)" fill="#B9854D"/>
-  <!-- Hammer head -->
-  <rect x="4" y="3" width="12" height="7" rx="2" fill="#0B2F56"/>
-  <rect x="4" y="3" width="5" height="7" rx="2" fill="#5A8F29"/>
-</svg>

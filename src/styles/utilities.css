@@ -2,6 +2,34 @@
    UTILITIES — Helper classes + Responsive breakpoints
    ============================================================ */
 
+/* ---- Icon utility (CSS mask — inherits currentColor, uses external SVG files) ---- */
+
+.icon-mask {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Named icons */
+.icon-phone    { -webkit-mask-image: url('/icons/phone.svg');                mask-image: url('/icons/phone.svg'); }
+.icon-email    { -webkit-mask-image: url('/icons/envelope.svg');             mask-image: url('/icons/envelope.svg'); }
+.icon-location { -webkit-mask-image: url('/icons/map-pin.svg');              mask-image: url('/icons/map-pin.svg'); }
+.icon-clock    { -webkit-mask-image: url('/icons/clock.svg');                mask-image: url('/icons/clock.svg'); }
+.icon-check    { -webkit-mask-image: url('/icons/check.svg');                mask-image: url('/icons/check.svg'); }
+
+/* Sizes */
+.icon-sm  { width: 16px; height: 16px; }
+.icon-md  { width: 20px; height: 20px; }
+.icon-lg  { width: 24px; height: 24px; }
+.icon-xl  { width: 28px; height: 28px; }
+
 /* ---- Helpers ---- */
 
 .sr-only {
@@ -72,7 +100,7 @@
 
   .hero__inner { grid-template-columns: 2fr 1fr; }
 
-  .about-preview { grid-template-columns: 1fr 1fr; }
+  .about-preview { grid-template-columns: 1fr 2fr; }
   .about-preview__image { order: -1; }
 
   .grid--2 { grid-template-columns: repeat(2, 1fr); }

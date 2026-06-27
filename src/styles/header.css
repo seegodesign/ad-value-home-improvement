@@ -46,8 +46,7 @@
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   color: var(--color-navy);
-  padding: var(--sp-2) var(--sp-3);
-  border-radius: var(--radius-sm);
+  padding: var(--sp-6) var(--sp-3);
   transition: color var(--transition), background-color var(--transition);
   white-space: nowrap;
 }
@@ -55,7 +54,7 @@
 .header__nav-link:hover,
 .header__nav-link--active {
   color: var(--color-green);
-  background-color: rgba(90,143,41,0.08);
+  border-bottom: 2px solid var(--color-green);
 }
 
 .header__actions {
