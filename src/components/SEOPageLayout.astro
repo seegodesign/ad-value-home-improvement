@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from './CTASection.astro';
+import settings from '../data/settings.json';
 
 interface Highlight {
   icon: string;
@@ -15,6 +16,7 @@ interface Props {
   eyebrow: string;
   pageTitle: string;
   subtitle: string;
+  introTitle: string;
   intro: string;
   highlights: Highlight[];
   serviceItems?: string[];
@@ -30,6 +32,7 @@ const {
   eyebrow,
   pageTitle,
   subtitle,
+  introTitle,
   intro,
   highlights,
   serviceItems = [],
@@ -37,6 +40,7 @@ const {
   imageAlt = 'Home improvement project on Kauai',
   schema,
 } = Astro.props;
+const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription} schema={schema}>
@@ -51,7 +55,6 @@ const {
       <p class="page-hero__eyebrow">{eyebrow}</p>
       <h1 class="page-hero__title">{pageTitle}</h1>
       <p class="page-hero__subtitle">{subtitle}</p>
-      <div class="page-hero__accent-bar" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -59,7 +62,7 @@ const {
   <section class="section">
     <div class="container seo-page__intro">
       <div class="seo-page__content">
-        <span class="accent-bar" aria-hidden="true"></span>
+        <h2 class="seo-page__intro-title">{introTitle}</h2>
         <p style="font-size:1.1rem;line-height:1.75;margin-bottom:2rem;color:var(--color-text-muted);">
           {intro}
         </p>
@@ -109,10 +112,24 @@ const {
           <h2 class="section__title">Our {title} Services</h2>
         </div>
         <div class="grid grid--3">
-          {serviceItems.map((item) => (
-            <div style="display:flex;align-items:center;gap:0.75rem;background:white;padding:1rem 1.25rem;border-radius:var(--radius);box-shadow:var(--shadow-xs);border:1px solid var(--color-gray-200);">
-              <span class="icon-mask icon-check" style="width:16px;height:16px;color:var(--color-green);flex-shrink:0;"></span>
-              <span style="font-size:0.9375rem;font-weight:500;color:var(--color-text);">{item}</span>
+          {serviceItems.map((item, index) => (
+            <div
+              class="seo-service-item"
+              style={`--service-delay:${index * 120}ms;`}
+              data-motion="motion-preset-slide-up-sm motion-duration-500"
+            >
+              <span class="seo-service-item__icon" aria-hidden="true">
+                <span class="icon-mask icon-check seo-service-item__icon-base"></span>
+                <span class="seo-service-item__icon-fill-wrap">
+                  <span class="icon-mask icon-check seo-service-item__icon-fill"></span>
+                </span>
+              </span>
+              <span class="seo-service-item__label">
+                <span class="seo-service-item__text seo-service-item__text--base">{item}</span>
+                <span class="seo-service-item__text-fill-wrap" aria-hidden="true">
+                  <span class="seo-service-item__text seo-service-item__text--fill">{item}</span>
+                </span>
+              </span>
             </div>
           ))}
         </div>
@@ -122,7 +139,7 @@ const {
 
   <!-- Why Choose Us -->
   <section class="section">
-    <div class="container" style="max-width:760px;">
+    <div class="container" style="max-width:var(--max-width);">
       <div class="section__header">
         <span class="section__eyebrow">Why Ad Value</span>
         <h2 class="section__title">Why Kauai Homeowners Trust Us</h2>
@@ -131,14 +148,13 @@ const {
         {[
           { icon: 'hand-raised', title: 'Honest Communication', desc: 'Adam answers his own phone and communicates clearly from estimate to completion.' },
           { icon: 'wrench-screwdriver', title: 'Quality Craftsmanship', desc: 'Every project is built to last Hawaii\'s climate — humid, salty, and demanding.' },
-          { icon: 'calendar-days', title: 'We Show Up', desc: 'We respect your time. When we say we\'ll be there, we\'re there.' },
-          { icon: 'globe-alt', title: 'Local & Licensed', desc: 'Kauai-based since 2019. Licensed, insured, and proud to serve this community.' },
+          { icon: 'calendar-days', title: 'We Show Up', desc: 'We respect your time. When we say we\'ll be there, we\'re there.' }
         ].map(({ icon, title: wtitle, desc }) => (
           <div style="display:flex;gap:1.25rem;align-items:flex-start;padding:1.5rem;background:var(--color-off-white);border-radius:var(--radius-lg);border:1px solid var(--color-gray-200);">
             <span class="icon-mask" style={`-webkit-mask-image:url('/icons/${icon}.svg');mask-image:url('/icons/${icon}.svg');width:28px;height:28px;color:var(--color-navy);flex-shrink:0;`} aria-hidden="true"></span>
             <div>
-              <h4 style="font-family:var(--font-heading);font-size:1rem;font-weight:700;color:var(--color-navy);margin-bottom:0.375rem;">{wtitle}</h4>
-              <p style="font-size:0.9375rem;color:var(--color-text-muted);margin:0;">{desc}</p>
+              <h4 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--color-navy);margin-bottom:0.375rem;">{wtitle}</h4>
+              <p style="color:var(--color-text-muted);margin:0;">{desc}</p>
             </div>
           </div>
         ))}
@@ -151,8 +167,8 @@ const {
     title="Get a Free Estimate Today"
     subtitle="No pressure. No obligation. Just an honest conversation about your project."
     primaryLabel="Request a Free Estimate"
-    secondaryLabel="(808) 555-1234"
-    secondaryHref="tel:+18085551234"
+    secondaryLabel={settings.phone}
+    secondaryHref={phoneHref}
     note="★★★★★ Trusted by Kauai homeowners since 2019"
   />
 </BaseLayout>

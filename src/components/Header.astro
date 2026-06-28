@@ -1,5 +1,6 @@
 ---
 import services from '../data/services.json';
+import settings from '../data/settings.json';
 
 const navLinks = [
   { label: 'Home',     href: '/' },
@@ -10,6 +11,7 @@ const navLinks = [
 ];
 
 const currentPath = Astro.url.pathname;
+const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
 ---
 
 <header class="header" role="banner">
@@ -80,9 +82,9 @@ const currentPath = Astro.url.pathname;
 
     <!-- Desktop CTA -->
     <div class="header__actions">
-      <a href="tel:+18085551234" class="header__phone" aria-label="Call us">
+      <a href={phoneHref} class="header__phone" aria-label="Call us">
         <span class="icon-mask icon-phone icon-sm" aria-hidden="true"></span>
-        <span>(808) 555-1234</span>
+        <span>{settings.phone}</span>
       </a>
       <a href="/estimate" class="btn btn--primary btn--sm">Request Estimate</a>
     </div>
@@ -165,8 +167,8 @@ const currentPath = Astro.url.pathname;
   </a>
 
   <div class="mobile-nav__contact">
-    <p><span class="icon-mask icon-phone icon-sm" style="margin-right:0.375rem;" aria-hidden="true"></span><a href="tel:+18085551234">(808) 555-1234</a></p>
-    <p style="margin-top:0.5rem;"><span class="icon-mask icon-email icon-sm" style="margin-right:0.375rem;" aria-hidden="true"></span><a href="mailto:info@advaluehomeimprovement.com">info@advaluehomeimprovement.com</a></p>
+    <p><span class="icon-mask icon-phone icon-sm" style="margin-right:0.375rem;" aria-hidden="true"></span><a href={phoneHref}>{settings.phone}</a></p>
+    <p style="margin-top:0.5rem;"><span class="icon-mask icon-email icon-sm" style="margin-right:0.375rem;" aria-hidden="true"></span><a href="mailto:info@advaluekauai.com">info@advaluekauai.com</a></p>
   </div>
 </nav>
 
@@ -243,7 +245,8 @@ const currentPath = Astro.url.pathname;
     width: 240px;
     background: var(--color-white);
     border: 1px solid var(--color-gray-200);
-    border-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     padding: var(--sp-3) 0;
     opacity: 0;
@@ -280,8 +283,8 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__dropdown-link:hover {
-    background-color: var(--color-sand);
-    color: var(--color-green);
+    background-color: var(--color-green-light);
+    color: white;
   }
 
   .header__dropdown-footer {

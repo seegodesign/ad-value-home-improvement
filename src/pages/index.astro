@@ -6,16 +6,29 @@ import ReviewCard from '../components/ReviewCard.astro';
 import CTASection from '../components/CTASection.astro';
 import services from '../data/services.json';
 import reviews from '../data/reviews.json';
-import gallery from '../data/gallery.json';
+import galleryFences from '../data/gallery-fences.json';
+import galleryDecksRailings from '../data/gallery-decks-railings.json';
+import settings from '../data/settings.json';
 
 const featuredReviews = reviews.slice(0, 3);
-const featuredGallery = gallery.slice(0, 6);
+const gallery = [...galleryFences, ...galleryDecksRailings];
+const featuredGallery = gallery.slice(0, 8);
+
+const serviceCardPhotos: Partial<Record<string, string>> = {
+  decks: '/images/seo/deck-builder.avif',
+  carpentry: '/images/seo/custom-carpentry.jpg',
+  kitchens: '/images/seo/kitchen-remodel.jpg',
+  bathrooms: '/images/seo/bathroom-remodel.jpg',
+  drywall: '/images/seo/drywall-repair.jpg',
+  fencing: '/images/seo/fence-contractor.avif',
+  maintenance: '/images/seo/property-maintenance.jpg',
+  outdoor: '/images/seo/outdoor-living.avif',
+};
 
 const stats = [
   { number: '6+',  label: 'Years Serving Kauai' },
-  { number: '250+',label: 'Projects Completed' },
-  { number: '5★',  label: 'Average Rating' },
-  { number: '100%',label: 'Licensed & Insured' },
+  { number: '50+',label: 'Projects Completed' },
+  { number: '5★',  label: 'Average Rating' }
 ];
 
 const outcomes = [
@@ -48,6 +61,8 @@ const outcomes = [
     items: ['Water Damage', 'Rot Repair', 'Drywall', 'Structural Repairs'],
   },
 ];
+
+const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
 ---
 
 <BaseLayout
@@ -88,6 +103,8 @@ const outcomes = [
             title={service.title}
             description={service.description}
             items={service.items}
+            imageSrc={serviceCardPhotos[service.id]}
+            imageAlt={service.title}
             href={service.href}
           />
         ))}
@@ -281,8 +298,8 @@ const outcomes = [
     title="Let's Talk About Your Project"
     subtitle="Get an honest estimate from Kauai's most trusted home improvement contractor. No obligation, no pressure — just great work."
     primaryLabel="Request a Free Estimate"
-    secondaryLabel="Call (808) 555-1234"
-    secondaryHref="tel:+18085551234"
+    secondaryLabel={`Call ${settings.phone}`}
+    secondaryHref={phoneHref}
     note="Trusted by homeowners across Kauai since 2019"
   />
 </BaseLayout>

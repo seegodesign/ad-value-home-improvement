@@ -24,10 +24,10 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 # Site URL (used for previews)
-site_url: https://advaluehomeimprovement.com
+site_url: https://advaluekauai.com
 
 # CMS display name
-display_url: https://advaluehomeimprovement.com
+display_url: https://advaluekauai.com
 
 # Slug options
 slug:
@@ -41,17 +41,16 @@ collections:
   # SITE SETTINGS
   # -----------------------------------------------------------
   - name: settings
-    label: "Site Settings"
-    description: "Global site settings — business info, contact, hours"
+    label: "Global Company Settings"
+    description: "Global company settings — business info, contact, hours"
     files:
       - name: general
-        label: "General Settings"
+        label: "Company Settings"
         file: "src/data/settings.json"
         fields:
           - { label: "Business Name", name: businessName, widget: string }
           - { label: "Tagline", name: tagline, widget: string }
-          - { label: "Phone (display)", name: phone, widget: string, hint: "e.g. (808) 555-1234" }
-          - { label: "Phone (raw, for tel: links)", name: phoneRaw, widget: string, hint: "e.g. +18085551234" }
+          - { label: "Phone Number", name: phone, widget: string, hint: "e.g. 808-977-2334" }
           - { label: "Email", name: email, widget: string }
           - label: "Address"
             name: address
@@ -72,7 +71,6 @@ collections:
             name: serviceAreas
             widget: list
             field: { label: "Area", name: area, widget: string }
-          - { label: "License Info", name: license, widget: string }
           - { label: "Founded Year", name: foundedYear, widget: string }
           - { label: "Owner Name", name: ownerName, widget: string }
 
@@ -155,12 +153,12 @@ collections:
   # -----------------------------------------------------------
   - name: gallery
     label: "Gallery"
-    description: "Add and edit project photos"
+    description: "Add and edit project photos by category"
     label_singular: "Gallery Item"
     files:
-      - name: gallery_list
-        label: "Gallery Items"
-        file: "src/data/gallery.json"
+      - name: fences_list
+        label: "Fences"
+        file: "src/data/gallery-fences.json"
         fields:
           - label: "Gallery"
             name: gallery
@@ -168,18 +166,23 @@ collections:
             root: true
             fields:
               - { label: "Project Title", name: title, widget: string }
-              - label: "Category"
-                name: category
-                widget: select
-                options:
-                  - "Before & After"
-                  - "Decks"
-                  - "Bathrooms"
-                  - "Kitchens"
-                  - "Fences"
-                  - "Outdoor Spaces"
-                  - "Repairs"
-                  - "Carpentry"
+              - { name: category, widget: hidden, default: "Fences" }
+              - label: "Project Photo"
+                name: image
+                widget: image
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: decks_railings_list
+        label: "Stairs, Decks & Railings"
+        file: "src/data/gallery-decks-railings.json"
+        fields:
+          - label: "Gallery"
+            name: gallery
+            widget: list
+            root: true
+            fields:
+              - { label: "Project Title", name: title, widget: string }
+              - { name: category, widget: hidden, default: "Stairs, Decks & Railings" }
               - label: "Project Photo"
                 name: image
                 widget: image

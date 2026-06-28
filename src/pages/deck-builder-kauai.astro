@@ -1,5 +1,8 @@
 ---
 import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -9,7 +12,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Ad Value Home Improvement',
-    telephone: '+18085551234',
+    telephone: phoneE164,
     areaServed: 'Kauai, Hawaii',
   },
   areaServed: { '@type': 'AdministrativeArea', name: 'Kauai, Hawaii' },
@@ -19,12 +22,15 @@ const schema = {
 
 <SEOPageLayout
   title="Deck Builder Kauai"
-  metaTitle="Deck Builder Kauai | Custom Decks & Railings | Ad Value Home Improvement"
-  metaDescription="Kauai's trusted deck builder. Custom Trex composite, ipe hardwood, and cedar decks. Railings, stairs, repairs. Free estimates. Licensed & insured. Serving all of Kauai."
+  metaTitle="Deck Builder Kauai | Custom Stairs, Decks & Railings | Ad Value Home Improvement"
+  metaDescription="Kauai's trusted stair & deck builder. Custom Trex composite, ipe hardwood, and cedar decks. Railings, stairs, repairs. Free estimates. Serving all of Kauai."
   eyebrow="Deck Building · Kauai, Hawaii"
-  pageTitle="Kauai's Trusted Deck Builder"
+  pageTitle="Kauai's Trusted Stair & Deck Builder"
   subtitle="Custom decks built to stand up to Hawaii's climate. Trex composite, ipe hardwood, repairs, and railings."
-  intro="A great deck transforms your outdoor living space — and on Kauai, you deserve one that's built to last. Ad Value Home Improvement designs and builds custom decks that can handle Hawaii's humidity, salt air, and UV exposure. From Trex composite to premium ipe hardwood, we'll help you choose the right material and design for your home."
+  imageSrc="/images/seo/deck-builder.avif"
+  imageAlt="Outdoor wood deck built for backyard living"
+  introTitle="Outdoor Spaces Built to Last"
+  intro="A great deck transforms your outdoor living space — and on Kauai, you deserve one that's built to last. Ad Value Home Improvement designs and builds custom stairs and decks that can handle Hawaii's humidity, salt air, and UV exposure. From Trex composite to premium ipe hardwood, we'll help you choose the right material and design for your home."
   highlights={[
     { icon: 'globe-alt', title: 'Built for Hawaii', description: 'Every material and fastener selected for Kauai\'s coastal climate and tropical weather.' },
     { icon: 'wrench-screwdriver', title: 'Master Craftsmen', description: 'Precision framing, level surfaces, and beautiful finishes that last for decades.' },

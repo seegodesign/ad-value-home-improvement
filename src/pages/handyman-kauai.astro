@@ -1,5 +1,8 @@
 ---
 import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -9,7 +12,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Ad Value Home Improvement',
-    telephone: '+18085551234',
+    telephone: phoneE164,
     areaServed: 'Kauai, Hawaii',
   },
   serviceType: 'Handyman Services',
@@ -19,10 +22,13 @@ const schema = {
 <SEOPageLayout
   title="Handyman Kauai"
   metaTitle="Handyman Kauai | Reliable Repairs & Home Maintenance | Ad Value Home Improvement"
-  metaDescription="Kauai's trusted handyman. Repairs, maintenance, installations, and small jobs done right. No job too small. Licensed & insured. Serving all of Kauai — free estimates."
+  metaDescription="Kauai's trusted handyman. Repairs, maintenance, installations, and small jobs done right. No job too small. Serving all of Kauai — free estimates."
   eyebrow="Handyman Services · Kauai, Hawaii"
   pageTitle="Kauai's Reliable Handyman"
   subtitle="Small jobs done right. Fast response, honest pricing, quality results."
+  imageSrc="/images/seo/handyman.jpg"
+  imageAlt="Handyman tools and repair materials ready for a home project"
+  introTitle="Dependable Help for Everyday Repairs"
   intro="Finding a reliable handyman on Kauai can be frustrating. Ad Value Home Improvement offers skilled handyman services with the same care and quality we bring to our larger projects. Adam shows up when he says he will, finishes what he starts, and charges a fair price. From a leaky faucet to a broken fence rail — no job is too small."
   highlights={[
     { icon: 'bolt', title: 'Fast Response', description: 'We understand that repairs can\'t always wait. We prioritize urgent issues and respond quickly.' },

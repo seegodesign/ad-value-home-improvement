@@ -27,12 +27,11 @@ const serviceTags = [
   <div class="container hero__inner">
     <!-- Content -->
     <div class="hero__content">
-      <p class="hero__eyebrow motion-preset-fade-md motion-duration-500">Kauai, Hawaii · Est. 2019</p>
       <h1 id="hero-heading" class="hero__headline motion-preset-slide-up-md motion-duration-700">
         {
           headline.includes("Kauai's Trusted") ? (
             <>
-              Kauai's <span>Trusted</span> Home Improvement Partner.
+              Kauai's <span class="hero__headline-gradient">Trusted</span> Home Improvement Partner.
             </>
           ) : (
             headline
@@ -64,7 +63,7 @@ const serviceTags = [
 
     <!-- Image -->
     <div class="hero__image motion-preset-slide-up-md motion-duration-700 motion-delay-300">
-      <div class="hero__image-frame">
+      <div class="hero__brand-illustration">
         <img
           src={imageSrc}
           alt={imageAlt}

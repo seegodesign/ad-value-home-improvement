@@ -2,7 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GalleryGrid from '../components/GalleryGrid.astro';
 import CTASection from '../components/CTASection.astro';
-import gallery from '../data/gallery.json';
+import galleryFences from '../data/gallery-fences.json';
+import galleryDecksRailings from '../data/gallery-decks-railings.json';
+
+const gallery = [...galleryFences, ...galleryDecksRailings];
 ---
 
 <BaseLayout
@@ -22,7 +25,6 @@ import gallery from '../data/gallery.json';
       <p class="page-hero__subtitle">
         Real projects on Kauai. Real craftsmanship. Browse by category to see what's possible.
       </p>
-      <div class="page-hero__accent-bar" aria-hidden="true"></div>
     </div>
   </section>
 

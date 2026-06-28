@@ -1,5 +1,8 @@
 ---
 import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -9,7 +12,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Ad Value Home Improvement',
-    telephone: '+18085551234',
+    telephone: phoneE164,
     areaServed: 'Kauai, Hawaii',
   },
   serviceType: 'Property Maintenance',
@@ -23,6 +26,9 @@ const schema = {
   eyebrow="Property Maintenance · Kauai, Hawaii"
   pageTitle="Reliable Property Maintenance on Kauai"
   subtitle="Keep your property in peak condition — without the stress of managing it all yourself."
+  imageSrc="/images/seo/property-maintenance.jpg"
+  imageAlt="Home exterior maintenance and inspection work on a residential property"
+  introTitle="Proactive Care for Your Kauai Property"
   intro="Owning property on Kauai is a privilege — and a responsibility. Whether you're managing a vacation rental or maintaining your long-term home, Ad Value Home Improvement provides reliable, professional property maintenance services. We're the team that shows up, gets it done, and leaves things better than we found them. Our Aloha Home Care Plan takes the worry out of property ownership entirely."
   highlights={[
     { icon: 'home', title: 'Rental Specialists', description: 'Fast turnovers, punch lists, and ongoing maintenance for vacation rental owners across Kauai.' },

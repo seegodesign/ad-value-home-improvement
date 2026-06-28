@@ -1,15 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
+import settings from '../data/settings.json';
 
 const values = [
   { icon: 'hand-raised', title: 'Honest Communication', desc: 'No surprises, no runaround. I answer my own phone and give you straight answers from start to finish.' },
   { icon: 'wrench-screwdriver', title: 'Skilled Craftsmanship', desc: "Building in Hawaii's climate requires real expertise. Every material choice and technique is selected for longevity." },
   { icon: 'calendar-days', title: 'We Show Up', desc: "When we commit to a date, we're there. Respecting your time is a core part of how we operate." },
   { icon: 'sparkles', title: 'Aloha Values', desc: 'As a Kauai family, we treat your home like our own. This community deserves contractors who care.' },
-  { icon: 'badge-check', title: 'Licensed & Insured', desc: "Fully licensed and insured for your peace of mind. We do things right, not just fast." },
   { icon: 'chat-bubble-left-right', title: 'Local & Accountable', desc: "We live here. We're not a mainland company that'll disappear. Our reputation is everything." },
 ];
+
+const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
 ---
 
 <BaseLayout
@@ -29,7 +31,6 @@ const values = [
       <p class="page-hero__subtitle">
         Honest work, skilled hands, and genuine aloha — built into every project.
       </p>
-      <div class="page-hero__accent-bar" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -81,7 +82,7 @@ const values = [
 
         <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
           <a href="/estimate" class="btn btn--primary">Request a Free Estimate</a>
-          <a href="tel:+18085551234" class="btn btn--outline-navy">(808) 555-1234</a>
+          <a href={phoneHref} class="btn btn--outline-navy">{settings.phone}</a>
         </div>
       </div>
     </div>
@@ -124,7 +125,6 @@ const values = [
           { n: '250+', l: 'Projects Completed' },
           { n: '8',    l: 'Service Areas' },
           { n: '5★',   l: 'Client Rating' },
-          { n: '100%', l: 'Licensed & Insured' },
         ].map(({ n, l }) => (
           <div>
             <p style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--color-brown-light);line-height:1;">{n}</p>
@@ -157,6 +157,6 @@ const values = [
     subtitle="Reach out for a free estimate. No pressure, no obligation — just an honest conversation about your home."
     primaryLabel="Request a Free Estimate"
     secondaryLabel="Call Adam Directly"
-    secondaryHref="tel:+18085551234"
+    secondaryHref={phoneHref}
   />
 </BaseLayout>

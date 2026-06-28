@@ -1,5 +1,8 @@
 ---
 import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -9,7 +12,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Ad Value Home Improvement',
-    telephone: '+18085551234',
+    telephone: phoneE164,
     areaServed: 'Kauai, Hawaii',
   },
   serviceType: 'Kitchen Remodeling',
@@ -19,10 +22,13 @@ const schema = {
 <SEOPageLayout
   title="Kitchen Remodel Kauai"
   metaTitle="Kitchen Remodel Kauai | Cabinets, Countertops & More | Ad Value Home Improvement"
-  metaDescription="Transform your kitchen with Ad Value Home Improvement on Kauai. Cabinet installation, countertops, backsplash tile, flooring, and design. Free estimates. Licensed & insured."
+  metaDescription="Transform your kitchen with Ad Value Home Improvement on Kauai. Cabinet installation, countertops, backsplash tile, flooring, and design. Free estimates."
   eyebrow="Kitchen Remodeling · Kauai, Hawaii"
   pageTitle="Kitchen Remodels That Add Real Value"
   subtitle="From cabinet facelifts to full gut renovations — we build kitchens Kauai homeowners love."
+  imageSrc="/images/seo/kitchen-remodel.jpg"
+  imageAlt="Modern remodeled kitchen with cabinetry and natural light"
+  introTitle="Kitchens Designed Around Real Life"
   intro="Your kitchen is the heart of your home. Whether you're doing a full renovation or targeted upgrades, Ad Value Home Improvement brings the skills and attention to detail that makes the difference between a kitchen that looks good and one that works perfectly for how your family lives. We handle everything from demo to final finish."
   highlights={[
     { icon: 'home', title: 'Complete Renovations', description: 'Full gut-to-finish kitchen remodels including framing, plumbing rough-in, and electrical coordination.' },

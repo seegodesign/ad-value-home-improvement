@@ -12,13 +12,8 @@
   border: 1px solid var(--color-gray-200);
   transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
   display: flex;
+  overflow: hidden;
   flex-direction: column;
-}
-
-.service-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
-  border-color: var(--color-green);
 }
 
 .service-card__title {
@@ -183,7 +178,7 @@
 }
 
 .gallery-lightbox {
-  width: min(92vw, 1100px);
+  width: min(92vw, 640px);
   max-height: 92vh;
   margin: auto;
   padding: 0;
@@ -219,6 +214,41 @@
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
+}
+
+.gallery-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--radius-full);
+  padding: 0;
+  background: rgba(7, 31, 61, 0.82);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.gallery-lightbox__nav-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.gallery-lightbox__nav--prev {
+  left: var(--sp-4);
+}
+
+.gallery-lightbox__nav--next {
+  right: var(--sp-4);
+}
+
+.gallery-lightbox__nav:disabled {
+  opacity: 0.45;
+  cursor: default;
 }
 
 .gallery-lightbox__image {
@@ -313,16 +343,6 @@
   gap: var(--sp-4);
   padding-top: var(--sp-4);
   border-top: 1px solid var(--color-gray-200);
-}
-
-.review-card__author-photo {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  object-fit: cover;
-  flex-shrink: 0;
-  background-color: var(--color-sand);
-  border: 2px solid var(--color-sand-dark);
 }
 
 .review-card__author-name {

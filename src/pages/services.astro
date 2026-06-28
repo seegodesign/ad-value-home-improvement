@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
 import services from '../data/services.json';
+import settings from '../data/settings.json';
 
 const serviceDetails = {
   decks: {
@@ -37,11 +38,24 @@ const serviceDetails = {
     fullList: ['Pergolas', 'Covered Patios', 'Garden Features', 'Walkways & Pathways', 'Exterior Stairs', 'Outdoor Showers', 'Facelifts & Upgrades'],
   },
 };
+
+const serviceImages: Partial<Record<string, string>> = {
+  decks: '/images/seo/deck-builder.avif',
+  carpentry: '/images/seo/custom-carpentry.jpg',
+  kitchens: '/images/seo/kitchen-remodel.jpg',
+  bathrooms: '/images/seo/bathroom-remodel.jpg',
+  drywall: '/images/seo/drywall-repair.jpg',
+  fencing: '/images/seo/fence-contractor.avif',
+  maintenance: '/images/seo/property-maintenance.jpg',
+  outdoor: '/images/seo/outdoor-living.avif',
+};
+
+const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
 ---
 
 <BaseLayout
   title="Home Improvement Services Kauai | Ad Value Home Improvement"
-  description="Full-service home improvement on Kauai. Decks, fencing, kitchen & bathroom remodels, custom carpentry, drywall, painting, property maintenance, and outdoor living. Licensed & insured."
+  description="Full-service home improvement on Kauai. Decks, fencing, kitchen & bathroom remodels, custom carpentry, drywall, painting, property maintenance, and outdoor living."
 >
   <!-- Page Hero -->
   <section class="page-hero">
@@ -56,7 +70,6 @@ const serviceDetails = {
       <p class="page-hero__subtitle">
         From a single repair to a complete remodel — quality work, honestly priced, delivered on time.
       </p>
-      <div class="page-hero__accent-bar" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -71,9 +84,10 @@ const serviceDetails = {
         </p>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:5rem;">
+      <div style="display:flex;flex-direction:column;gap:5rem;max-width: var(--max-width);margin:0 auto;">
         {services.map((service) => {
           const details = serviceDetails[service.id as keyof typeof serviceDetails];
+          const imageSrc = serviceImages[service.id] || '/images/placeholder-project.svg';
           return (
             <div
               id={service.id}
@@ -99,6 +113,16 @@ const serviceDetails = {
               </div>
 
               <div style="background:var(--color-off-white);border-radius:var(--radius-lg);padding:2rem;border:1px solid var(--color-gray-200);">
+                <div style="border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;margin-bottom:1rem;">
+                  <img
+                    src={imageSrc}
+                    alt={service.title}
+                    width="640"
+                    height="400"
+                    loading="lazy"
+                    style="width:100%;height:100%;object-fit:cover;display:block;"
+                  />
+                </div>
                 <h3 style="font-size:1rem;color:var(--color-navy);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.08em;font-size:0.75rem;">
                   Services Include
                 </h3>
@@ -119,17 +143,38 @@ const serviceDetails = {
   </section>
 
   <!-- Aloha Care Plan callout -->
-  <section class="section section--sand" aria-labelledby="care-heading">
-    <div class="container" style="max-width:800px;">
-      <div class="section__header">
-        <span class="section__eyebrow">New: Recurring Service</span>
-        <h2 id="care-heading" class="section__title">The Aloha Home Care Plan</h2>
-        <p class="section__subtitle">
-          Monthly, quarterly, or annual maintenance membership to keep your property in peak condition year-round.
+  <section class="section care-callout" aria-labelledby="care-heading">
+    <div class="container">
+      <div class="care-callout__card">
+        <span class="care-callout__badge">New: Recurring Service</span>
+        <h2 id="care-heading" class="care-callout__title">The Aloha Home Care Plan</h2>
+        <p class="care-callout__subtitle">
+          Year-round property maintenance so small issues never become big problems. Choose the cadence that works for you.
         </p>
-      </div>
-      <div style="text-align:center;">
-        <a href="/contact#care-plan" class="btn btn--primary btn--lg">Learn More About the Care Plan</a>
+        <div class="care-callout__tiers">
+          <div class="care-callout__tier">
+            <span class="care-callout__tier-name">Monthly</span>
+            <span class="care-callout__tier-label">Ongoing peace of mind</span>
+          </div>
+          <div class="care-callout__divider" aria-hidden="true"></div>
+          <div class="care-callout__tier">
+            <span class="care-callout__tier-name">Quarterly</span>
+            <span class="care-callout__tier-label">Seasonal check-ins</span>
+          </div>
+          <div class="care-callout__divider" aria-hidden="true"></div>
+          <div class="care-callout__tier">
+            <span class="care-callout__tier-name">Annual</span>
+            <span class="care-callout__tier-label">One visit per year</span>
+          </div>
+        </div>
+        <ul class="care-callout__perks">
+          {['Priority scheduling', 'Gutter cleaning', 'Deck &amp; fence inspections', 'Storm damage checkups'].map((perk) => (
+            <li class="care-callout__perk" set:html={`<span aria-hidden="true">✓</span> ${perk}`}></li>
+          ))}
+        </ul>
+        <a href="/contact#care-plan" class="btn btn--primary btn--lg care-callout__cta">
+          Learn About the Care Plan →
+        </a>
       </div>
     </div>
   </section>
@@ -139,8 +184,8 @@ const serviceDetails = {
     title="Request a Free Estimate"
     subtitle="Tell us about your project and we'll be in touch within 1 business day."
     primaryLabel="Request a Free Estimate"
-    secondaryLabel="(808) 555-1234"
-    secondaryHref="tel:+18085551234"
+    secondaryLabel={settings.phone}
+    secondaryHref={phoneHref}
   />
 </BaseLayout>
 
@@ -149,5 +194,144 @@ const serviceDetails = {
     .services-detail-row {
       grid-template-columns: 1fr 1fr;
     }
+  }
+
+  /* ---- Aloha Care Plan callout ---- */
+  .care-callout {
+    position: relative;
+    overflow: hidden;
+    background-color: #14355a;
+    background-image:
+      linear-gradient(rgba(164, 206, 255, 0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(164, 206, 255, 0.18) 1px, transparent 1px),
+      linear-gradient(rgba(214, 236, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(214, 236, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(20, 53, 90, 0.95), rgba(12, 32, 54, 0.98));
+    background-size: 64px 64px, 64px 64px, 16px 16px, 16px 16px, auto;
+    background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px, center;
+    padding-block: clamp(4.5rem, 9vw, 7rem);
+  }
+
+  .care-callout::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 14, 24, 0.66), rgba(5, 14, 24, 0.8));
+    pointer-events: none;
+  }
+
+  .care-callout .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .care-callout__card {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-9);
+  }
+
+  .care-callout__badge {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-brown-light);
+    border: 1px solid rgba(185, 133, 77, 0.45);
+    padding: var(--sp-3) var(--sp-5);
+    border-radius: var(--radius-full);
+  }
+
+  .care-callout__title {
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: var(--fw-extrabold);
+    line-height: 1.1;
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .care-callout__subtitle {
+    font-size: var(--fs-lg);
+    color: rgba(255,255,255,0.78);
+    line-height: 1.75;
+    max-width: 64ch;
+    margin: 0;
+    padding-top: var(--sp-4);
+    padding-bottom: var(--sp-8);
+  }
+
+  .care-callout__tiers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-6);
+    width: 100%;
+    padding: var(--sp-8) var(--sp-6);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+  }
+
+  .care-callout__divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.18);
+    flex-shrink: 0;
+  }
+
+  .care-callout__tier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-1);
+    flex: 1;
+  }
+
+  .care-callout__tier-name {
+    font-family: var(--font-heading);
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-extrabold);
+    color: var(--color-white);
+  }
+
+  .care-callout__tier-label {
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.58);
+    letter-spacing: 0.04em;
+  }
+
+  .care-callout__perks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--sp-3) var(--sp-5);
+    list-style: none;
+    margin: 0 0 var(--sp-6) 0;
+    padding-block: var(--sp-2);
+    padding-inline: 0;
+  }
+
+  .care-callout__perk {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: rgba(255,255,255,0.82);
+  }
+
+  .care-callout__perk span {
+    color: var(--color-green-light);
+    font-size: var(--fs-base);
+  }
+
+  .care-callout__cta {
+    margin-top: var(--sp-4);
   }
 </style>

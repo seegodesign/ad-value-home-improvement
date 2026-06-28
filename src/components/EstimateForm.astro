@@ -1,5 +1,6 @@
 ---
 // EstimateForm component — no props needed, self-contained
+import settings from '../data/settings.json';
 ---
 
 <div class="estimate-form">
@@ -51,7 +52,7 @@
           type="tel"
           name="phone"
           class="estimate-form__input"
-          placeholder="(808) 555-0000"
+          placeholder={settings.phone}
           required
           autocomplete="tel"
         />

@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/motion.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import settings from '../data/settings.json';
 
 interface Props {
   title: string;
@@ -22,8 +23,9 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteUrl = 'https://advaluehomeimprovement.com';
+const siteUrl = 'https://advaluekauai.com';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const defaultSchema = {
   '@context': 'https://schema.org',
@@ -32,8 +34,8 @@ const defaultSchema = {
   name: 'Ad Value Home Improvement',
   description: 'Kauai\'s trusted home improvement partner. Decks, remodels, fencing, carpentry, and property maintenance.',
   url: siteUrl,
-  telephone: '+18085551234',
-  email: 'info@advaluehomeimprovement.com',
+  telephone: phoneE164,
+  email: 'info@advaluekauai.com',
   logo: `${siteUrl}/images/logo.svg`,
   image: `${siteUrl}/images/og-default.jpg`,
   foundingDate: '2019',

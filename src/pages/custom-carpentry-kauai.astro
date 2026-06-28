@@ -1,5 +1,8 @@
 ---
 import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -9,7 +12,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Ad Value Home Improvement',
-    telephone: '+18085551234',
+    telephone: phoneE164,
     areaServed: 'Kauai, Hawaii',
   },
   serviceType: 'Custom Carpentry',
@@ -23,6 +26,9 @@ const schema = {
   eyebrow="Custom Carpentry · Kauai, Hawaii"
   pageTitle="Custom Carpentry & Finish Work on Kauai"
   subtitle="From fine finish carpentry to one-of-a-kind projects — we build it with skill and care."
+  imageSrc="/images/seo/custom-carpentry.jpg"
+  imageAlt="Custom carpentry workspace with wood and precision tools"
+  introTitle="Craftsmanship That Fits Your Home"
   intro="Carpentry is at the heart of what we do at Ad Value Home Improvement. From the detailed finish work that makes a room look polished to custom built-ins that maximize your space — and even the unconventional projects like chicken coops, farm stands, and horse mounting blocks that Kauai's unique lifestyle calls for. If it involves wood and skill, we're in."
   highlights={[
     { icon: 'wrench-screwdriver', title: 'Master Finish Work', description: 'Crown molding, baseboards, casing, and trim installed with precision for a truly polished look.' },

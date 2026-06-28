@@ -1,5 +1,8 @@
 ---
 import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -9,7 +12,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Ad Value Home Improvement',
-    telephone: '+18085551234',
+    telephone: phoneE164,
     areaServed: 'Kauai, Hawaii',
   },
   serviceType: 'Drywall Repair',
@@ -19,10 +22,13 @@ const schema = {
 <SEOPageLayout
   title="Drywall Repair Kauai"
   metaTitle="Drywall Repair Kauai | Texture Matching & Painting | Ad Value Home Improvement"
-  metaDescription="Expert drywall repair and texture matching on Kauai. Water damage, hole repairs, popcorn ceilings, and interior/exterior painting. Free estimates. Licensed & insured."
+  metaDescription="Expert drywall repair and texture matching on Kauai. Water damage, hole repairs, popcorn ceilings, and interior/exterior painting. Free estimates."
   eyebrow="Drywall & Painting · Kauai, Hawaii"
   pageTitle="Seamless Drywall Repair on Kauai"
   subtitle="Holes, water stains, texture mismatches — we fix it so you can't tell anything happened."
+  imageSrc="/images/seo/drywall-repair.jpg"
+  imageAlt="Interior wall repair and painting preparation in progress"
+  introTitle="Repairs That Disappear Seamlessly"
   intro="Drywall damage on Kauai often comes from water — whether a roof leak, plumbing issue, or humidity intrusion. Ad Value Home Improvement specializes in the full cycle: fixing the source of moisture, replacing damaged drywall, matching existing textures seamlessly, and finishing with paint that ties everything together. The result? You won't know anything was ever there."
   highlights={[
     { icon: 'paint-brush', title: 'Texture Matching', description: 'From smooth walls to skip trowel and knockdown — we match your existing texture so repairs are invisible.' },

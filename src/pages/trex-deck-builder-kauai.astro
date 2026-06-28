@@ -1,5 +1,8 @@
 ---
 import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -9,7 +12,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Ad Value Home Improvement',
-    telephone: '+18085551234',
+    telephone: phoneE164,
     areaServed: 'Kauai, Hawaii',
   },
   serviceType: 'Trex Deck Installation',
@@ -19,10 +22,13 @@ const schema = {
 <SEOPageLayout
   title="Trex Deck Builder Kauai"
   metaTitle="Trex Deck Builder Kauai | Composite Deck Installation | Ad Value Home Improvement"
-  metaDescription="Expert Trex composite deck installation on Kauai. Low maintenance, splinter-free, and built for Hawaii. Railings, stairs, and custom designs. Free estimates. Licensed & insured."
+  metaDescription="Expert Trex composite deck installation on Kauai. Low maintenance, splinter-free, and built for Hawaii. Railings, stairs, and custom designs. Free estimates."
   eyebrow="Trex Composite Decks · Kauai, Hawaii"
   pageTitle="Trex Composite Decks for Kauai Homes"
   subtitle="The low-maintenance deck that handles Hawaii's climate — and looks beautiful doing it."
+  imageSrc="/images/seo/trex-deck.jpg"
+  imageAlt="Composite-style deck surface with modern outdoor seating"
+  introTitle="Low-Maintenance Decking, High-End Look"
   intro="Trex composite decking is one of the best investments a Kauai homeowner can make. Unlike natural wood, Trex won't rot, warp, or splinter — critical advantages in Hawaii's humid, UV-intense environment. Ad Value Home Improvement has extensive experience installing Trex decking systems, including railings and fascia, to create a complete, beautiful outdoor living space."
   highlights={[
     { icon: 'sun', title: 'UV & Moisture Resistant', description: 'Trex is engineered to resist fading, staining, and mold growth — perfect for Kauai\'s tropical conditions.' },

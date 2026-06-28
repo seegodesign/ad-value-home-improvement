@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EstimateForm from '../components/EstimateForm.astro';
+import settings from '../data/settings.json';
 
 const steps = [
   { n: '1', title: 'Submit Your Request', desc: 'Fill out the form with your project details. Takes about 2 minutes.' },
@@ -8,6 +9,8 @@ const steps = [
   { n: '3', title: 'On-Site Visit', desc: 'Adam visits your property to assess the project and answer all your questions.' },
   { n: '4', title: 'Detailed Estimate', desc: 'You receive a written estimate with a clear scope, timeline, and pricing.' },
 ];
+
+const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
 ---
 
 <BaseLayout
@@ -27,7 +30,6 @@ const steps = [
       <p class="page-hero__subtitle">
         Tell us about your project. We'll be in touch within 1 business day.
       </p>
-      <div class="page-hero__accent-bar" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -41,7 +43,7 @@ const steps = [
               {n}
             </div>
             <h3 style="font-size:1rem;color:var(--color-navy);">{title}</h3>
-            <p style="font-size:0.875rem;color:var(--color-text-muted);line-height:1.6;margin:0;">{desc}</p>
+            <p style="font-size:0.875rem;line-height:1.6;margin:0;">{desc}</p>
           </div>
         ))}
       </div>
@@ -63,8 +65,8 @@ const steps = [
           <p style="color:rgba(255,255,255,0.8);font-size:0.9375rem;margin-bottom:1.25rem;">
             Adam answers his own phone. You'll always talk to the person doing the work.
           </p>
-          <a href="tel:+18085551234" class="btn btn--primary btn--full"><span class="icon-mask icon-phone icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> (808) 555-1234</a>
-          <a href="mailto:info@advaluehomeimprovement.com" class="btn btn--outline-white btn--full" style="margin-top:0.75rem;">
+          <a href={phoneHref} class="btn btn--primary btn--full"><span class="icon-mask icon-phone icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> {settings.phone}</a>
+          <a href="mailto:info@advaluekauai.com" class="btn btn--outline-white btn--full" style="margin-top:0.75rem;">
             <span class="icon-mask icon-email icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> Email Us
           </a>
         </div>
