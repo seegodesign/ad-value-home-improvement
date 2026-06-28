@@ -332,6 +332,10 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
     gap: var(--sp-1);
   }
 
+  .mobile-nav__sub[hidden] {
+    display: none;
+  }
+
   .mobile-nav__sub-link {
     display: block;
     font-family: var(--font-heading);
@@ -357,48 +361,55 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
   const hamburger = header?.querySelector('.header__hamburger') as HTMLButtonElement;
   const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
   const closeBtn  = mobileNav?.querySelector('.mobile-nav__close') as HTMLButtonElement;
-
-  function openNav() {
-    mobileNav.classList.add('mobile-nav--open');
-    mobileNav.setAttribute('aria-hidden', 'false');
-    hamburger.setAttribute('aria-expanded', 'true');
-    hamburger.classList.add('header__hamburger--open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeNav() {
-    mobileNav.classList.remove('mobile-nav--open');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.classList.remove('header__hamburger--open');
-    document.body.style.overflow = '';
-  }
-
-  hamburger?.addEventListener('click', () => {
-    hamburger.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
-  });
-
-  closeBtn?.addEventListener('click', closeNav);
-
-  mobileNav?.querySelectorAll('.mobile-nav__link:not(.mobile-nav__accordion-trigger), .mobile-nav__cta, .mobile-nav__sub-link').forEach((link) => {
-    link.addEventListener('click', closeNav);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeNav();
-  });
-
-  // Mobile accordion
   const accordionTrigger = mobileNav?.querySelector('.mobile-nav__accordion-trigger') as HTMLButtonElement;
   const accordionSub     = mobileNav?.querySelector('.mobile-nav__sub') as HTMLElement;
 
-  accordionTrigger?.addEventListener('click', () => {
-    const expanded = accordionTrigger.getAttribute('aria-expanded') === 'true';
-    accordionTrigger.setAttribute('aria-expanded', String(!expanded));
-    if (expanded) {
-      accordionSub.hidden = true;
-    } else {
-      accordionSub.hidden = false;
+  // Prevent duplicate listeners if this script is evaluated more than once.
+  if (header?.dataset.navBound === 'true') {
+    // Already bound, do nothing.
+  } else {
+    if (header) header.dataset.navBound = 'true';
+
+    function openNav() {
+      mobileNav.classList.add('mobile-nav--open');
+      mobileNav.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.classList.add('header__hamburger--open');
+      document.body.style.overflow = 'hidden';
     }
-  });
+
+    function closeNav() {
+      mobileNav.classList.remove('mobile-nav--open');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.classList.remove('header__hamburger--open');
+      document.body.style.overflow = '';
+
+      // Reset accordion to collapsed whenever nav closes.
+      if (accordionTrigger && accordionSub) {
+        accordionTrigger.setAttribute('aria-expanded', 'false');
+        accordionSub.hidden = true;
+      }
+    }
+
+    hamburger?.addEventListener('click', () => {
+      hamburger.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
+    });
+
+    closeBtn?.addEventListener('click', closeNav);
+
+    mobileNav?.querySelectorAll('.mobile-nav__link:not(.mobile-nav__accordion-trigger), .mobile-nav__cta, .mobile-nav__sub-link').forEach((link) => {
+      link.addEventListener('click', closeNav);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    accordionTrigger?.addEventListener('click', () => {
+      const expanded = accordionTrigger.getAttribute('aria-expanded') === 'true';
+      accordionTrigger.setAttribute('aria-expanded', String(!expanded));
+      accordionSub.hidden = expanded;
+    });
+  }
 </script>
