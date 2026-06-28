@@ -6,7 +6,6 @@ const navLinks = [
   { label: 'Home',     href: '/' },
   { label: 'About',    href: '/about' },
   { label: 'Gallery',  href: '/gallery' },
-  { label: 'Reviews',  href: '/reviews' },
   { label: 'Contact',  href: '/contact' },
 ];
 
@@ -110,24 +109,6 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
   aria-label="Mobile navigation"
   aria-hidden="true"
 >
-  <div class="mobile-nav__header">
-    <a href="/" class="mobile-nav__logo-link" aria-label="Ad Value Home Improvement — Home">
-      <img
-        src="/images/logo-compact.svg"
-        alt="Ad Value Home Improvement"
-        class="mobile-nav__logo-img"
-        width="180"
-        height="40"
-      />
-    </a>
-    <button
-      class="mobile-nav__close"
-      aria-label="Close navigation menu"
-    >
-      ✕
-    </button>
-  </div>
-
   <ul class="mobile-nav__list" role="list">
     {navLinks.slice(0, 2).map(({ label, href }) => (
       <li>
@@ -360,7 +341,6 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
   const header    = document.querySelector('.header') as HTMLElement;
   const hamburger = header?.querySelector('.header__hamburger') as HTMLButtonElement;
   const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
-  const closeBtn  = mobileNav?.querySelector('.mobile-nav__close') as HTMLButtonElement;
   const accordionTrigger = mobileNav?.querySelector('.mobile-nav__accordion-trigger') as HTMLButtonElement;
   const accordionSub     = mobileNav?.querySelector('.mobile-nav__sub') as HTMLElement;
 
@@ -395,8 +375,6 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
     hamburger?.addEventListener('click', () => {
       hamburger.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
     });
-
-    closeBtn?.addEventListener('click', closeNav);
 
     mobileNav?.querySelectorAll('.mobile-nav__link:not(.mobile-nav__accordion-trigger), .mobile-nav__cta, .mobile-nav__sub-link').forEach((link) => {
       link.addEventListener('click', closeNav);
