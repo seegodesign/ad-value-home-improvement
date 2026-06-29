@@ -5,9 +5,15 @@
 .estimate-form {
   background-color: var(--color-white);
   border-radius: var(--radius-xl);
-  padding: var(--sp-10);
+  padding: var(--sp-6);
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--color-gray-200);
+}
+
+@media (min-width: 768px) {
+  .estimate-form {
+    padding: var(--sp-10);
+  }
 }
 
 .estimate-form__title {

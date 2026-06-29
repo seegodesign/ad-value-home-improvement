@@ -72,7 +72,8 @@
   /* Layout */
   --max-width:      1200px;
   --container-px:   1.25rem;
-  --header-height:  72px;
+  --header-height:  100px;
+  --header-height-scrolled: 78px;
   --section-py:     2rem;
 
   /* Borders */
@@ -93,4 +94,11 @@
   --transition-fast: 0.15s ease;
   --transition:      0.25s ease;
   --transition-slow: 0.4s ease;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --header-height: 78px;
+    --header-height-scrolled: 78px;
+  }
 }

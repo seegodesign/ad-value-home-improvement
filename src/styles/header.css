@@ -9,7 +9,12 @@
   background-color: var(--color-white);
   height: var(--header-height);
   box-shadow: 0 2px 16px rgba(11,47,86,0.10);
-  transition: background-color var(--transition);
+  transition: background-color var(--transition), height var(--transition), box-shadow var(--transition);
+}
+
+.header--scrolled {
+  height: var(--header-height-scrolled);
+  box-shadow: 0 2px 12px rgba(11,47,86,0.12);
 }
 
 .header__inner {
@@ -27,8 +32,13 @@
 }
 
 .header__logo-img {
-  height: 66px;
+  height: calc(var(--header-height) - 16px);
   width: auto;
+  transition: height var(--transition);
+}
+
+.header--scrolled .header__logo-img {
+  height: calc(var(--header-height-scrolled) - 16px);
 }
 
 .header__nav {

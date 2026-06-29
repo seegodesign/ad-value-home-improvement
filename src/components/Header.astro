@@ -21,8 +21,6 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
         src="/images/logo-compact.svg"
         alt="Ad Value Home Improvement"
         class="header__logo-img"
-        width="330"
-        height="66"
       />
     </a>
 
@@ -350,6 +348,13 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
   } else {
     if (header) header.dataset.navBound = 'true';
 
+    const scrollShrinkOffset = 24;
+
+    function syncHeaderScrolledState() {
+      if (!header) return;
+      header.classList.toggle('header--scrolled', window.scrollY > scrollShrinkOffset);
+    }
+
     function openNav() {
       mobileNav.classList.add('mobile-nav--open');
       mobileNav.setAttribute('aria-hidden', 'false');
@@ -383,6 +388,9 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeNav();
     });
+
+    window.addEventListener('scroll', syncHeaderScrolledState, { passive: true });
+    syncHeaderScrolledState();
 
     accordionTrigger?.addEventListener('click', () => {
       const expanded = accordionTrigger.getAttribute('aria-expanded') === 'true';
