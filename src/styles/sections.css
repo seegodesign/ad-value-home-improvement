@@ -451,7 +451,7 @@
 }
 
 .service-area-badge {
-  background-color: var(--color-sand);
+  background-color: var(--color-green-lighter);
   color: var(--color-navy);
   padding: var(--sp-2) var(--sp-4);
   border-radius: var(--radius-full);
@@ -608,7 +608,6 @@
 .seo-page__intro {
   display: grid;
   gap: var(--sp-12);
-  align-items: center;
 }
 
 .seo-page__highlights {
@@ -717,7 +716,6 @@
 
 .seo-service-item__text {
   display: inline-block;
-  font-size: 1.40625rem;
   font-weight: 500;
   white-space: nowrap;
 }

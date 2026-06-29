@@ -25,6 +25,11 @@ const serviceLinks = [
 
 const year = new Date().getFullYear();
 const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
+const socialLinks = {
+  facebook: settings.social?.facebook || 'https://facebook.com',
+  instagram: settings.social?.instagram || 'https://instagram.com',
+  nextdoor: settings.social?.nextdoor || 'https://nextdoor.com',
+};
 ---
 
 <footer class="footer" role="contentinfo">
@@ -45,11 +50,11 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
           Kauai's trusted home improvement partner since 2019.
           Honest work, skilled hands, island values.
         </p>
-        <div class="footer__social">
-          <a href="https://facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
-          <a href="https://instagram.com" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">ig</a>
-          <a href="https://nextdoor.com" class="footer__social-link" aria-label="Nextdoor" target="_blank" rel="noopener noreferrer">nd</a>
-        </div>
+        <!-- <div class="footer__social">
+          <a href={socialLinks.facebook} class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+          <a href={socialLinks.instagram} class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">ig</a>
+          <a href={socialLinks.nextdoor} class="footer__social-link" aria-label="Nextdoor" target="_blank" rel="noopener noreferrer">nd</a>
+        </div> -->
       </div>
 
       <!-- Quick Links -->

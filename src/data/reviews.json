@@ -1,44 +1,16 @@
 [
   {
-    "name": "Sarah H.",
-    "neighborhood": "Kapaa",
-    "stars": 5,
-    "text": "Adam built us a beautiful Trex deck and it completely transformed our backyard. He was professional, communicated every step of the way, and the quality is outstanding. We use it every day! Highly recommend Ad Value Home Improvement.",
-    "photo": "/images/placeholder-person.svg"
-  },
-  {
-    "name": "Mike T.",
-    "neighborhood": "Lihue",
-    "stars": 5,
-    "text": "I've hired a lot of contractors over the years on Kauai and Adam is the real deal. He showed up when he said he would, kept us updated, and did incredible drywall repair work after we had some water damage. The texture matching was perfect.",
-    "photo": "/images/placeholder-person.svg"
-  },
-  {
-    "name": "Lisa K.",
-    "neighborhood": "Princeville",
-    "stars": 5,
-    "text": "Our cedar fence looks absolutely amazing. Adam helped us design it, suggested the hog wire accent panels, and the craftsmanship is top notch. Our neighbors keep asking who built it. We Ad Value! Thank you so much.",
-    "photo": "/images/placeholder-person.svg"
-  },
-  {
-    "name": "David M.",
-    "neighborhood": "Poipu",
-    "stars": 5,
-    "text": "Adam remodeled our master bathroom and it looks like something out of a magazine. He was patient with our design changes, stayed on budget, and finished on time. As a vacation rental owner this means everything. Already booked him for the kitchen!",
-    "photo": "/images/placeholder-person.svg"
-  },
-  {
-    "name": "Amy C.",
-    "neighborhood": "Hanapepe",
-    "stars": 5,
-    "text": "We signed up for the Aloha Home Care Plan and it's been the best decision we've made as homeowners. Adam caught a small roof leak during an inspection before it became a big problem. Incredible peace of mind living here with all the weather.",
-    "photo": "/images/placeholder-person.svg"
-  },
-  {
-    "name": "James R.",
+    "name": "Billy and Amanda",
     "neighborhood": "Kalaheo",
     "stars": 5,
-    "text": "Best contractor experience I've had in 20 years of owning property on Kauai. Adam is honest, hardworking, and takes genuine pride in his work. He built us a custom ipe deck with built-in planters and it's gorgeous. True craftsmanship.",
-    "photo": "/images/placeholder-person.svg"
+    "text": "We couldn't be happier with the fence Adam built for our home. He installed a beautiful 48-inch-tall horizontal farm-style perimeter fence with black pillars that perfectly complement our house. The craftsmanship and attention to detail are evident throughout the entire project, and the stain finish really brought everything together. Adam was reliable, easy to work with, communicated well throughout the project, and took pride in delivering quality work. The finished product exceeded our expectations and has completely transformed the look of our property. If you're looking for someone who does quality work, shows up when he says he will, and genuinely cares about the final result, I would recommend Adam without hesitation.",
+    "photo": "/images/uploads/Fence for Billy and Amanda.jpg"
+  },
+  {
+    "name": "Janet Graves",
+    "neighborhood": "Kilauea",
+    "stars": 5,
+    "text": "I am very happy with my new gates and backyard fence. I love the beautiful horizontal boards and it was a pleasure working with Adam. He was communicative and responsive to our needs and requests. Thank you, Adam.",
+    "photo": "/images/uploads/fence_2508.avif"
   }
 ]

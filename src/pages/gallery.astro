@@ -4,8 +4,10 @@ import GalleryGrid from '../components/GalleryGrid.astro';
 import CTASection from '../components/CTASection.astro';
 import galleryFences from '../data/gallery-fences.json';
 import galleryDecksRailings from '../data/gallery-decks-railings.json';
+import galleryFlooring from '../data/gallery-flooring.json';
+import galleryCustom from '../data/gallery-custom.json';
 
-const gallery = [...galleryFences, ...galleryDecksRailings];
+const gallery = [...galleryFences, ...galleryDecksRailings, ...galleryFlooring, ...galleryCustom];
 ---
 
 <BaseLayout

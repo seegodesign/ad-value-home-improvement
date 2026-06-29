@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Custom Project #1",
+    "category": "Custom",
+    "image": "/images/uploads/custom_1.avif",
+    "description": "Custom project on Kauai."
+  },
+  {
+    "title": "Custom Project #2",
+    "category": "Custom",
+    "image": "/images/uploads/custom_2.avif",
+    "description": "Custom project on Kauai."
+  },
+  {
+    "title": "Custom Project #3",
+    "category": "Custom",
+    "image": "/images/uploads/custom_3.avif",
+    "description": "Custom project on Kauai."
+  },
+  {
+    "title": "Custom Project #4",
+    "category": "Custom",
+    "image": "/images/uploads/custom_4.avif",
+    "description": "Custom project on Kauai."
+  },
+  {
+    "title": "Custom Project #5",
+    "category": "Custom",
+    "image": "/images/uploads/custom_5.avif",
+    "description": "Custom project on Kauai."
+  },
+  {
+    "title": "Custom Project #17",
+    "category": "Custom",
+    "image": "/images/uploads/custom_17.avif",
+    "description": "Custom project on Kauai."
+  },
+  {
+    "title": "Custom Project #22",
+    "category": "Custom",
+    "image": "/images/uploads/custom_22.avif",
+    "description": "Custom project on Kauai."
+  }
+]

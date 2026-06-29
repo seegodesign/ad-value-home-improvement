@@ -71,6 +71,13 @@ collections:
             name: serviceAreas
             widget: list
             field: { label: "Area", name: area, widget: string }
+          - label: "Social Links"
+            name: social
+            widget: object
+            fields:
+              - { label: "Facebook URL", name: facebook, widget: string, required: false }
+              - { label: "Instagram URL", name: instagram, widget: string, required: false }
+              - { label: "Nextdoor URL", name: nextdoor, widget: string, required: false }
           - { label: "Founded Year", name: foundedYear, widget: string }
           - { label: "Owner Name", name: ownerName, widget: string }
 
@@ -183,6 +190,38 @@ collections:
             fields:
               - { label: "Project Title", name: title, widget: string }
               - { name: category, widget: hidden, default: "Stairs, Decks & Railings" }
+              - label: "Project Photo"
+                name: image
+                widget: image
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: flooring_list
+        label: "Flooring"
+        file: "src/data/gallery-flooring.json"
+        fields:
+          - label: "Gallery"
+            name: gallery
+            widget: list
+            root: true
+            fields:
+              - { label: "Project Title", name: title, widget: string }
+              - { name: category, widget: hidden, default: "Flooring" }
+              - label: "Project Photo"
+                name: image
+                widget: image
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: custom_list
+        label: "Custom"
+        file: "src/data/gallery-custom.json"
+        fields:
+          - label: "Gallery"
+            name: gallery
+            widget: list
+            root: true
+            fields:
+              - { label: "Project Title", name: title, widget: string }
+              - { name: category, widget: hidden, default: "Custom" }
               - label: "Project Photo"
                 name: image
                 widget: image

@@ -108,7 +108,7 @@
   height: 20px;
   display: inline-block;
   flex-shrink: 0;
-  color: var(--color-brown-light);
+  color: white;
 }
 
 .footer__bottom {

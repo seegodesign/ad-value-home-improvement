@@ -86,7 +86,7 @@
 }
 
 .hero__headline-gradient {
-  background: linear-gradient(180deg, var(--color-green-light) 0%, var(--color-green-dark) 100%);
+  background: linear-gradient(180deg, var(--color-green-lighter) 0%, var(--color-green-dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

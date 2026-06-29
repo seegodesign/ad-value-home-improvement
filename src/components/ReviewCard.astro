@@ -14,17 +14,71 @@ const {
   photo = '/images/placeholder-person.svg',
   stars = 5,
 } = Astro.props;
+
+const maxWords = 40;
+const words = text.trim().split(/\s+/);
+const isTruncated = words.length > maxWords;
+const previewText = isTruncated ? `${words.slice(0, maxWords).join(' ')}...` : text;
 ---
 
 <article class="review-card" aria-label={`Review by ${name}`} data-motion="motion-preset-slide-up-sm motion-duration-500">
-  <div class="review-card__stars" aria-label={`${stars} out of 5 stars`}>
-    {Array.from({ length: stars }).map(() => <span aria-hidden="true">★</span>)}
+  <div class="review-card__media">
+    <img
+      src={photo}
+      alt={`Project photo from ${name}`}
+      class="review-card__image"
+      width="1600"
+      height="900"
+      loading="lazy"
+      decoding="async"
+    />
   </div>
-  <p class="review-card__text">{text}</p>
-  <div class="review-card__author">
-    <div class="review-card__author-info">
+  <div class="review-card__body">
+    <div class="review-card__stars" aria-label={`${stars} out of 5 stars`}>
+      {Array.from({ length: stars }).map(() => <span aria-hidden="true">★</span>)}
+    </div>
+    <p class="review-card__text" data-review-text data-preview={previewText} data-full={text}>
+      {previewText}
+    </p>
+    {isTruncated && (
+      <button
+        type="button"
+        class="review-card__read-more"
+        data-read-more
+        aria-expanded="false"
+      >
+        Read more
+      </button>
+    )}
+    <div class="review-card__author">
       <p class="review-card__author-name">{name}</p>
       <p class="review-card__author-location">{neighborhood}, Kauai</p>
     </div>
   </div>
 </article>
+
+<script>
+  if (document.documentElement.dataset.reviewReadMoreBound !== 'true') {
+    document.documentElement.dataset.reviewReadMoreBound = 'true';
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const button = target.closest('[data-read-more]');
+      if (!(button instanceof HTMLButtonElement)) return;
+
+      const card = button.closest('.review-card');
+      const textEl = card?.querySelector('[data-review-text]');
+      if (!(textEl instanceof HTMLElement)) return;
+
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      const preview = textEl.getAttribute('data-preview') || '';
+      const full = textEl.getAttribute('data-full') || preview;
+
+      textEl.textContent = expanded ? preview : full;
+      button.setAttribute('aria-expanded', String(!expanded));
+      button.textContent = expanded ? 'Read more' : 'Read less';
+    });
+  }
+</script>

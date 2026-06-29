@@ -8,10 +8,12 @@ import services from '../data/services.json';
 import reviews from '../data/reviews.json';
 import galleryFences from '../data/gallery-fences.json';
 import galleryDecksRailings from '../data/gallery-decks-railings.json';
+import galleryFlooring from '../data/gallery-flooring.json';
+import galleryCustom from '../data/gallery-custom.json';
 import settings from '../data/settings.json';
 
 const featuredReviews = reviews.slice(0, 3);
-const gallery = [...galleryFences, ...galleryDecksRailings];
+const gallery = [...galleryFences, ...galleryDecksRailings, ...galleryFlooring, ...galleryCustom];
 const featuredGallery = gallery.slice(0, 8);
 
 const serviceCardPhotos: Partial<Record<string, string>> = {
