@@ -87,22 +87,109 @@ collections:
   # -----------------------------------------------------------
   - name: homepage
     label: "Homepage"
-    description: "Edit homepage hero text, taglines, and CTA"
+    description: "Edit all homepage sections"
     files:
       - name: hero
         label: "Hero Section"
         file: "src/data/homepage.json"
         fields:
-          - { label: "Hero Headline", name: headline, widget: string }
-          - { label: "Hero Subheadline", name: subheadline, widget: string }
-          - { label: "Supporting Headline", name: support, widget: string }
-          - { label: "Services Line", name: services, widget: string, hint: "Separate with •" }
-          - { label: "CTA Button Label", name: ctaLabel, widget: string }
+          - { label: "Headline", name: headline, widget: string }
+          - { label: "Supporting Text", name: support, widget: string }
           - { label: "Trust Line", name: trustLine, widget: string }
+          - { label: "Primary Button Label", name: primaryCtaLabel, widget: string }
+          - { label: "Primary Button URL", name: primaryCtaHref, widget: string }
+          - { label: "Secondary Button Label", name: secondaryCtaLabel, widget: string }
+          - { label: "Secondary Button URL", name: secondaryCtaHref, widget: string }
           - label: "Hero Image"
-            name: heroImage
+            name: imageSrc
             widget: image
             required: false
+          - { label: "Hero Image Alt Text", name: imageAlt, widget: string }
+          - label: "Service Tags"
+            name: serviceTags
+            widget: list
+            fields:
+              - { label: "Label", name: label, widget: string }
+              - { label: "URL", name: href, widget: string }
+
+      - name: stats
+        label: "Stats / Trust Bar"
+        file: "src/data/homepage-stats.json"
+        fields:
+          - label: "Stats"
+            name: stats
+            widget: list
+            fields:
+              - { label: "Number / Value", name: number, widget: string }
+              - { label: "Label", name: label, widget: string }
+
+      - name: services_section
+        label: "Services Section"
+        file: "src/data/homepage-services.json"
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Subtitle", name: subtitle, widget: string }
+
+      - name: about_preview
+        label: "About Preview Section"
+        file: "src/data/homepage-about.json"
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Pull Quote", name: quote, widget: text }
+          - { label: "Body Text", name: body, widget: text }
+          - { label: "Signature Name", name: sigName, widget: string }
+          - { label: "Signature Title", name: sigTitle, widget: string }
+
+      - name: outcomes
+        label: "Outcomes Section"
+        file: "src/data/homepage-outcomes.json"
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Subtitle", name: subtitle, widget: string }
+          - label: "Outcome Cards"
+            name: outcomes
+            widget: list
+            fields:
+              - { label: "ID (no spaces)", name: id, widget: string }
+              - { label: "Title", name: title, widget: string }
+              - label: "Color Theme"
+                name: color
+                widget: select
+                options: [navy, green, brown, sand]
+              - label: "Service Items"
+                name: items
+                widget: list
+                field: { label: "Item", name: item, widget: string }
+
+      - name: gallery_section
+        label: "Gallery Section"
+        file: "src/data/homepage-gallery.json"
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Subtitle", name: subtitle, widget: string }
+
+      - name: reviews_section
+        label: "Reviews Section"
+        file: "src/data/homepage-reviews.json"
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Subtitle", name: subtitle, widget: string }
+
+      - name: cta_section
+        label: "CTA Section"
+        file: "src/data/homepage-cta.json"
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string }
+          - { label: "Title", name: title, widget: string }
+          - { label: "Subtitle", name: subtitle, widget: string }
+          - { label: "Primary Button Label", name: primaryLabel, widget: string }
+          - { label: "Secondary Button Label", name: secondaryLabel, widget: string, hint: "Phone number from Settings is appended automatically" }
+          - { label: "Trust Note", name: note, widget: string }
 
   # -----------------------------------------------------------
   # ABOUT PAGE

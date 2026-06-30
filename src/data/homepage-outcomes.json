@@ -1,0 +1,11 @@
+{
+  "eyebrow": "Our Approach",
+  "heading": "Every Project Has a Purpose",
+  "subtitle": "We think in terms of outcomes, not just tasks. What does your home need?",
+  "outcomes": [
+    { "id": "protect", "title": "Protect", "color": "navy", "items": ["Fences & Gates", "Railings", "Structural Repairs", "Rot Repair"] },
+    { "id": "gather",  "title": "Gather",  "color": "green", "items": ["Decks & Lanais", "Outdoor Kitchens", "Covered Patios", "Pergolas"] },
+    { "id": "refresh", "title": "Refresh", "color": "brown", "items": ["Kitchens", "Bathrooms", "Painting", "Flooring"] },
+    { "id": "restore", "title": "Restore", "color": "sand",  "items": ["Water Damage", "Rot Repair", "Drywall", "Structural Repairs"] }
+  ]
+}

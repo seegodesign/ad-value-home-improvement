@@ -2,25 +2,28 @@
 interface Props {
   headline?: string;
   support?: string;
+  trustLine?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
   imageSrc?: string;
   imageAlt?: string;
+  serviceTags?: { label: string; href: string }[];
 }
 
 const {
-  headline = "Kauai's Trusted Home Improvement Partner.",
-  support = "Building excellent projects on Kauai since 2019. Building Better Relationships.",
-  imageSrc = "/images/brand-illustration.webp",
-  imageAlt = "Ad Value Home Improvement project on Kauai",
+  headline,
+  support,
+  trustLine,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+  imageSrc,
+  imageAlt,
+  serviceTags = [],
 } = Astro.props;
-
-const serviceTags = [
-  { label: 'Repairs',              href: '/handyman-kauai' },
-  { label: 'Remodels',             href: '/services' },
-  { label: 'Decks',                href: '/deck-builder-kauai' },
-  { label: 'Fencing',              href: '/fence-contractor-kauai' },
-  { label: 'Custom Carpentry',     href: '/custom-carpentry-kauai' },
-  { label: 'Property Maintenance', href: '/property-maintenance-kauai' },
-];
 ---
 
 <section class="hero" aria-labelledby="hero-heading">
@@ -28,15 +31,7 @@ const serviceTags = [
     <!-- Content -->
     <div class="hero__content">
       <h1 id="hero-heading" class="hero__headline motion-preset-slide-up-md motion-duration-700">
-        {
-          headline.includes("Kauai's Trusted") ? (
-            <>
-              Kauai's <span class="hero__headline-gradient">Trusted</span> Home Improvement Partner.
-            </>
-          ) : (
-            headline
-          )
-        }
+        {headline}
       </h1>
       <p class="hero__subheadline motion-preset-slide-up-md motion-duration-700 motion-delay-150">{support}</p>
 
@@ -47,17 +42,17 @@ const serviceTags = [
       </div>
 
       <div class="hero__actions motion-preset-slide-up-md motion-duration-500 motion-delay-500">
-        <a href="/estimate" class="btn btn--primary btn--lg">
-          Request a Free Estimate
+        <a href={primaryCtaHref} class="btn btn--primary btn--lg">
+          {primaryCtaLabel}
         </a>
-        <a href="/services" class="btn btn--outline-white btn--lg">
-          View Our Services
+        <a href={secondaryCtaHref} class="btn btn--outline-white btn--lg">
+          {secondaryCtaLabel}
         </a>
       </div>
 
       <p class="hero__trust motion-preset-fade-md motion-duration-500 motion-delay-700">
         <div class="hero__trust-stars">★★★★★</div>
-        Trusted by homeowners across Kauai.
+        {trustLine}
       </p>
     </div>
 

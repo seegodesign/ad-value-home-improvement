@@ -11,6 +11,14 @@ import galleryDecksRailings from "../data/gallery-decks-railings.json";
 import galleryFlooring from "../data/gallery-flooring.json";
 import galleryCustom from "../data/gallery-custom.json";
 import settings from "../data/settings.json";
+import heroData from "../data/homepage.json";
+import statsData from "../data/homepage-stats.json";
+import servicesSection from "../data/homepage-services.json";
+import aboutPreview from "../data/homepage-about.json";
+import outcomesData from "../data/homepage-outcomes.json";
+import gallerySection from "../data/homepage-gallery.json";
+import reviewsSection from "../data/homepage-reviews.json";
+import ctaSection from "../data/homepage-cta.json";
 
 const featuredReviews = reviews.slice(0, 3);
 const gallery = [
@@ -32,43 +40,6 @@ const serviceCardPhotos: Partial<Record<string, string>> = {
   outdoor: "/images/uploads/outdoor-living.avif",
 };
 
-const stats = [
-  { number: "6+", label: "Years Serving Kauai" },
-  { number: "50+", label: "Projects Completed" },
-  { number: "5★", label: "Average Rating" },
-];
-
-const outcomes = [
-  {
-    id: "protect",
-    icon: "🛡️",
-    title: "Protect",
-    color: "navy",
-    items: ["Fences & Gates", "Railings", "Structural Repairs", "Rot Repair"],
-  },
-  {
-    id: "gather",
-    icon: "🌴",
-    title: "Gather",
-    color: "green",
-    items: ["Decks & Lanais", "Outdoor Kitchens", "Covered Patios", "Pergolas"],
-  },
-  {
-    id: "refresh",
-    icon: "✨",
-    title: "Refresh",
-    color: "brown",
-    items: ["Kitchens", "Bathrooms", "Painting", "Flooring"],
-  },
-  {
-    id: "restore",
-    icon: "🔧",
-    title: "Restore",
-    color: "sand",
-    items: ["Water Damage", "Rot Repair", "Drywall", "Structural Repairs"],
-  },
-];
-
 const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
 ---
 
@@ -77,13 +48,24 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
   description="Kauai's trusted home improvement contractor since 2019. Decks, remodels, fencing, carpentry, property maintenance. Honest work, local values. Request a free estimate."
 >
   <!-- Hero -->
-  <Hero />
+  <Hero
+    headline={heroData.headline}
+    support={heroData.support}
+    trustLine={heroData.trustLine}
+    primaryCtaLabel={heroData.primaryCtaLabel}
+    primaryCtaHref={heroData.primaryCtaHref}
+    secondaryCtaLabel={heroData.secondaryCtaLabel}
+    secondaryCtaHref={heroData.secondaryCtaHref}
+    imageSrc={heroData.imageSrc}
+    imageAlt={heroData.imageAlt}
+    serviceTags={heroData.serviceTags}
+  />
 
   <!-- Stats / Trust Bar -->
   <section class="trust-bar" aria-label="Key stats">
     <div class="container trust-bar__inner">
       {
-        stats.map(({ number, label }, i) => (
+        statsData.stats.map(({ number, label }, i) => (
           <>
             <div
               class="trust-bar__stat"
@@ -92,7 +74,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
               <span class="trust-bar__number">{number}</span>
               <span class="trust-bar__label">{label}</span>
             </div>
-            {i < stats.length - 1 && (
+            {i < statsData.stats.length - 1 && (
               <hr class="trust-bar__divider" aria-hidden="true" />
             )}
           </>
@@ -108,13 +90,12 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
         class="section__header"
         data-motion="motion-preset-slide-up-sm motion-duration-700"
       >
-        <span class="section__eyebrow">What We Do</span>
+        <span class="section__eyebrow">{servicesSection.eyebrow}</span>
         <h2 id="services-heading" class="section__title">
-          Expert Home Improvement Services
+          {servicesSection.heading}
         </h2>
         <p class="section__subtitle">
-          From a quick repair to a full remodel, we bring skilled hands and
-          honest work to every project.
+          {servicesSection.subtitle}
         </p>
       </div>
       <div class="grid grid--4">
@@ -146,27 +127,23 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
         class="about-preview__content"
         data-motion="motion-preset-slide-up-sm motion-duration-700"
       >
-        <span class="section__eyebrow">Meet the Owner</span>
+        <span class="section__eyebrow">{aboutPreview.eyebrow}</span>
         <h2 id="about-heading" class="section__title">
-          Built on Aloha &amp; Craftsmanship
+          {aboutPreview.heading}
         </h2>
         <blockquote class="about-preview__quote">
-          "I believe homeowners deserve someone they can trust — someone who
-          shows up, communicates clearly, and takes pride in every project."
+          "{aboutPreview.quote}"
         </blockquote>
         <p
           style="color:var(--color-text-muted);line-height:1.75;margin-bottom:1.5rem;"
         >
-          I'm Adam Marchacos, owner of Ad Value Home Improvement. As a husband
-          and father raising our family here on Kauai, I'm proud to serve this
-          community with honesty, craftsmanship, and aloha. Every project, big
-          or small, gets my personal attention.
+          {aboutPreview.body}
         </p>
         <div class="about-preview__signature">
           <div>
-            <p class="about-preview__sig-name">Adam Marchacos</p>
+            <p class="about-preview__sig-name">{aboutPreview.sigName}</p>
             <p class="about-preview__sig-title">
-              Owner, Ad Value Home Improvement
+              {aboutPreview.sigTitle}
             </p>
           </div>
         </div>
@@ -180,7 +157,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
       >
         <div class="about-preview__photo-frame">
           <img
-            src="/images/adam-marchacos.jpg"
+            src="/images/uploads/adam-marchacos.jpg"
             alt="Adam Marchacos, owner of Ad Value Home Improvement"
             width="400"
             height="533"
@@ -198,18 +175,17 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
         class="section__header"
         data-motion="motion-preset-slide-up-sm motion-duration-700"
       >
-        <span class="section__eyebrow">Our Approach</span>
+        <span class="section__eyebrow">{outcomesData.eyebrow}</span>
         <h2 id="outcomes-heading" class="section__title">
-          Every Project Has a Purpose
+          {outcomesData.heading}
         </h2>
         <p class="section__subtitle">
-          We think in terms of outcomes, not just tasks. What does your home
-          need?
+          {outcomesData.subtitle}
         </p>
       </div>
       <div class="outcomes">
         {
-          outcomes.map(({ id, icon, title, color, items }, i) => (
+          outcomesData.outcomes.map(({ id, title, color, items }, i) => (
             <div
               class={`outcome-card outcome-card--${color}`}
               data-motion={`motion-preset-slide-up-sm motion-duration-500${i > 0 ? ` motion-delay-${i === 1 ? "150" : i === 2 ? "300" : "500"}` : ""}`}
@@ -239,9 +215,9 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
         class="section__header"
         data-motion="motion-preset-slide-up-sm motion-duration-700"
       >
-        <span class="section__eyebrow">Our Work</span>
-        <h2 id="gallery-heading" class="section__title">Recent Projects</h2>
-        <p class="section__subtitle">Real projects on Kauai. Real results.</p>
+        <span class="section__eyebrow">{gallerySection.eyebrow}</span>
+        <h2 id="gallery-heading" class="section__title">{gallerySection.heading}</h2>
+        <p class="section__subtitle">{gallerySection.subtitle}</p>
       </div>
       <div class="gallery-grid__items" style="margin-bottom:3rem;">
         {
@@ -283,13 +259,12 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
         class="section__header"
         data-motion="motion-preset-slide-up-sm motion-duration-700"
       >
-        <span class="section__eyebrow">What Clients Say</span>
+        <span class="section__eyebrow">{reviewsSection.eyebrow}</span>
         <h2 id="reviews-heading" class="section__title">
-          Trusted by Kauai Homeowners
+          {reviewsSection.heading}
         </h2>
         <p class="section__subtitle">
-          Don't take our word for it — here's what our clients across the island
-          have to say.
+          {reviewsSection.subtitle}
         </p>
       </div>
       <div class="grid grid--3">
@@ -363,12 +338,12 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
 
   <!-- Final CTA -->
   <CTASection
-    eyebrow="Ready to Get Started?"
-    title="Let's Talk About Your Project"
-    subtitle="Get an honest estimate from Kauai's most trusted home improvement contractor. No obligation, no pressure — just great work."
-    primaryLabel="Request a Free Estimate"
-    secondaryLabel={`Call ${settings.phone}`}
+    eyebrow={ctaSection.eyebrow}
+    title={ctaSection.title}
+    subtitle={ctaSection.subtitle}
+    primaryLabel={ctaSection.primaryLabel}
+    secondaryLabel={`${ctaSection.secondaryLabel} ${settings.phone}`}
     secondaryHref={phoneHref}
-    note="Trusted by homeowners across Kauai since 2019"
+    note={ctaSection.note}
   />
 </BaseLayout>

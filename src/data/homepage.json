@@ -1,0 +1,37 @@
+{
+  "headline": "Kauai's Trusted Home Improvement Partner",
+  "support": "Building excellent projects on Kauai since 2019. Building Better Relationships.",
+  "trustLine": "Trusted by homeowners across Kauai.",
+  "primaryCtaLabel": "Request a Free Estimate",
+  "primaryCtaHref": "/estimate",
+  "secondaryCtaLabel": "View Our Services",
+  "secondaryCtaHref": "/services",
+  "imageSrc": "/images/brand-illustration.webp",
+  "imageAlt": "Ad Value Home Improvement project on Kauai",
+  "serviceTags": [
+    {
+      "label": "Repairs",
+      "href": "/handyman-kauai"
+    },
+    {
+      "label": "Remodels",
+      "href": "/services"
+    },
+    {
+      "label": "Decks",
+      "href": "/deck-builder-kauai"
+    },
+    {
+      "label": "Fencing",
+      "href": "/fence-contractor-kauai"
+    },
+    {
+      "label": "Custom Carpentry",
+      "href": "/custom-carpentry-kauai"
+    },
+    {
+      "label": "Property Maintenance",
+      "href": "/property-maintenance-kauai"
+    }
+  ]
+}
