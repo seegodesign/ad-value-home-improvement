@@ -7,6 +7,20 @@
     "photo": "/images/uploads/Fence for Billy and Amanda.jpg"
   },
   {
+    "name": "Chrissy",
+    "neighborhood": "Kapaa",
+    "stars": 5,
+    "text": "Adam designed and built a beautiful, sturdy carport gate for our home at a great price. His workmanship was excellent, and the whole process was smooth from start to finish. He was dependable, on time, and honest. We’re so happy with the finished product and will definitely hire Adam again. Highly recommend!",
+    "photo": "/images/uploads/fence_8.avif"
+  },
+  {
+    "name": "Oliver",
+    "neighborhood": "Kapaa",
+    "stars": 5,
+    "text": "I’ve used Adam and his team for several projects now. They show up on time, and get the job done quickly and as promised!",
+    "photo": "/images/uploads/job for oliver.avif"
+  },
+  {
     "name": "Janet Graves",
     "neighborhood": "Kilauea",
     "stars": 5,
