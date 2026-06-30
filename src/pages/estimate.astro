@@ -6,8 +6,8 @@ import ObfuscatedEmail from '../components/ObfuscatedEmail.astro';
 
 const steps = [
   { n: '1', title: 'Submit Your Request', desc: 'Fill out the form with your project details. Takes about 2 minutes.' },
-  { n: '2', title: 'Adam Gets in Touch', desc: 'Within 1 business day, Adam will call or text to discuss your project.' },
-  { n: '3', title: 'On-Site Visit', desc: 'Adam visits your property to assess the project and answer all your questions.' },
+  { n: '2', title: `${settings.ownerName.split(' ')[0]} Gets in Touch`, desc: `Within 1 business day, ${settings.ownerName.split(' ')[0]} will call or text to discuss your project.` },
+  { n: '3', title: 'On-Site Visit', desc: `${settings.ownerName.split(' ')[0]} visits your property to assess the project and answer all your questions.` },
   { n: '4', title: 'Detailed Estimate', desc: 'You receive a written estimate with a clear scope, timeline, and pricing.' },
 ];
 
@@ -16,14 +16,14 @@ const sent = Astro.url.searchParams.get('sent') === 'true';
 ---
 
 <BaseLayout
-  title="Request a Free Estimate | Ad Value Home Improvement Kauai"
-  description="Request a free home improvement estimate from Ad Value Home Improvement on Kauai. Fast response, no obligation. Decks, remodels, fencing, carpentry, and more."
+  title={`Request a Free Estimate | ${settings.businessName} Kauai`}
+  description={`Request a free home improvement estimate from ${settings.businessName} on Kauai. Fast response, no obligation. Decks, remodels, fencing, carpentry, and more.`}
 >
   <Fragment slot="head"><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script></Fragment>
   <!-- Success banner -->
   {sent && (
     <div role="alert" style="background:var(--color-success,#2e7d32);color:#fff;text-align:center;padding:1rem;font-weight:600;">
-      Request received! Adam will be in touch within 1 business day.
+      Request received! {settings.ownerName.split(' ')[0]} will be in touch within 1 business day.
     </div>
   )}
 
@@ -73,10 +73,10 @@ const sent = Astro.url.searchParams.get('sent') === 'true';
         <div style="background:var(--color-navy);color:white;border-radius:var(--radius-lg);padding:2rem;">
           <h3 style="font-size:1.25rem;color:white;margin-bottom:1rem;">Prefer to Call?</h3>
           <p style="color:rgba(255,255,255,0.8);font-size:0.9375rem;margin-bottom:1.25rem;">
-            Adam answers his own phone. You'll always talk to the boss.
+            {settings.ownerName.split(' ')[0]} answers his own phone. You'll always talk to the boss.
           </p>
           <a href={phoneHref} class="btn btn--primary btn--full"><span class="icon-mask icon-phone icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> {settings.phone}</a>
-          <ObfuscatedEmail email="info@advaluekauai.com" label="Email Us" class="btn btn--outline-white btn--full" style="margin-top:0.75rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;">
+          <ObfuscatedEmail email={settings.email} label="Email Us" class="btn btn--outline-white btn--full" style="margin-top:0.75rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;">
           </ObfuscatedEmail>
         </div>
 

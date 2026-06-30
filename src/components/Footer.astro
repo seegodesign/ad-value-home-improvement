@@ -30,17 +30,17 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
     <div class="container footer__grid">
       <!-- Brand column -->
       <div class="footer__brand">
-        <a href="/" aria-label="Ad Value Home Improvement — Home">
+        <a href="/" aria-label={`${settings.businessName} — Home`}>
           <img
             src="/images/logo-light.svg"
-            alt="Ad Value Home Improvement"
+            alt={settings.businessName}
             class="footer__logo-img"
             width="200"
             height="48"
           />
         </a>
         <p class="footer__tagline">
-          Kauai's trusted home improvement partner since 2019.
+          {settings.tagline} since {settings.foundedYear}.
           Honest work, skilled hands, island values.
         </p>
         <!-- <div class="footer__social">
@@ -83,7 +83,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
         </div>
         <div class="footer__contact-item">
           <span class="icon-mask icon-email footer__contact-icon" aria-hidden="true"></span>
-          <ObfuscatedEmail email="info@advaluekauai.com" />
+          <ObfuscatedEmail email={settings.email} />
         </div>
         <div class="footer__contact-item">
           <span class="icon-mask icon-location footer__contact-icon" aria-hidden="true"></span>
@@ -106,7 +106,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
   <div class="footer__bottom">
     <div class="container footer__bottom-inner">
       <p class="footer__copyright">
-        &copy; {year} Ad Value Home Improvement. All rights reserved.
+        &copy; {year} {settings.businessName}. All rights reserved.
       </p>
       <div class="footer__bottom-links">
         <a href="/privacy" class="footer__bottom-link">Privacy Policy</a>

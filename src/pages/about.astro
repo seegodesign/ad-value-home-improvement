@@ -9,8 +9,8 @@ const values = aboutData.values;
 ---
 
 <BaseLayout
-  title="About Adam Marchacos | Ad Value Home Improvement Kauai"
-  description="Meet Adam Marchacos, owner of Ad Value Home Improvement. Kauai's trusted home improvement contractor since 2019. Learn about our values, craftsmanship, and commitment to the community."
+  title={`About ${settings.ownerName} | ${settings.businessName} Kauai`}
+  description={`Meet ${settings.ownerName}, owner of ${settings.businessName}. Kauai's trusted home improvement contractor since ${settings.foundedYear}. Learn about our values, craftsmanship, and commitment to the community.`}
 >
   <!-- Page Hero -->
   <section class="page-hero">
@@ -21,7 +21,7 @@ const values = aboutData.values;
         <span>About</span>
       </nav>
       <p class="page-hero__eyebrow">Kauai's Trusted Contractor</p>
-      <h1 class="page-hero__title">Meet Adam</h1>
+      <h1 class="page-hero__title">Meet {settings.ownerName.split(' ')[0]}</h1>
       <p class="page-hero__subtitle">
         Honest work, skilled hands, and genuine aloha — built into every project.
       </p>
@@ -35,7 +35,7 @@ const values = aboutData.values;
         <div class="about-preview__photo-frame">
           <img
             src={aboutData.ownerPhoto}
-            alt={`${aboutData.ownerName}, owner of Ad Value Home Improvement`}
+            alt={`${aboutData.ownerName}, owner of ${settings.businessName}`}
             width="420"
             height="560"
             loading="eager"
@@ -45,7 +45,7 @@ const values = aboutData.values;
       </div>
 
       <div class="about-preview__content">
-        <span class="section__eyebrow">Est. 2019 · Kauai, Hawaii</span>
+        <span class="section__eyebrow">Est. {settings.foundedYear} · Kauai, Hawaii</span>
         <h2 id="adam-heading" class="section__title">Aloha! I'm {aboutData.ownerName}</h2>
         <span class="accent-bar" aria-hidden="true"></span>
 
@@ -136,7 +136,7 @@ const values = aboutData.values;
     title="Let's Build Something Together"
     subtitle="Reach out for a free estimate. No pressure, no obligation — just an honest conversation about your home."
     primaryLabel="Request a Free Estimate"
-    secondaryLabel="Call Adam Directly"
+    secondaryLabel={`Call ${settings.ownerName.split(' ')[0]} Directly`}
     secondaryHref={phoneHref}
   />
 </BaseLayout>

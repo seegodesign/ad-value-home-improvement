@@ -44,8 +44,8 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
 ---
 
 <BaseLayout
-  title="Ad Value Home Improvement | Kauai's Trusted Home Improvement Partner"
-  description="Kauai's trusted home improvement contractor since 2019. Decks, remodels, fencing, carpentry, property maintenance. Honest work, local values. Request a free estimate."
+  title={`${settings.businessName} | ${settings.tagline}`}
+  description={`Kauai's trusted home improvement contractor since ${settings.foundedYear}. Decks, remodels, fencing, carpentry, property maintenance. Honest work, local values. Request a free estimate.`}
 >
   <!-- Hero -->
   <Hero
@@ -148,7 +148,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
           </div>
         </div>
         <div style="margin-top:2rem;">
-          <a href="/about" class="btn btn--secondary">Meet Adam →</a>
+          <a href="/about" class="btn btn--secondary">Meet {settings.ownerName.split(' ')[0]} →</a>
         </div>
       </div>
       <div
@@ -158,7 +158,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, "")}`;
         <div class="about-preview__photo-frame">
           <img
             src="/images/uploads/adam-marchacos.jpg"
-            alt="Adam Marchacos, owner of Ad Value Home Improvement"
+            alt={`${settings.ownerName}, owner of ${settings.businessName}`}
             width="400"
             height="533"
             loading="lazy"

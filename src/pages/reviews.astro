@@ -3,11 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ReviewCard from '../components/ReviewCard.astro';
 import CTASection from '../components/CTASection.astro';
 import reviews from '../data/reviews.json';
+import settings from '../data/settings.json';
 
 const reviewSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Ad Value Home Improvement',
+  name: settings.businessName,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
@@ -29,8 +30,8 @@ const reviewSchema = {
 ---
 
 <BaseLayout
-  title="Client Reviews | Ad Value Home Improvement Kauai"
-  description="Read 5-star reviews from Kauai homeowners who have worked with Ad Value Home Improvement. Trusted contractor for decks, remodels, fencing, and more."
+  title={`Client Reviews | ${settings.businessName} Kauai`}
+  description={`Read 5-star reviews from Kauai homeowners who have worked with ${settings.businessName}. Trusted contractor for decks, remodels, fencing, and more.`}
   schema={reviewSchema}
 >
   <!-- Page Hero -->

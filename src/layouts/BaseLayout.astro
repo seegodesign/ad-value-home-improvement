@@ -33,15 +33,14 @@ const defaultSchema = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "@id": siteUrl,
-  name: "Ad Value Home Improvement",
-  description:
-    "Kauai's trusted home improvement partner. Decks, remodels, fencing, carpentry, and property maintenance.",
+  name: settings.businessName,
+  description: settings.tagline,
   url: siteUrl,
   telephone: phoneE164,
-  email: "info@advaluekauai.com",
+  email: settings.email,
   logo: `${siteUrl}/images/logo.svg`,
   image: `${siteUrl}/images/og-default.jpg`,
-  foundingDate: "2019",
+  foundingDate: settings.foundedYear,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Kapaa",
@@ -93,7 +92,7 @@ const schemas = [
     <meta property="og:image" content={`${siteUrl}${image}`} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="Ad Value Home Improvement" />
+    <meta property="og:site_name" content={settings.businessName} />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->

@@ -36,8 +36,8 @@ const sent = Astro.url.searchParams.get("sent") === "true";
 ---
 
 <BaseLayout
-  title="Contact | Ad Value Home Improvement Kauai"
-  description="Contact Ad Value Home Improvement on Kauai. Call, email, or fill out a form. Serving Lihue, Kapaa, Princeville, Poipu, Hanapepe, and all of Kauai."
+  title={`Contact | ${settings.businessName} Kauai`}
+  description={`Contact ${settings.businessName} on Kauai. Call, email, or fill out a form. Serving ${settings.serviceAreas.join(', ')}, and all of Kauai.`}
 >
   <Fragment slot="head"
     ><script
@@ -68,7 +68,7 @@ const sent = Astro.url.searchParams.get("sent") === "true";
       <p class="page-hero__eyebrow">We'd Love to Hear From You</p>
       <h1 class="page-hero__title">Contact Us</h1>
       <p class="page-hero__subtitle">
-        Get in touch and Adam will respond within 1 business day. You'll always
+        Get in touch and {settings.ownerName.split(' ')[0]} will respond within 1 business day. You'll always
         talk to the person doing the work.
       </p>
     </div>
@@ -112,7 +112,7 @@ const sent = Astro.url.searchParams.get("sent") === "true";
             </div>
             <div class="contact-info__item-content">
               <p class="contact-info__item-label">Location</p>
-              <p class="contact-info__item-value">Kapaa, Kauai, Hawaii 96746</p>
+              <p class="contact-info__item-value">{settings.address.street}, {settings.address.city}, Hawaii {settings.address.zip}</p>
             </div>
           </div>
 
