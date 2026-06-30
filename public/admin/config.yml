@@ -18,6 +18,7 @@ backend:
   name: github
   repo: seegodesign/ad-value-home-improvement
   branch: main
+  base_url: https://ad-value-sveltia-cms-auth.seegodesign.workers.dev
 
 # Media files (uploaded images)
 media_folder: "public/images/uploads"
