@@ -1,22 +1,20 @@
 ---
 // EstimateForm component — no props needed, self-contained
-import settings from '../data/settings.json';
+import settings from "../data/settings.json";
 ---
 
 <div class="estimate-form">
   <h2 class="estimate-form__title">Request a Free Estimate</h2>
   <p class="estimate-form__subtitle">
-    Fill out the form below and Adam will be in touch within 1 business day.
-    No pressure, no obligation.
+    Fill out the form below and Adam will be in touch within 1 business day. No
+    pressure, no obligation.
   </p>
 
   <form
+    action="https://submit-form.com/dA8yGym0e"
     class="estimate-form__form"
     name="estimate"
     method="POST"
-    enctype="multipart/form-data"
-    netlify
-    netlify-honeypot="bot-field"
     aria-label="Estimate request form"
   >
     <!-- Honeypot for spam -->
@@ -28,7 +26,10 @@ import settings from '../data/settings.json';
     <div class="estimate-form__grid">
       <!-- Name -->
       <div class="estimate-form__group">
-        <label for="ef-name" class="estimate-form__label estimate-form__label--required">
+        <label
+          for="ef-name"
+          class="estimate-form__label estimate-form__label--required"
+        >
           Full Name
         </label>
         <input
@@ -44,7 +45,10 @@ import settings from '../data/settings.json';
 
       <!-- Phone -->
       <div class="estimate-form__group">
-        <label for="ef-phone" class="estimate-form__label estimate-form__label--required">
+        <label
+          for="ef-phone"
+          class="estimate-form__label estimate-form__label--required"
+        >
           Phone Number
         </label>
         <input
@@ -60,7 +64,10 @@ import settings from '../data/settings.json';
 
       <!-- Email -->
       <div class="estimate-form__group">
-        <label for="ef-email" class="estimate-form__label estimate-form__label--required">
+        <label
+          for="ef-email"
+          class="estimate-form__label estimate-form__label--required"
+        >
           Email Address
         </label>
         <input
@@ -76,7 +83,10 @@ import settings from '../data/settings.json';
 
       <!-- Project Address -->
       <div class="estimate-form__group">
-        <label for="ef-address" class="estimate-form__label estimate-form__label--required">
+        <label
+          for="ef-address"
+          class="estimate-form__label estimate-form__label--required"
+        >
           Project Address
         </label>
         <input
@@ -92,7 +102,10 @@ import settings from '../data/settings.json';
 
       <!-- Project Description — full width -->
       <div class="estimate-form__group estimate-form__group--full">
-        <label for="ef-project" class="estimate-form__label estimate-form__label--required">
+        <label
+          for="ef-project"
+          class="estimate-form__label estimate-form__label--required"
+        >
           Describe Your Project
         </label>
         <textarea
@@ -101,28 +114,7 @@ import settings from '../data/settings.json';
           class="estimate-form__textarea"
           placeholder="Tell us about your project — what needs to be done, approximate size, any special requirements..."
           required
-          rows="5"
-        ></textarea>
-      </div>
-
-      <!-- Photo Upload -->
-      <div class="estimate-form__group estimate-form__group--full">
-        <label for="ef-photos" class="estimate-form__label">
-          Upload Photos (optional)
-        </label>
-        <label for="ef-photos" class="estimate-form__file-label">
-          <span class="estimate-form__file-icon">📷</span>
-          <span>Click to upload photos or drag and drop</span>
-          <span style="font-size:0.75rem;color:var(--color-gray-500);">JPG, PNG, HEIC up to 10MB each</span>
-        </label>
-        <input
-          id="ef-photos"
-          type="file"
-          name="photos"
-          class="estimate-form__file"
-          multiple
-          accept="image/*"
-        />
+          rows="5"></textarea>
       </div>
 
       <!-- Preferred Start Date -->
@@ -164,7 +156,8 @@ import settings from '../data/settings.json';
       </button>
     </div>
     <p class="estimate-form__note">
-      ★ We respond within 1 business day. Your information is never sold or shared.
+      ★ We respond within 1 business day. Your information is never sold or
+      shared.
     </p>
   </form>
 </div>
