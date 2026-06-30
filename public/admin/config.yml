@@ -42,8 +42,8 @@ collections:
   # SITE SETTINGS
   # -----------------------------------------------------------
   - name: settings
-    label: "Global Company Settings"
-    description: "Global company settings — business info, contact, hours"
+    label: "Company Settings"
+    description: "company settings — business info, contact, hours"
     files:
       - name: general
         label: "Company Settings"
@@ -125,6 +125,43 @@ collections:
             widget: list
             field: { label: "Paragraph", name: text, widget: text }
           - { label: "Closing Signature Text", name: signature, widget: string }
+          - label: "Values / What We Stand For"
+            name: values
+            widget: list
+            fields:
+              - label: "Icon"
+                name: icon
+                widget: select
+                options:
+                  - arrow-path
+                  - badge-check
+                  - beaker
+                  - bolt
+                  - building-office-2
+                  - calendar-days
+                  - chat-bubble-left-right
+                  - check
+                  - clipboard-document-list
+                  - clock
+                  - globe-alt
+                  - hand-raised
+                  - home
+                  - leaf
+                  - map-pin
+                  - paint-brush
+                  - shield-check
+                  - sparkles
+                  - squares-2x2
+                  - sun
+                  - wrench-screwdriver
+              - { label: "Title", name: title, widget: string }
+              - { label: "Description", name: desc, widget: text }
+          - label: "Proven Track Record Stats"
+            name: stats
+            widget: list
+            fields:
+              - { label: "Number / Value", name: number, widget: string, hint: "e.g. 150+, 2019, 5★" }
+              - { label: "Label", name: label, widget: string, hint: "e.g. Projects Completed" }
 
   # -----------------------------------------------------------
   # SERVICES
@@ -146,10 +183,6 @@ collections:
               - { label: "ID (no spaces)", name: id, widget: string }
               - { label: "Service Title", name: title, widget: string }
               - { label: "Short Description", name: description, widget: text }
-              - label: "Icon"
-                name: icon
-                widget: image
-                required: false
               - { label: "Link (href)", name: href, widget: string }
               - label: "Service Items"
                 name: items
@@ -267,6 +300,7 @@ collections:
     label: "SEO Landing Pages"
     description: "Manage content for SEO service pages"
     folder: "src/data/seo-pages"
+    format: json
     create: true
     slug: "{{slug}}"
     label_singular: "SEO Page"
@@ -276,7 +310,39 @@ collections:
       - { label: "Meta Description", name: metaDescription, widget: text }
       - { label: "Eyebrow Text", name: eyebrow, widget: string }
       - { label: "Subtitle", name: subtitle, widget: string }
+      - { label: "Intro Section Title", name: introTitle, widget: string }
       - { label: "Intro Paragraph", name: intro, widget: text }
+      - label: "Highlights"
+        name: highlights
+        widget: list
+        fields:
+          - label: "Icon"
+            name: icon
+            widget: select
+            options:
+              - arrow-path
+              - badge-check
+              - beaker
+              - bolt
+              - building-office-2
+              - calendar-days
+              - chat-bubble-left-right
+              - check
+              - clipboard-document-list
+              - clock
+              - globe-alt
+              - hand-raised
+              - home
+              - leaf
+              - map-pin
+              - paint-brush
+              - shield-check
+              - sparkles
+              - squares-2x2
+              - sun
+              - wrench-screwdriver
+          - { label: "Title", name: title, widget: string }
+          - { label: "Description", name: description, widget: text }
       - label: "Service Items"
         name: serviceItems
         widget: list
@@ -285,27 +351,7 @@ collections:
         name: imageSrc
         widget: image
         required: false
-
-  # -----------------------------------------------------------
-  # CONTACT PAGE / ALOHA CARE PLAN
-  # -----------------------------------------------------------
-  - name: contact
-    label: "Contact & Care Plan"
-    files:
-      - name: care_plan
-        label: "Aloha Home Care Plan"
-        file: "src/data/care-plan.json"
-        fields:
-          - { label: "Plan Title", name: title, widget: string }
-          - { label: "Plan Description", name: description, widget: text }
-          - label: "What's Included"
-            name: includes
-            widget: list
-            field: { label: "Item", name: item, widget: string }
-          - label: "Plans"
-            name: plans
-            widget: list
-            fields:
-              - { label: "Plan Name", name: name, widget: string }
-              - { label: "Description", name: desc, widget: string }
-              - { label: "Most Popular?", name: best, widget: boolean, default: false }
+      - { label: "Image Alt Text", name: imageAlt, widget: string, required: false }
+      - { label: "Schema Name", name: schemaName, widget: string, hint: "e.g. Deck Builder Kauai" }
+      - { label: "Schema Description", name: schemaDescription, widget: text, hint: "One sentence used in JSON-LD structured data" }
+      - { label: "Schema Service Type", name: schemaServiceType, widget: string, hint: "e.g. Deck Construction, Fence Installation" }

@@ -65,7 +65,7 @@
 .section__subtitle {
   font-size: var(--fs-lg);
   color: var(--color-text-muted);
-  max-width: 580px;
+  max-width: var(--max-width);
   margin-inline: auto;
   line-height: var(--lh-relaxed);
 }

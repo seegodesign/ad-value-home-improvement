@@ -2,16 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
 import settings from '../data/settings.json';
-
-const values = [
-  { icon: 'hand-raised', title: 'Honest Communication', desc: 'No surprises, no runaround. I answer my own phone and give you straight answers from start to finish.' },
-  { icon: 'wrench-screwdriver', title: 'Skilled Craftsmanship', desc: "Building in Hawaii's climate requires real expertise. Every material choice and technique is selected for longevity." },
-  { icon: 'calendar-days', title: 'We Show Up', desc: "When we commit to a date, we're there. Respecting your time is a core part of how we operate." },
-  { icon: 'sparkles', title: 'Aloha Values', desc: 'As a Kauai family, we treat your home like our own. This community deserves contractors who care.' },
-  { icon: 'chat-bubble-left-right', title: 'Local & Accountable', desc: "We live here. We're not a mainland company that'll disappear. Our reputation is everything." },
-];
+import aboutData from '../data/about.json';
 
 const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
+const values = aboutData.values;
 ---
 
 <BaseLayout
@@ -40,8 +34,8 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
       <div class="about-preview__image">
         <div class="about-preview__photo-frame">
           <img
-            src="/images/adam-marchacos.jpg"
-            alt="Adam Marchacos, owner of Ad Value Home Improvement"
+            src={aboutData.ownerPhoto}
+            alt={`${aboutData.ownerName}, owner of Ad Value Home Improvement`}
             width="420"
             height="560"
             loading="eager"
@@ -52,31 +46,22 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
 
       <div class="about-preview__content">
         <span class="section__eyebrow">Est. 2019 · Kauai, Hawaii</span>
-        <h2 id="adam-heading" class="section__title">Aloha! I'm Adam Marchacos</h2>
+        <h2 id="adam-heading" class="section__title">Aloha! I'm {aboutData.ownerName}</h2>
         <span class="accent-bar" aria-hidden="true"></span>
 
-        <p style="font-size:1.0625rem;line-height:1.8;color:var(--color-text-muted);margin-bottom:1.25rem;">
-          I started Ad Value Home Improvement because I believe homeowners deserve someone
-          they can trust — someone who shows up, communicates clearly, and takes pride in
-          every project.
-        </p>
-        <p style="font-size:1.0625rem;line-height:1.8;color:var(--color-text-muted);margin-bottom:1.25rem;">
-          Whether it's repairing a deck, remodeling a kitchen, building a custom fence,
-          or transforming an outdoor space, my goal is simple: <strong>leave every home
-          better than I found it.</strong>
-        </p>
-        <p style="font-size:1.0625rem;line-height:1.8;color:var(--color-text-muted);margin-bottom:1.25rem;">
-          As a husband and father raising our family here on Kauai, I'm proud to serve
-          this community with honesty, craftsmanship, and aloha.
-        </p>
+        {aboutData.bio.map((para, i) => (
+          <p style="font-size:1.0625rem;line-height:1.8;color:var(--color-text-muted);margin-bottom:1.25rem;">
+            {para}
+          </p>
+        ))}
         <p style="font-size:1.125rem;font-family:var(--font-heading);font-weight:700;color:var(--color-navy);margin-bottom:2rem;">
-          We Ad Value! Mahalo for trusting us with your home.
+          {aboutData.signature}
         </p>
 
         <div class="about-preview__signature">
           <div>
-            <p class="about-preview__sig-name">Adam Marchacos</p>
-            <p class="about-preview__sig-title">Owner, Ad Value Home Improvement · Kauai</p>
+            <p class="about-preview__sig-name">{aboutData.ownerName}</p>
+            <p class="about-preview__sig-title">{aboutData.ownerTitle}</p>
           </div>
         </div>
 
@@ -120,12 +105,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
         <h2 class="section__title">Proven Track Record</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;">
-        {[
-          { n: '2019', l: 'Year Founded' },
-          { n: '150+', l: 'Projects Completed' },
-          { n: '8',    l: 'Service Areas' },
-          { n: '5★',   l: 'Client Rating' },
-        ].map(({ n, l }) => (
+        {aboutData.stats.map(({ number: n, label: l }) => (
           <div>
             <p style="font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--color-brown-light);line-height:1;">{n}</p>
             <p style="font-size:0.875rem;color:rgba(255,255,255,0.7);margin-top:0.5rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">{l}</p>
@@ -144,7 +124,7 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
         From the North Shore to the South Shore, we proudly serve homeowners across the island.
       </p>
       <div class="service-areas">
-        {['Lihue','Kapaa','Princeville','Hanalei','Kalaheo','Koloa','Poipu','Hanapepe'].map((area) => (
+        {settings.serviceAreas.map((area) => (
           <span class="service-area-badge">{area}</span>
         ))}
       </div>

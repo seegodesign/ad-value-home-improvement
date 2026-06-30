@@ -1,0 +1,56 @@
+---
+import SEOPageLayout from '../components/SEOPageLayout.astro';
+import settings from '../data/settings.json';
+
+export async function getStaticPaths() {
+  const files = await import.meta.glob('../data/seo-pages/*.json');
+  const paths = await Promise.all(
+    Object.entries(files).map(async ([filePath, resolver]) => {
+      const data = (await resolver()) as Record<string, unknown>;
+      const slug = filePath.replace('../data/seo-pages/', '').replace('.json', '');
+      return { params: { slug }, props: { data } };
+    })
+  );
+  return paths;
+}
+
+interface Props {
+  data: {
+    title: string;
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    pageTitle: string;
+    subtitle: string;
+    introTitle: string;
+    intro: string;
+    highlights: { icon: string; title: string; description: string }[];
+    serviceItems?: string[];
+    imageSrc?: string;
+    imageAlt?: string;
+    schemaName: string;
+    schemaDescription: string;
+    schemaServiceType: string;
+  };
+}
+
+const { data } = Astro.props;
+const phoneE164 = `+1${settings.phone.replace(/\D/g, '')}`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: data.schemaName,
+  description: data.schemaDescription,
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Ad Value Home Improvement',
+    telephone: phoneE164,
+    areaServed: 'Kauai, Hawaii',
+  },
+  areaServed: { '@type': 'AdministrativeArea', name: 'Kauai, Hawaii' },
+  serviceType: data.schemaServiceType,
+};
+---
+
+<SEOPageLayout {...data} schema={schema} />

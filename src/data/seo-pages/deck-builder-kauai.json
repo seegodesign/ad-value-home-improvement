@@ -1,0 +1,51 @@
+{
+  "pageTitle": "Kauai's Trusted Deck Builder",
+  "metaTitle": "Deck Builder Kauai | Custom Stairs, Decks & Railings | Ad Value Home Improvement",
+  "metaDescription": "Kauai's trusted stair & deck builder. Custom Trex composite, ipe hardwood, and cedar decks. Railings, stairs, repairs. Free estimates. Serving all of Kauai.",
+  "eyebrow": "Deck Building · Kauai, Hawaii",
+  "subtitle": "Custom decks built to stand up to Hawaii's climate. Trex composite, ipe hardwood, repairs, and railings.",
+  "introTitle": "Outdoor Spaces Built to Last",
+  "intro": "A great deck transforms your outdoor living space — and on Kauai, you deserve one that's built to last. Ad Value Home Improvement designs and builds custom stairs and decks that can handle Hawaii's humidity, salt air, and UV exposure. From Trex composite to premium ipe hardwood, we'll help you choose the right material and design for your home.",
+  "highlights": [
+    {
+      "icon": "globe-alt",
+      "title": "Built for Hawaii",
+      "description": "Every material and fastener selected for Kauai's coastal climate and tropical weather."
+    },
+    {
+      "icon": "wrench-screwdriver",
+      "title": "Master Craftsmen",
+      "description": "Precision framing, level surfaces, and beautiful finishes that last for decades."
+    },
+    {
+      "icon": "squares-2x2",
+      "title": "Custom Design",
+      "description": "We work with your space, budget, and vision to create the deck of your dreams."
+    },
+    {
+      "icon": "check",
+      "title": "Permitted & Inspected",
+      "description": "All deck projects handled with proper permits and inspections for your protection."
+    }
+  ],
+  "serviceItems": [
+    "Trex Composite Decks",
+    "Ipe Hardwood Decks",
+    "Cedar Decks",
+    "Deck Repairs & Restoration",
+    "Cable Railings",
+    "Wood Railings & Balusters",
+    "Deck Stairs & Landings",
+    "Custom Multi-Level Decks",
+    "Built-in Benches & Planters",
+    "Pergolas & Shade Structures",
+    "Post & Beam Construction",
+    "Deck Staining & Sealing"
+  ],
+  "imageSrc": "/images/uploads/deck-builder.avif",
+  "imageAlt": "Outdoor wood deck built for backyard living",
+  "title": "Deck Builder Kauai",
+  "schemaName": "Deck Builder Kauai",
+  "schemaDescription": "Custom deck design and construction on Kauai. Trex composite, ipe hardwood, railings, stairs, and deck repairs.",
+  "schemaServiceType": "Deck Construction"
+}

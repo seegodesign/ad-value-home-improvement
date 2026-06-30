@@ -1,0 +1,24 @@
+{
+  "ownerName": "Adam Marchacos",
+  "ownerTitle": "Owner, Ad Value Home Improvement · Kauai",
+  "ownerPhoto": "/images/uploads/adam-marchacos.jpg",
+  "bio": [
+    "I started Ad Value Home Improvement because I believe homeowners deserve someone they can trust — someone who shows up, communicates clearly, and takes pride in every project.",
+    "Whether it's repairing a deck, remodeling a kitchen, building a custom fence, or transforming an outdoor space, my goal is simple: leave every home better than I found it.",
+    "As a husband and father raising our family here on Kauai, I'm proud to serve this community with honesty, craftsmanship, and aloha."
+  ],
+  "signature": "We Ad Value! Mahalo for trusting us with your home.",
+  "values": [
+    { "icon": "hand-raised", "title": "Honest Communication", "desc": "No surprises, no runaround. I answer my own phone and give you straight answers from start to finish." },
+    { "icon": "wrench-screwdriver", "title": "Skilled Craftsmanship", "desc": "Building in Hawaii's climate requires real expertise. Every material choice and technique is selected for longevity." },
+    { "icon": "calendar-days", "title": "We Show Up", "desc": "When we commit to a date, we're there. Respecting your time is a core part of how we operate." },
+    { "icon": "sparkles", "title": "Aloha Values", "desc": "As a Kauai family, we treat your home like our own. This community deserves contractors who care." },
+    { "icon": "chat-bubble-left-right", "title": "Local & Accountable", "desc": "We live here. We're not a mainland company that'll disappear. Our reputation is everything." }
+  ],
+  "stats": [
+    { "number": "2019", "label": "Year Founded" },
+    { "number": "150+", "label": "Projects Completed" },
+    { "number": "8", "label": "Service Areas" },
+    { "number": "5★", "label": "Client Rating" }
+  ]
+}

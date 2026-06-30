@@ -4,33 +4,26 @@
   "phone": "808-977-2334",
   "email": "info@advaluekauai.com",
   "address": {
-    "street": "Lihue",
+    "street": "Kapaa",
     "city": "Kauai",
     "state": "HI",
-    "zip": "96766"
+    "zip": "96746"
   },
   "hours": {
-    "weekdays": "Monday – Friday: 7:00 AM – 5:00 PM",
-    "saturday": "Saturday: 8:00 AM – 2:00 PM",
-    "sunday": "Sunday: By appointment"
+    "weekdays": "7am-5pm",
+    "saturday": "8am-2pm",
+    "sunday": "By appointment"
   },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "07:00",
-      "closes": "17:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "14:00"
-    }
-  ],
   "serviceAreas": [
-    "Lihue", "Kapaa", "Princeville", "Hanalei",
-    "Kalaheo", "Koloa", "Poipu", "Hanapepe", "Waimea"
+    "Kapaa",
+    "Kapaa",
+    "Princeville",
+    "Hanalei",
+    "Kalaheo",
+    "Koloa",
+    "Poipu",
+    "Hanapepe",
+    "Waimea"
   ],
   "social": {
     "facebook": "https://facebook.com/advaluehomeimprovement",
@@ -38,5 +31,25 @@
     "nextdoor": "https://nextdoor.com/pages/ad-value-home-improvement-kapaa-hi/"
   },
   "foundedYear": "2019",
-  "ownerName": "Adam Marchacos"
+  "ownerName": "Adam Marchacos",
+  "openingHoursSpecification": [
+    {
+      "closes": "17:00",
+      "opens": "07:00",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "@type": "OpeningHoursSpecification"
+    },
+    {
+      "closes": "14:00",
+      "opens": "08:00",
+      "dayOfWeek": "Saturday",
+      "@type": "OpeningHoursSpecification"
+    }
+  ]
 }

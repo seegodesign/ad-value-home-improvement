@@ -1,0 +1,35 @@
+{
+  "title": "Bathroom Remodel Kauai",
+  "metaTitle": "Bathroom Remodel Kauai | Tile, Vanities & Shower Remodels | Ad Value Home Improvement",
+  "metaDescription": "Expert bathroom remodeling on Kauai. Tile installation, vanities, showers, water damage repair, and full renovations. Free estimates. All of Kauai.",
+  "eyebrow": "Bathroom Remodeling · Kauai, Hawaii",
+  "pageTitle": "Beautiful Bathroom Remodels on Kauai",
+  "subtitle": "From tile upgrades to full renovations — we transform dated bathrooms into spaces you'll love.",
+  "imageSrc": "/images/uploads/bathroom-remodel.avif",
+  "imageAlt": "Clean bathroom remodel with modern shower tile and vanity",
+  "introTitle": "Bathrooms Built for Daily Comfort",
+  "intro": "A bathroom remodel is one of the best investments you can make in your home. Ad Value Home Improvement handles everything from single tile repairs to complete gut-and-rebuild renovations. We pay close attention to moisture management and waterproofing — critical in Hawaii's humid environment — so your new bathroom stays beautiful for years to come.",
+  "highlights": [
+    { "icon": "beaker", "title": "Waterproofing First", "description": "Proper cement board, waterproof membranes, and sealants that prevent water damage in Hawaii's humid climate." },
+    { "icon": "squares-2x2", "title": "Expert Tile Work", "description": "Precise, professional tile installation from shower floors to decorative accent walls." },
+    { "icon": "home", "title": "Full Shower Remodels", "description": "Custom walk-in showers, tub surrounds, and wet room designs tailored to your space." },
+    { "icon": "wrench-screwdriver", "title": "Water Damage Repair", "description": "We fix the rot and moisture damage that's already there — then build it right this time." }
+  ],
+  "serviceItems": [
+    "Full Bathroom Renovations",
+    "Tile Floor Installation",
+    "Tile Shower & Tub Surrounds",
+    "Walk-in Shower Conversions",
+    "Vanity Installation",
+    "Mirror & Towel Bar Installation",
+    "Toilet Replacement",
+    "Water Damage & Rot Repair",
+    "Drywall & Cement Board",
+    "Exhaust Fan Installation",
+    "Lighting Upgrades",
+    "Design Services"
+  ],
+  "schemaName": "Bathroom Remodel Kauai",
+  "schemaDescription": "Complete bathroom remodeling on Kauai. Tile, vanities, showers, water damage repair, and design services.",
+  "schemaServiceType": "Bathroom Remodeling"
+}
