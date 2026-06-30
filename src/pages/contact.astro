@@ -39,13 +39,23 @@ const sent = Astro.url.searchParams.get("sent") === "true";
   title="Contact | Ad Value Home Improvement Kauai"
   description="Contact Ad Value Home Improvement on Kauai. Call, email, or fill out a form. Serving Lihue, Kapaa, Princeville, Poipu, Hanapepe, and all of Kauai."
 >
-  <Fragment slot="head"><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script></Fragment>
+  <Fragment slot="head"
+    ><script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer></script></Fragment
+  >
   <!-- Success banner -->
-  {sent && (
-    <div role="alert" style="background:var(--color-success,#2e7d32);color:#fff;text-align:center;padding:1rem;font-weight:600;">
-      Message sent! We'll be in touch within 1 business day.
-    </div>
-  )}
+  {
+    sent && (
+      <div
+        role="alert"
+        style="background:var(--color-success,#2e7d32);color:#fff;text-align:center;padding:1rem;font-weight:600;"
+      >
+        Message sent! We'll be in touch within 1 business day.
+      </div>
+    )
+  }
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -70,9 +80,7 @@ const sent = Astro.url.searchParams.get("sent") === "true";
       <!-- Left: contact details + map -->
       <div style="display:flex;flex-direction:column;gap:2rem;">
         <div class="contact-info__card">
-          <h2 id="contact-heading" class="contact-info__title">
-            Get In Touch
-          </h2>
+          <h2 id="contact-heading" class="contact-info__title">Get In Touch</h2>
 
           <div class="contact-info__item">
             <div class="contact-info__item-icon" aria-hidden="true">
@@ -124,13 +132,10 @@ const sent = Astro.url.searchParams.get("sent") === "true";
               </p>
             </div>
           </div>
-
         </div>
         <!-- Service Areas -->
         <div class="contact-info__card">
-          <h2 class="contact-info__title">
-            Service Areas
-          </h2>
+          <h2 class="contact-info__title">Service Areas</h2>
           <p
             style="font-size:0.9375rem;color:var(--color-text-muted);margin-bottom:1.25rem;"
           >
@@ -155,16 +160,18 @@ const sent = Astro.url.searchParams.get("sent") === "true";
       <div style="display:flex;flex-direction:column;gap:2rem;">
         <!-- Quick Contact Form -->
         <div class="contact-info__card">
-          <h2 class="contact-info__title">
-            Send a Message
-          </h2>
+          <h2 class="contact-info__title">Send a Message</h2>
           <form
             action="https://submit-form.com/mLcpka6Fj"
             name="contact"
             method="POST"
             style="display:flex;flex-direction:column;gap:1.25rem;"
           >
-            <input type="hidden" name="_redirect" value="https://advaluekauai.com/contact?sent=true" />
+            <input
+              type="hidden"
+              name="_redirect"
+              value="https://advaluekauai.com/contact?sent=true"
+            />
             <p style="display:none;" aria-hidden="true">
               <label>Don't fill this out: <input name="bot-field" /></label>
             </p>
@@ -224,7 +231,8 @@ const sent = Astro.url.searchParams.get("sent") === "true";
                 placeholder="Tell us how we can help..."
                 required></textarea>
             </div>
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAADtRmInV5QcyiO91"></div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADtRmInV5QcyiO91">
+            </div>
             <button type="submit" class="btn btn--primary btn--full"
               >Send Message</button
             >
@@ -235,6 +243,8 @@ const sent = Astro.url.searchParams.get("sent") === "true";
   </section>
 
   <!-- Aloha Home Care Plan -->
+  {
+    /*
   <section
     class="section section--sand"
     id="care-plan"
@@ -329,6 +339,8 @@ const sent = Astro.url.searchParams.get("sent") === "true";
       </div>
     </div>
   </section>
+     */
+  }
 
   <CTASection
     eyebrow="Don't Wait"

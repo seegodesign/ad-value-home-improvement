@@ -442,7 +442,6 @@
 }
 
 .service-area-badge {
-  background-color: var(--color-green-lighter);
   color: var(--color-navy);
   padding: var(--sp-2) var(--sp-4);
   border-radius: var(--radius-full);

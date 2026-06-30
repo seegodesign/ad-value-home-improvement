@@ -143,42 +143,45 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
   </section>
 
   <!-- Aloha Care Plan callout -->
-  <section class="section care-callout" aria-labelledby="care-heading">
-    <div class="container">
-      <div class="care-callout__card">
-        <span class="care-callout__badge">New: Recurring Service</span>
-        <h2 id="care-heading" class="care-callout__title">The Aloha Home Care Plan</h2>
-        <p class="care-callout__subtitle">
-          Year-round property maintenance so small issues never become big problems. Choose the cadence that works for you.
-        </p>
-        <div class="care-callout__tiers">
-          <div class="care-callout__tier">
-            <span class="care-callout__tier-name">Monthly</span>
-            <span class="care-callout__tier-label">Ongoing peace of mind</span>
+  {
+    /*
+    <section class="section care-callout" aria-labelledby="care-heading">
+      <div class="container">
+        <div class="care-callout__card">
+          <span class="care-callout__badge">New: Recurring Service</span>
+          <h2 id="care-heading" class="care-callout__title">The Aloha Home Care Plan</h2>
+          <p class="care-callout__subtitle">
+            Year-round property maintenance so small issues never become big problems. Choose the cadence that works for you.
+          </p>
+          <div class="care-callout__tiers">
+            <div class="care-callout__tier">
+              <span class="care-callout__tier-name">Monthly</span>
+              <span class="care-callout__tier-label">Ongoing peace of mind</span>
+            </div>
+            <div class="care-callout__divider" aria-hidden="true"></div>
+            <div class="care-callout__tier">
+              <span class="care-callout__tier-name">Quarterly</span>
+              <span class="care-callout__tier-label">Seasonal check-ins</span>
+            </div>
+            <div class="care-callout__divider" aria-hidden="true"></div>
+            <div class="care-callout__tier">
+              <span class="care-callout__tier-name">Annual</span>
+              <span class="care-callout__tier-label">One visit per year</span>
+            </div>
           </div>
-          <div class="care-callout__divider" aria-hidden="true"></div>
-          <div class="care-callout__tier">
-            <span class="care-callout__tier-name">Quarterly</span>
-            <span class="care-callout__tier-label">Seasonal check-ins</span>
-          </div>
-          <div class="care-callout__divider" aria-hidden="true"></div>
-          <div class="care-callout__tier">
-            <span class="care-callout__tier-name">Annual</span>
-            <span class="care-callout__tier-label">One visit per year</span>
-          </div>
+          <ul class="care-callout__perks">
+            {['Priority scheduling', 'Gutter cleaning', 'Deck &amp; fence inspections', 'Storm damage checkups'].map((perk) => (
+              <li class="care-callout__perk" set:html={`<span aria-hidden="true">✓</span> ${perk}`}></li>
+            ))}
+          </ul>
+          <a href="/contact#care-plan" class="btn btn--primary btn--lg care-callout__cta">
+            Learn About the Care Plan →
+          </a>
         </div>
-        <ul class="care-callout__perks">
-          {['Priority scheduling', 'Gutter cleaning', 'Deck &amp; fence inspections', 'Storm damage checkups'].map((perk) => (
-            <li class="care-callout__perk" set:html={`<span aria-hidden="true">✓</span> ${perk}`}></li>
-          ))}
-        </ul>
-        <a href="/contact#care-plan" class="btn btn--primary btn--lg care-callout__cta">
-          Learn About the Care Plan →
-        </a>
       </div>
-    </div>
-  </section>
-
+    </section>
+    */
+  }
   <CTASection
     eyebrow="Get Started"
     title="Request a Free Estimate"
