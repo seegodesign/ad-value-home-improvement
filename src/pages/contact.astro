@@ -32,12 +32,20 @@ const carePlans = [
     best: false,
   },
 ];
+const sent = Astro.url.searchParams.get("sent") === "true";
 ---
 
 <BaseLayout
   title="Contact | Ad Value Home Improvement Kauai"
   description="Contact Ad Value Home Improvement on Kauai. Call, email, or fill out a form. Serving Lihue, Kapaa, Princeville, Poipu, Hanapepe, and all of Kauai."
 >
+  <!-- Success banner -->
+  {sent && (
+    <div role="alert" style="background:var(--color-success,#2e7d32);color:#fff;text-align:center;padding:1rem;font-weight:600;">
+      Message sent! We'll be in touch within 1 business day.
+    </div>
+  )}
+
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container page-hero__inner">
@@ -158,6 +166,7 @@ const carePlans = [
             method="POST"
             style="display:flex;flex-direction:column;gap:1.25rem;"
           >
+            <input type="hidden" name="_redirect" value="https://advaluekauai.com/contact?sent=true" />
             <p style="display:none;" aria-hidden="true">
               <label>Don't fill this out: <input name="bot-field" /></label>
             </p>
