@@ -22,6 +22,7 @@ import settings from "../data/settings.json";
       <label>Don't fill this out: <input name="bot-field" /></label>
     </p>
     <input type="hidden" name="form-name" value="estimate" />
+    <input type="hidden" name="_redirect" value="https://advaluekauai.com/estimate?sent=true" />
 
     <div class="estimate-form__grid">
       <!-- Name -->
@@ -151,6 +152,7 @@ import settings from "../data/settings.json";
     </div>
 
     <div class="estimate-form__submit">
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAADtRmInV5QcyiO91" style="margin-bottom:1rem;"></div>
       <button type="submit" class="btn btn--primary btn--lg btn--full">
         Submit Estimate Request
       </button>

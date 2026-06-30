@@ -356,15 +356,6 @@
   gap: var(--sp-3);
 }
 
-.contact-info__title-bar {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background-color: var(--color-brown);
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
 .contact-info__item {
   display: flex;
   align-items: flex-start;

@@ -1,0 +1,42 @@
+---
+interface Props {
+  email: string;
+  label?: string;
+  class?: string;
+  style?: string;
+}
+
+const { email, label, class: className, style } = Astro.props;
+
+const rot13 = (s: string) =>
+  s.replace(/[a-zA-Z]/g, (c) =>
+    String.fromCharCode(c.charCodeAt(0) + (c.toLowerCase() < 'n' ? 13 : -13))
+  );
+
+const encoded = rot13(email);
+// Display text: if a custom label is given use it, otherwise show the email
+// address itself (JS will replace href and text; no-JS shows placeholder).
+const displayText = label ?? encoded;
+---
+
+<a
+  href="#"
+  data-em={encoded}
+  class={className}
+  style={style}
+  aria-label={label ? `${label} — ${email.replace('@', ' at ').replace('.', ' dot ')}` : undefined}
+>{displayText}</a>
+
+<script>
+  document.querySelectorAll('a[data-em]').forEach((el) => {
+    const a = el as HTMLAnchorElement;
+    const decoded = a.dataset.em!.replace(/[a-zA-Z]/g, (c) =>
+      String.fromCharCode(c.charCodeAt(0) + (c.toLowerCase() < 'n' ? 13 : -13))
+    );
+    a.href = `mailto:${decoded}`;
+    // Only replace text when no custom label was set (data-em text === display text)
+    if (a.textContent?.trim() === a.dataset.em) {
+      a.textContent = decoded;
+    }
+  });
+</script>

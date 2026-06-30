@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EstimateForm from '../components/EstimateForm.astro';
 import settings from '../data/settings.json';
+import ObfuscatedEmail from '../components/ObfuscatedEmail.astro';
 
 const steps = [
   { n: '1', title: 'Submit Your Request', desc: 'Fill out the form with your project details. Takes about 2 minutes.' },
@@ -11,12 +12,21 @@ const steps = [
 ];
 
 const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
+const sent = Astro.url.searchParams.get('sent') === 'true';
 ---
 
 <BaseLayout
   title="Request a Free Estimate | Ad Value Home Improvement Kauai"
   description="Request a free home improvement estimate from Ad Value Home Improvement on Kauai. Fast response, no obligation. Decks, remodels, fencing, carpentry, and more."
 >
+  <Fragment slot="head"><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script></Fragment>
+  <!-- Success banner -->
+  {sent && (
+    <div role="alert" style="background:var(--color-success,#2e7d32);color:#fff;text-align:center;padding:1rem;font-weight:600;">
+      Request received! Adam will be in touch within 1 business day.
+    </div>
+  )}
+
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="container page-hero__inner">
@@ -66,9 +76,8 @@ const phoneHref = `tel:+1${settings.phone.replace(/\D/g, '')}`;
             Adam answers his own phone. You'll always talk to the boss.
           </p>
           <a href={phoneHref} class="btn btn--primary btn--full"><span class="icon-mask icon-phone icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> {settings.phone}</a>
-          <a href="mailto:info@advaluekauai.com" class="btn btn--outline-white btn--full" style="margin-top:0.75rem;">
-            <span class="icon-mask icon-email icon-sm" style="margin-right:0.4rem;" aria-hidden="true"></span> Email Us
-          </a>
+          <ObfuscatedEmail email="info@advaluekauai.com" label="Email Us" class="btn btn--outline-white btn--full" style="margin-top:0.75rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;">
+          </ObfuscatedEmail>
         </div>
 
         <div style="background:var(--color-off-white);border-radius:var(--radius-lg);padding:2rem;border:1px solid var(--color-gray-200);">

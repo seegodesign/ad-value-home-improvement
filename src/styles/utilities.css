@@ -94,12 +94,6 @@
     --section-py: 4rem;
   }
 
-  .header__nav,
-  .header__actions {
-    display: flex;
-  }
-  .header__hamburger { display: none; }
-
   .hero__inner { grid-template-columns: 2fr 1fr; }
 
   .about-preview { grid-template-columns: 1fr 2fr; }
@@ -126,6 +120,12 @@
 /* Large (>= 1024px) */
 @media (min-width: 1024px) {
   :root { --container-px: 2rem; }
+
+  .header__nav,
+  .header__actions {
+    display: flex;
+  }
+  .header__hamburger { display: none; }
 
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
   .grid--4 { grid-template-columns: repeat(4, 1fr); }

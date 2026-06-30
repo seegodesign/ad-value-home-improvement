@@ -1,5 +1,6 @@
 ---
 import settings from '../data/settings.json';
+import ObfuscatedEmail from './ObfuscatedEmail.astro';
 
 const quickLinks = [
   { label: 'Home',             href: '/' },
@@ -90,7 +91,7 @@ const socialLinks = {
         </div>
         <div class="footer__contact-item">
           <span class="icon-mask icon-email footer__contact-icon" aria-hidden="true"></span>
-          <a href="mailto:info@advaluekauai.com">info@advaluekauai.com</a>
+          <ObfuscatedEmail email="info@advaluekauai.com" />
         </div>
         <div class="footer__contact-item">
           <span class="icon-mask icon-location footer__contact-icon" aria-hidden="true"></span>
