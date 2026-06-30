@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Project photo placeholder">
-  <!-- House icon -->
-  <g transform="translate(300, 225)" opacity="0.35">
-    <polygon points="0,-80 90,-20 90,60 -90,60 -90,-20" fill="#0B2F56"/>
-    <polygon points="0,-110 110,-20 -110,-20" fill="#5A8F29"/>
-    <rect x="-25" y="10" width="50" height="50" fill="#FFFFFF"/>
-  </g>
-</svg>

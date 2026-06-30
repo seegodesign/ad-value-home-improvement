@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Person photo placeholder">
-  <rect width="200" height="200" fill="#F3E7D2" rx="100"/>
-  <!-- Head -->
-  <circle cx="100" cy="72" r="38" fill="#B9854D" opacity="0.5"/>
-  <!-- Body -->
-  <ellipse cx="100" cy="165" rx="52" ry="45" fill="#0B2F56" opacity="0.3"/>
-</svg>
