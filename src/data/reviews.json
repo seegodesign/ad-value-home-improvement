@@ -1,5 +1,12 @@
 [
   {
+    "name": "AJ",
+    "neighborhood": "Kapaa",
+    "stars": 5,
+    "text": "Adam set himself apart from the rest: with excellent communication, organization, and overall professionalism!  His craftsmanship is undeniable - however it’s his patience, teamwork, and grace under pressure that I really appreciated.  Adam will work with you to turn your dreams  into a reality!",
+    "photo": "/images/uploads/deck-builder.avif"
+  },
+  {
     "name": "Billy and Amanda",
     "neighborhood": "Kalaheo",
     "stars": 5,
@@ -26,12 +33,5 @@
     "stars": 5,
     "text": "I am very happy with my new gates and backyard fence. I love the beautiful horizontal boards and it was a pleasure working with Adam. He was communicative and responsive to our needs and requests. Thank you, Adam.",
     "photo": "/images/uploads/fence_2508.avif"
-  },
-  {
-    "name": "AJ",
-    "neighborhood": "Kapaa",
-    "stars": 5,
-    "text": "Adam set himself apart from the rest: with excellent communication, organization, and overall professionalism!  His craftsmanship is undeniable - however it’s his patience, teamwork, and grace under pressure that I really appreciated.  Adam will work with you to turn your dreams  into a reality!",
-    "photo": "/images/uploads/deck-builder.avif"
   }
 ]
