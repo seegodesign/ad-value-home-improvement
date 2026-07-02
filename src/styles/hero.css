@@ -39,7 +39,7 @@
   background-color: var(--color-sand-dark);
   padding: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .hero::after, .page-hero::after {
     background-size: cover;
   }

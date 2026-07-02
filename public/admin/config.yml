@@ -374,11 +374,11 @@ collections:
                 min: 1
                 max: 5
               - { label: "Review Text", name: text, widget: text }
-              - label: "Client Photo"
+              - label: "Review Photo"
                 name: photo
                 widget: image
                 required: false
-                default: "/images/placeholder-person.svg"
+                default: "/images/placeholder-review.svg"
 
   # -----------------------------------------------------------
   # SEO LANDING PAGES

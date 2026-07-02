@@ -11,7 +11,7 @@ const {
   name,
   neighborhood,
   text,
-  photo = '/images/placeholder-person.svg',
+  photo,
   stars = 5,
 } = Astro.props;
 
@@ -22,17 +22,19 @@ const previewText = isTruncated ? `${words.slice(0, maxWords).join(' ')}...` : t
 ---
 
 <article class="review-card" aria-label={`Review by ${name}`} data-motion="motion-preset-slide-up-sm motion-duration-500">
-  <div class="review-card__media">
-    <img
-      src={photo}
-      alt={`Project photo from ${name}`}
-      class="review-card__image"
-      width="1600"
-      height="900"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
+  {photo && (
+    <div class="review-card__media">
+      <img
+        src={photo}
+        alt={`Project photo from ${name}`}
+        class="review-card__image"
+        width="1600"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  )}
   <div class="review-card__body">
     <div class="review-card__stars" aria-label={`${stars} out of 5 stars`}>
       {Array.from({ length: stars }).map(() => <span aria-hidden="true">★</span>)}
