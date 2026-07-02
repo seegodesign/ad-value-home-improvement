@@ -122,14 +122,8 @@ const sent = Astro.url.searchParams.get("sent") === "true";
             </div>
             <div class="contact-info__item-content">
               <p class="contact-info__item-label">Business Hours</p>
-              <p class="contact-info__item-value">{settings.hours.weekdays}</p>
-              <p class="contact-info__item-value">{settings.hours.saturday}</p>
-              <p
-                class="contact-info__item-value"
-                style="color:var(--color-text-muted);font-size:0.875rem;"
-              >
-                {settings.hours.sunday}
-              </p>
+              <p class="contact-info__item-value">M-F: {settings.hours.weekdays}</p>
+              <p class="contact-info__item-value">Sat: {settings.hours.saturday}</p>
             </div>
           </div>
         </div>
